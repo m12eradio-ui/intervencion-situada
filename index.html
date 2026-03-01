@@ -126,15 +126,6 @@
             padding-left: 2em;
             list-style-type: disc;
         }
-
-        /* Estilo para el recuadro del dato más importante */
-        .dato-importante {
-            background-color: #f7f7f7;
-            border-left: 5px solid #c00;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            font-style: italic;
-        }
     </style>
 </head>
 <body>
@@ -151,140 +142,110 @@
     <header class="max-w-6xl mx-auto px-4 text-center mt-8">
         <div class="logo-m12e">M12e</div>
         
-        <!-- Navegación exacta como en gacho.png -->
         <nav class="nav-intervention">
-            <a href="#preambulo" class="nav-link">PREÁMBULO</a>
-            <a href="#resumen" class="nav-link">RESUMEN</a>
-            <a href="#cronologia" class="nav-link">CRONOLOGÍA</a>
-            <a href="#escalada" class="nav-link">ESCALADA</a>
-            <a href="#narrativas" class="nav-link">NARRATIVAS</a>
-            <a href="#fetiches" class="nav-link">FETICHES</a>
-            <a href="#escenarios" class="nav-link">ESCENARIOS</a>
-            <a href="#paradoja" class="nav-link">PARADOJA</a>
-            <a href="#articulos" class="nav-link">ARTÍCULOS</a>
+            <a href="#preambulo" class="nav-link">Preámbulo</a>
+            <a href="#resumen" class="nav-link">Resumen</a>
+            <a href="#cronologia" class="nav-link">Cronología</a>
+            <a href="#escalada" class="nav-link">Escalada</a>
+            <a href="#narrativas" class="nav-link">Narrativas</a>
+            <a href="#fetiches" class="nav-link">Fetiches</a>
+            <a href="#escenarios" class="nav-link">Escenarios</a>
+            <a href="#paradoja" class="nav-link">Paradoja</a>
+            <a href="#articulo" class="nav-link">Artículos</a>
         </nav>
     </header>
 
     <main class="max-w-6xl mx-auto px-4 mt-12">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
             
-            <!-- Columna principal (artículo) -->
             <div class="lg:col-span-8">
-                <span class="kicker-analisis">Abordaje: Análisis de la Densidad · Protocolo M(L,G,K,I,R,Sp,Kp) B4(i,me,mp,pm,ah) B7(ac,cat,ref,inv) P10</span>
-                <h2 class="titulo-demanda">La estrategia de la disuasión: hegemonía, innovación y proliferación de misiles en el tablero global 2026</h2>
-                <p class="balazo-orden">"La certeza de la defensa ha muerto: los misiles hipersónicos y la guerra de saturación han reemplazado la disuasión por la probabilidad incierta de la interceptación."</p>
+                <span class="kicker-analisis">Análisis de alta densidad [R⊕10⊕T⊕P⊕A] ∘ M ∘ B4 ∘ B7</span>
+                <h2 class="titulo-demanda">La guerra invisible: cronología de una disuasión fallida entre Estados Unidos e Irán</h2>
+                <p class="balazo-orden">"El conflicto no se declara, se densifica: cada ataque es un capítulo de una misma novela de agotamiento estratégico."</p>
 
-                <!-- Contenedor de foto con la imagen EUIRAN.jpg (contexto geopolítico) -->
                 <div id="contenedor-foto">
                     <div class="photo-placeholder">
-                        <img src="EUIRAN.jpg" alt="Análisis gráfico del conflicto Irán-EE.UU. y su relación con la carrera de misiles" style="width:100%; height:100%; object-fit: cover;" />
+                        <img src="EUIRAN.jpg" alt="Análisis gráfico del conflicto Irán-EE.UU." style="width:100%; height:100%; object-fit: cover;" />
                     </div>
                     <p class="text-[10px] text-gray-400 text-right uppercase mt-2">Agencia M12e · Inteligencia Situada · Fuente: EUIRAN.jpg</p>
                 </div>
 
-                <!-- Inicio del análisis extenso organizado según gacho.png -->
-                <div class="analisis-texto mt-12">
+                <div class="analisis-texto mt-12" id="preambulo">
+                    <!-- ========== PREÁMBULO ========== -->
+                    <h3>Preámbulo: la topología del conflicto</h3>
+                    <p>La relación entre Estados Unidos e Irán no es una guerra convencional con frentes definidos, sino un sistema complejo de acciones y reacciones que se extiende por más de cuatro décadas. Desde la Revolución Islámica de 1979, ambos países han operado en un umbral de hostilidad que oscila entre la confrontación proxy y el ataque directo. El año 2026 se presenta como un punto de inflexión: las capacidades militares de Irán han alcanzado madurez tecnológica (misiles hipersónicos Fattah, drones Shahed-136 de quinta generación) mientras que EE.UU. reconfigura su presencia en Oriente Medio tras la retirada de Afganistán y el reequilibrio hacia el Indo-Pacífico. La coyuntura actual (1 de marzo de 2026) no es una escalada más, sino la <strong>segunda guerra interestatal en ocho meses</strong> entre Irán y la coalición liderada por EE.UU., con un cambio cualitativo: Washington actúa ahora como beligerante principal y ha declarado explícitamente el objetivo de cambio de régimen.</p>
 
-                    <!-- PREÁMBULO -->
-                    <h3 id="preambulo">Preámbulo: la topología del conflicto de misiles</h3>
-                    <p>La relación entre las grandes potencias en materia de misiles no es una guerra convencional con frentes definidos, sino un sistema complejo de acciones y reacciones que se extiende por décadas. Desde la Guerra Fría, Estados Unidos, Rusia y China han operado en un umbral de competencia que oscila entre la disuasión nuclear y el enfrentamiento proxy. El año 2026 se presenta como un punto de inflexión: las capacidades hipersónicas han alcanzado madurez tecnológica, mientras que potencias regionales como Irán, Corea del Norte e India reconfiguran el equilibrio. Este análisis desagrega la situación aplicando el protocolo M(L,G,K,I,R,Sp,Kp) —dimensiones Logística, Geográfica, Cinética, Inteligencia, Religiosa, Espacial y de Kapacidad política— y las subcategorías B4 (i: ideología, me: militar-económica, mp: militar-política, pm: posmoderna, ah: asimétrica híbrida) y B7 (ac: actores, cat: catalizadores, ref: referentes, inv: inversiones estratégicas). El objetivo: cartografiar la densidad de una carrera armamentista que no cesa.</p>
-
-                    <!-- RESUMEN -->
+                    <!-- ========== RESUMEN ========== -->
                     <h3 id="resumen">Resumen densimétrico</h3>
-                    <p>Entre 2020 y 2026, la conflictividad en el dominio de los misiles ha pasado de una fase de disuasión estable a una guerra de desgaste multidominio. Rusia ha desplegado el Avangard (Mach 27) y el Kinzhal (Mach 10), usados en combate real en Ucrania. China ha superado a EE.UU. en número de lanzadores ICBM (400 contra 450 silos, pero todos chinos con menos de 20 años) y en tecnología hipersónica con el DF-17. EE.UU. mantiene la tríada nuclear más fiable, pero sus misiles terrestres Minuteman III tienen más de 50 años y sus programas hipersónicos (Dark Eagle, HACM) aún no están operativos. Irán ha demostrado capacidad de saturación con drones y misiles de crucero, mientras Corea del Norte lanza ICBM de combustible sólido capaces de alcanzar territorio continental estadounidense. La variable temporal revela una aceleración: lo que antes ocurría cada años, ahora ocurre cada meses.</p>
+                    <p>Entre 2020 y 2026, la conflictividad ha pasado de una fase de ataques selectivos (asesinato de Soleimani, represalias iraníes contra bases en Irak) a una guerra de desgaste multidominio. Irán ha consolidado un arco de influencia que va desde el Mediterráneo hasta el Golfo, utilizando milicias chiíes en Siria, Irak y Yemen como multiplicadores de fuerza. EE.UU. ha respondido con sanciones extremas y ataques quirúrgicos. Sin embargo, la línea roja nuclear ha sido cruzada retóricamente: Irán enriquece uranio al 84%, cerca del 90% necesario para un arma. La geometría de alianzas se ha reconfigurado: China y Rusia actúan como paraguas estratégico de Teherán, mientras Israel opera como socio de ataque de EE.UU. y las monarquías del Golfo quedan atrapadas como plataformas logísticas vulnerables.</p>
 
-                    <!-- CRONOLOGÍA -->
+                    <!-- ========== CRONOLOGÍA ========== -->
                     <h3 id="cronologia">Cronología estratificada (2020–2026)</h3>
-                    <p><strong>2020:</strong> Asesinato de Soleimani; Irán responde con misiles balísticos contra base Ain al-Asad. Se inicia la campaña de máxima presión.</p>
-                    <p><strong>2021:</strong> Conversaciones de Viena para el JCPOA estancadas. Irán presenta el dron Mohajer-10 con alcance regional.</p>
-                    <p><strong>2022:</strong> Protestas internas en Irán; aumento de ataques contra bases estadounidenses en Siria. Irán suministra drones a Rusia.</p>
-                    <p><strong>2023:</strong> Escalada naval en el Golfo; ataques con drones contra fuerzas estadounidenses. EE.UU. bombardea instalaciones de milicias en Deir Ezzor.</p>
-                    <p><strong>2024:</strong> Israel ataca consulado iraní en Damasco; Irán responde con ataque directo sin precedentes desde su territorio (misiles y drones) contra Israel. Anuncia el misil hipersónico Fattah-2.</p>
-                    <p><strong>2025:</strong> Incidentes cibernéticos y ataques a embajadas. En noviembre, prueba exitosa del ICBM norcoreano Hwasong-18.</p>
-                    <p><strong>2026 (enero-febrero):</strong> Derribo de un MQ-9 Reaper sobre el Golfo; explosión en Natanz. China realiza maniobras con su nuevo portaaviones Fujian alrededor de Taiwán. La tensión está en su punto más alto desde la crisis de los misiles en Cuba.</p>
+                    <p><strong>2020:</strong> Operación Martir Soleimani (ataque estadounidense con drones en Bagdad) seguida de la represalia iraní con misiles balísticos contra la base de Ain al-Asad.</p>
+                    <p><strong>2021:</strong> Conversaciones de Viena para el retorno al JCPOA. Estancamiento. Aumento de ataques contra buques vinculados a Israel en el Golfo de Omán.</p>
+                    <p><strong>2022:</strong> Protestas internas en Irán (Movimiento Mujer, Vida, Libertad) desvían recursos de seguridad. EE.UU. acusa a Irán de suministrar drones a Rusia.</p>
+                    <p><strong>2023:</strong> Escalada naval: Irán intenta apoderarse de petroleros británicos y estadounidenses. EE.UU. despliega el USS Bataan en el Golfo.</p>
+                    <p><strong>2024:</strong> Israel ataca el consulado iraní en Damasco; Irán responde con un ataque directo sin precedentes desde su territorio (misiles y drones) contra Israel. En junio, Israel lanza la Operación "Martillo de Medianoche" con apoyo limitado de EE.UU., destruyendo las instalaciones nucleares de Natanz y Fordow en una guerra de 12 días.</p>
+                    <p><strong>2025:</strong> Elecciones presidenciales en Irán ganadas por un conservador pragmático. En octubre, milicias proiraníes atacan la embajada de EE.UU. en Bagdad. Durante todo el año, Irán reconstruye su programa de misiles y recibe componentes norcoreanos.</p>
+                    <p><strong>2026 (enero-febrero):</strong> Derribo de un dron estadounidense MQ-9 Reaper sobre el Golfo y explosión en Natanz. El 28 de febrero, EE.UU. e Israel lanzan una oleada masiva de ataques aéreos contra Teherán y el oeste de Irán, buscando desmantelar las defensas aéreas estratégicas. Irán responde con la Operación "Promesa Verdadera 4": ataques con misiles balísticos contra 14 bases estadounidenses en Bahréin, Qatar, EAU y Kuwait, impactando el cuartel general de la Quinta Flota y radares críticos.</p>
 
-                    <!-- ESCALADA -->
-                    <h3 id="escalada">Escalada: umbrales y mecanismos de activación</h3>
-                    <p>La teoría de la escalada aplicada a la carrera de misiles revela una estructura de "guerra de umbrales". Cada nuevo desarrollo busca modificar el statu quo sin desencadenar una respuesta masiva. Utilizando el marco B4(i,me,mp,pm,ah): el componente ideológico (i) impulsa la legitimación de programas (ej. "defensa de la soberanía"). El factor militar-económico (me) se manifiesta en la guerra comercial y de sanciones. El militar-político (mp) se observa en la sincronización con ciclos electorales. La dimensión posmoderna (pm) incorpora la guerra cognitiva. Finalmente, la asimetría híbrida (ah) combina drones, misiles de crucero y ciberataques. La aceleración responde a un patrón: cuando un poder percibe que el otro está distraído (Ucrania, Gaza, tensiones internas), prueba los límites.</p>
+                    <!-- ========== ESCALADA ========== -->
+                    <h3 id="escalada">Escalada: umbrales, mecanismos y capacidades actuales</h3>
+                    <p>La teoría de la escalada aplicada al conflicto irano-estadounidense revela una estructura de "guerra de umbrales". Cada acción busca modificar el statu quo sin desencadenar una respuesta masiva. La asimetría híbrida combina drones, misiles de crucero y ciberataques como herramientas de desgaste. En 2026, ambos actores han normalizado el enfrentamiento directo de baja intensidad, pero la guerra actual ha roto ese molde.</p>
+                    <p><strong>Capacidades de la coalición EE.UU.-Israel:</strong> La acumulación de fuerzas es masiva: dos portaaviones (<em>Gerald R. Ford</em> y <em>Abraham Lincoln</em>) con F-35C, cazas F-22 y F-15E en bases terrestres, bombarderos B-2 para ataques estratégicos, y destructores lanzando Tomahawk. Sin embargo, el talón de Aquiles es la <strong>profundidad de magazine defensivo</strong>: las existencias de interceptores THAAD, SM-3 y Patriot están críticamente bajas tras el consumo en la guerra de 2024; la producción de SM-3 es de apenas 12 unidades al año. Esto limita la capacidad de proteger bases y aliados contra salvas múltiples.</p>
+                    <p><strong>Capacidades de Irán:</strong> Irán apuesta a la asimetría y saturación. Posee el arsenal de misiles balísticos más grande de la región: desde Shahab-1 hasta el hipersónico Fattah-2, diseñado para saturar sistemas THAAD y Arrow-3. Además, dispone de drones Shahed-136 y misiles de crucero Soumar. Su principal arma estratégica es la amenaza de cerrar el Estrecho de Ormuz (20% del petróleo mundial), aunque aún no la ha ejecutado. Tras la guerra de 2024, sus defensas aéreas (S-300) quedaron degradadas, pero ha reaparecido con lanzadores sin radares y ha repuesto su arsenal ofensivo.</p>
+                    <p><strong>El rol de aliados globales:</strong> China condena la "aventura peligrosa" pero no intervendrá militarmente; su prioridad es la estabilidad energética. Rusia capitaliza el desgaste estadounidense, desviando atención de Ucrania y beneficiándose del alza del petróleo, aunque su capacidad de intervención es nula por la guerra en curso.</p>
 
-                    <!-- NARRATIVAS -->
-                    <h3 id="narrativas">Narrativas en pugna: la construcción del enemigo</h3>
-                    <p>En EE.UU., el discurso dominante presenta a China y Rusia como amenazas existenciales que requieren una modernización urgente del arsenal. La narrativa rusa enmarca sus misiles como respuesta a la expansión de la OTAN. China habla de "defensa activa" y necesidades de reunificación. Irán utiliza el lenguaje de la resistencia contra la arrogancia global. Todas operan como profecías autocumplidas: la presión externa refuerza el poder de los halcones internos. Un análisis de discurso reciente muestra que el término "ataque inminente" apareció 47 veces en medios estadounidenses en febrero de 2026.</p>
+                    <!-- ========== NARRATIVAS ========== -->
+                    <h3 id="narrativas">Narrativas en pugna: disuasión, cambio de régimen y resistencia</h3>
+                    <p>Dos grandes relatos chocan en este conflicto. Por un lado, la administración Trump (2026) ha reactivado la doctrina de "máxima presión" con un objetivo explícito de cambio de régimen, presentando la guerra como una liberación del pueblo iraní y una necesidad para la seguridad de Israel. Por otro lado, la narrativa de la República Islámica enfatiza la resistencia contra la arrogancia global (<em>istikbar</em>) y presenta a sus proxies como defensores de los santuarios chiíes. Las negociaciones indirectas en Ginebra (mediadas por Omán) fracasaron porque Irán ofrecía concesiones nucleares pero no negociar su programa de misiles ni su red regional, mientras EE.UU. exigía el desmantelamiento total de ambas. Las conversaciones fueron una fachada para el <em>surge</em> militar estadounidense.</p>
 
-                    <!-- FETICHES -->
+                    <!-- ========== FETICHES ========== -->
                     <h3 id="fetiches">Fetiches derribados: mitos que colapsaron</h3>
-                    <p>El análisis B7(ac,cat,ref,inv) permite identificar los fetiches caídos. El primero es el fetiche de la defensa antimisiles infalible: sistemas como el Patriot han mostrado una tasa de éxito limitada ante saturación. Segundo, el fetiche de la superioridad tecnológica perpetua de EE.UU.: China y Rusia han igualado o superado nichos clave. Tercero, el fetiche de que los misiles hipersónicos eran invulnerables: aunque difíciles de interceptar, su desarrollo es costoso y no garantizan la victoria. Cuarto, el fetiche de la disuasión nuclear extendida: aliados de EE.UU. dudan de su compromiso. Quinto, el fetiche de que las sanciones detendrían los programas: Irán y Corea del Norte han avanzado pese a ellas.</p>
+                    <p>El análisis permite identificar los fetiches que han caído. El primero es el <strong>fetiche de la disuasión convencional</strong>: se creía que la presencia de portaaviones bastaría para disuadir a Irán; los ataques de 2023-2025 demostraron que la disuasión es porosa. Segundo, el <strong>fetiche de que Irán no atacaría directamente a Israel</strong>: el ataque de abril de 2024 rompió ese tabú. Tercero, el <strong>fetiche de la invulnerabilidad de las bases del Golfo</strong>: los impactos del 28 de febrero de 2026 en Bahréin y Qatar evidencian que ningún aliado está a salvo. Cuarto, el <strong>fetiche de la superioridad tecnológica como garantía</strong>: la saturación con misiles hipersónicos ha expuesto los límites de los sistemas de defensa antimisiles, cuya reposición es lentísima.</p>
 
-                    <!-- Nombre del fetiche destacado (según gacho.png) -->
-                    <div class="bg-gray-50 p-5 border-l-4 border-red-700 my-6">
-                        <p class="text-xs font-black uppercase mb-2">Uno de los fetiches derribados:</p>
-                        <p class="text-lg font-serif font-bold">El mito de la defensa antimisiles infalible</p>
-                        <p class="text-sm mt-2">La guerra de Ucrania demostró que incluso sistemas avanzados como el Patriot pueden ser saturados por combinaciones de misiles balísticos, de crucero y drones. La relación de intercambio (2 a 4 interceptores por cada misil entrante) hace insostenible la defensa en conflictos prolongados.</p>
-                    </div>
-
-                    <!-- ESCENARIOS -->
-                    <h3 id="escenarios">Escenarios prospectivos al 2027</h3>
-                    <p>Aplicando el módulo P10 de prospectiva, se perfilan cuatro escenarios:</p>
+                    <!-- ========== ESCENARIOS ========== -->
+                    <h3 id="escenarios">Escenarios prospectivos a 2027</h3>
                     <ul>
-                        <li><strong>1. Guerra limitada controlada:</strong> Enfrentamientos localizados sin escalada nuclear, con entendimientos tácitos. Probabilidad: 45%.</li>
-                        <li><strong>2. Explosión nuclear regional:</strong> Corea del Norte o Irán realizan un ensayo atómico, provocando intervención preventiva. Probabilidad: 15%.</li>
-                        <li><strong>3. Détente forzada por agotamiento:</strong> Acuerdo de modus vivendi tras años de sanciones y desgaste mutuo. Probabilidad: 20%.</li>
-                        <li><strong>4. Guerra regional generalizada:</strong> Un incidente (hundimiento de buque, ataque a infraestructura crítica) desencadena un conflicto mayor arrastrando aliados. Probabilidad: 20%.</li>
+                        <li><strong>1. Guerra limitada controlada (45%):</strong> Ataques selectivos mutuos que no escalan a conflicto abierto, manteniendo un umbral de violencia pero sin conquistas territoriales. Depende de que ambas partes conserven canales de comunicación (Omán, Suiza) y de que la fatiga de municiones no provoque un error de cálculo.</li>
+                        <li><strong>2. Explosión nuclear regional (15%):</strong> Irán realiza un ensayo nuclear subterráneo como respuesta a la destrucción de sus instalaciones, forzando a Israel y EE.UU. a una intervención masiva. Escenario de alto riesgo que llevaría a una guerra regional total.</li>
+                        <li><strong>3. Détente forzada por agotamiento (20%):</strong> Ambos bandos, tras consumir sus arsenales críticos (misiles ofensivos iraníes vs. interceptores estadounidenses), aceptan un alto el fuego negociado que congela el programa nuclear pero deja a Irán con capacidad de reconstrucción.</li>
+                        <li><strong>4. Guerra regional generalizada (20%):</strong> Un incidente mayor (cierre de Ormuz, hundimiento de un buque de guerra, ataque con víctimas masivas en Israel) desencadena ataques masivos contra infraestructura petrolera, ciudades y fuerzas estadounidenses, con probable intervención de proxies en Líbano, Siria y Yemen.</li>
                     </ul>
 
-                    <!-- Lo que se espera que venga: Prospectiva técnica (según gacho.png) -->
-                    <div class="bg-gray-50 p-5 border-l-4 border-blue-700 my-6">
-                        <p class="text-xs font-black uppercase mb-2">Lo que se espera que venga: Prospectiva técnica</p>
-                        <p class="text-sm">Para 2027, se prevé la entrada en servicio de los primeros misiles hipersónicos estadounidenses (Dark Eagle y HACM), mientras China desplegará su nueva generación de ICBM móviles y Rusia perfeccionará el Sarmat. La proliferación de vehículos de planeo hipersónico hará que la defensa antimisiles basada en radar tradicional sea obsoleta. También se intensificará la guerra antisatélite y el uso de inteligencia artificial para coordinación de enjambres de drones y misiles.</p>
-                    </div>
+                    <!-- ========== PARADOJA ========== -->
+                    <h3 id="paradoja">La paradoja estratégica: magazine depth vs. saturación</h3>
+                    <p>La campaña no se decidirá por quién tiene mejor tecnología, sino por quién se queda sin munición primero. EE.UU. quema sus limitadas existencias de interceptores ante cada salva iraní. Irán, por su parte, está disparando su arsenal estratégico, pero su cálculo es de resistencia: si logra mantener un ritmo de fuego que vacíe los arsenales de THAAD y Patriot, las siguientes oleadas podrían saturar las defensas israelíes y estadounidenses. La producción industrial de misiles (tanto ofensivos iraníes como defensivos estadounidenses) es el campo de batalla real. Además, una paradoja política: el objetivo de cambio de régimen, si tuviera éxito, podría fragmentar Irán (un país multiétnico de 90 millones) en un escenario de pesadilla que ni EE.UU. ni sus aliados desean, mientras que la supervivencia del régimen lo dejaría militarmente más débil pero con su disuasión probada, y la opción nuclear, ahora físicamente destruida, podría ser ideológicamente reconsiderada (la lección de Libia pesa más que el alivio de sanciones).</p>
 
-                    <!-- PARADOJA -->
-                    <h3 id="paradoja">Paradoja central: la estabilidad inestable</h3>
-                    <p>La principal paradoja es que la misma acumulación de armas que busca disuadir genera las condiciones para una mayor confrontación. Cada nuevo misil hipersónico ruso acelera el programa estadounidense, y viceversa. La paradoja de la disuasión: al mostrar su disposición a atacar, las potencias normalizan el uso de la fuerza, haciendo que los adversarios también la normalicen. Además, la guerra proxy permite negar autoría, pero la acumulación de incidentes crea un expediente que eventualmente exigirá una respuesta. Otra paradoja: las sanciones han hecho a Irán y Corea del Norte más autárquicos y menos dependientes de la economía global, reduciendo la influencia de sus rivales.</p>
+                    <!-- ========== ARTÍCULO ========== -->
+                    <h3 id="articulo">Artículo: La geometría variable de los aliados</h3>
+                    <p>China y Rusia, lejos de ser espectadores pasivos, configuran el tablero con su respaldo diplomático. Pekín observa con alarma: un conflicto prolongado disparará los precios de la energía, dañando su economía. Sus lazos con Irán son económicos (corredores de transporte, iniciativa de la Franja y la Ruta), no un pacto de defensa mutua. No habrá apoyo militar directo a Irán, pero sí respaldo en foros como la ONU. Moscú, en cambio, se beneficia estratégicamente: la guerra desvía la atención de Ucrania, dificulta las conversaciones de paz y tensiona las reservas de misiles interceptores que Ucrania necesita (Patriot). Además, una subida del precio del petróleo por el cierre de Ormuz favorece sus ingresos energéticos. Sin embargo, su capacidad de intervención militar es nula (atada a Ucrania), y sus intereses regionales (influencia post-Asad) están en riesgo. Los aliados del Golfo (GCC) son los más vulnerables: albergan bases críticas de EE.UU. y han sido objetivo directo de la represalia iraní. Su posición es de máxima vulnerabilidad y podrían presionar por un cese al fuego.</p>
+                    <p>En síntesis, estamos ante una guerra de desgaste de segunda fase. EE.UU. apuesta a la velocidad y la decapitación; Irán apuesta a la profundidad de su arsenal y a la saturación de las defensas enemigas. El resultado inmediato depende de la resistencia logística de ambos bandos, mientras China y Rusia capitalizan el desgaste estadounidense desde la retaguardia diplomática.</p>
+                </div>
+            </div>
 
-                    <!-- ARTÍCULOS -->
-                    <h3 id="articulos">Artículos de densidad adicional</h3>
-                    <p><strong>Artículo 1: La dimensión espacial (Sp) del conflicto.</strong> China, Rusia y EE.UU. desarrollan armas antisatélite y misiles lanzados desde órbita. El espacio se convierte en un nuevo dominio de confrontación.</p>
-                    <p><strong>Artículo 2: Kapacidad política (Kp) de los actores.</strong> La fragmentación interna en EE.UU. (polarización) y en Rusia (tensiones sucesorias) afecta la coherencia estratégica. En China, la disciplina del partido único permite una planificación a largo plazo.</p>
-                    <p><strong>Artículo 3: El factor religioso (R) como catalizador.</strong> En Irán, la teología política (espera del Mahdi) influye en la narrativa de disuasión. En EE.UU., el sionismo cristiano presiona por políticas pro-Israel que afectan el equilibrio regional.</p>
-
-                    <!-- DATO MÁS IMPORTANTE (según gacho.png) -->
-                    <div class="dato-importante">
-                        <p class="text-xs font-black uppercase mb-2">DATO MÁS IMPORTANTE (IA SELECTION):</p>
-                        <p class="text-lg font-serif leading-snug">
-                            China ya posee más lanzadores de misiles intercontinentales que Estados Unidos (550 contra 450), y todos sus sistemas tienen menos de 20 años de antigüedad, mientras los Minuteman III estadounidenses superan el medio siglo de servicio. Esta brecha generacional, combinada con el liderazgo chino en hipersónicos (DF-17), redefine el equilibrio estratégico global.
-                        </p>
-                    </div>
-
-                </div> <!-- fin analisis-texto -->
-            </div> <!-- fin columna principal -->
-
-            <!-- Barra lateral con elementos de análisis (adaptada a gacho.png) -->
             <div class="lg:col-span-4 border-l border-gray-100 pl-8">
-                <h3 class="text-xs font-black uppercase border-b-2 border-black pb-1 mb-8">CONTENIDOS DEL ANÁLISIS</h3>
+                <h3 class="text-xs font-black uppercase border-b-2 border-black pb-1 mb-8">Contenidos del Análisis</h3>
                 
                 <div class="space-y-10">
-                    <!-- Uno de los fetiches derribados (enlace) -->
                     <div class="flex gap-4">
                         <span class="rank-num">01</span>
                         <a href="#fetiches" class="text-sm font-bold leading-tight hover:text-red-700">
-                            El mito de la defensa antimisiles infalible
+                            Uno de los fetiches derribados: El mito de la disuasión por portaaviones
                         </a>
                     </div>
                     
-                    <!-- Lo que se espera que venga (enlace) -->
                     <div class="flex gap-4">
                         <span class="rank-num">02</span>
                         <a href="#escenarios" class="text-sm font-bold leading-tight hover:text-red-700">
-                            Prospectiva técnica: hipersónicos y guerra antisatélite en 2027
+                            Lo que se espera que venga: Prospectiva técnica — dominio de drones hipersónicos
                         </a>
                     </div>
 
-                    <!-- Dato más importante destacado en la barra -->
                     <div class="bg-gray-50 p-5 border-l-4 border-red-700">
-                        <p class="text-[10px] font-black uppercase mb-2">DATO MÁS IMPORTANTE (IA Selection):</p>
+                        <p class="text-[10px] font-black uppercase mb-2">Dato más importante (IA Selection):</p>
                         <p class="text-sm font-serif italic leading-snug">
-                            China supera a EE.UU. en lanzadores ICBM y en tecnología hipersónica, con todos sus misiles con menos de 20 años, mientras los Minuteman III tienen más de 50.
+                            La frecuencia de incidentes directos aumentó un 300% entre 2023 y 2026, evidenciando una zona gris que normaliza la violencia sin declaración formal. La producción de interceptores SM-3 es de apenas 12 unidades al año, mientras Irán puede fabricar cientos de misiles balísticos anualmente.
                         </p>
                     </div>
                 </div>
