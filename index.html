@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M12e | Nodo de Inteligencia México</title>
+    <title>M12e | Nodo de Inteligencia Digital México</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;700;900&display=swap');
@@ -12,6 +12,7 @@
             background-color: #ffffff !important; 
             color: #000000 !important;
             font-family: 'Inter', sans-serif;
+            margin: 0;
         }
 
         h1, h2, h3 { 
@@ -20,34 +21,38 @@
             letter-spacing: -0.04em;
         }
 
+        /* Estética de El País México */
         .top-bar {
             border-bottom: 1px solid #e0e0e0;
             font-size: 11px;
             color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .logo-m12e {
             font-family: 'Libre Baskerville', serif;
-            font-size: 54px;
+            font-size: 64px;
             font-weight: 900;
-            letter-spacing: -0.05em;
-            border-bottom: 1px solid #000;
+            letter-spacing: -0.06em;
+            border-bottom: 2px solid #000;
             display: inline-block;
-            line-height: 0.9;
+            line-height: 0.85;
+            margin-bottom: 15px;
         }
 
-        /* Navegación basada en los títulos de la intervención */
+        /* NAVEGACIÓN EXCLUSIVA DE INTERVENCIÓN */
         .nav-intervention {
+            border-bottom: 4px double #000;
+            padding: 12px 0;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
-            padding: 15px 0;
-            border-bottom: 4px double #000;
         }
 
-        .nav-item {
-            font-size: 10px;
+        .nav-link {
+            font-size: 11px;
             font-weight: 900;
             text-transform: uppercase;
             color: #000;
@@ -55,143 +60,149 @@
             text-decoration: none;
         }
 
-        .nav-item:hover {
-            color: #c00;
-        }
+        .nav-link:hover { color: #c00; }
 
-        .main-headline {
-            font-size: 52px;
-            margin: 25px 0;
-            line-height: 1.05;
-        }
-
-        .kicker-density {
+        /* ÁREA DE CONTENIDO DINÁMICO */
+        .kicker-analisis {
             color: #c00;
             font-weight: 900;
             text-transform: uppercase;
-            font-size: 12px;
+            font-size: 13px;
             display: block;
             margin-bottom: 10px;
         }
 
-        .photo-slot {
+        .titulo-demanda {
+            font-size: 56px;
+            line-height: 1;
+            margin: 20px 0;
+        }
+
+        .balazo-orden {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 22px;
+            line-height: 1.35;
+            color: #222;
+            margin-bottom: 30px;
+            border-left: 5px solid #000;
+            padding-left: 20px;
+        }
+
+        /* ESPACIO PARA FOTOGRAFÍA (SIEMPRE DISPONIBLE) */
+        .photo-placeholder {
             width: 100%;
-            background: #f9f9f9;
-            border: 1px dashed #ccc;
+            background-color: #f7f7f7;
             aspect-ratio: 16 / 9;
             display: flex;
             align-items: center;
             justify-content: center;
+            border: 1px solid #eee;
             margin-bottom: 10px;
+            overflow: hidden;
         }
 
-        .lead-intervention {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 20px;
-            line-height: 1.4;
-            color: #1a1a1a;
-            margin-bottom: 25px;
-            padding-left: 20px;
-            border-left: 4px solid #c00;
-        }
-
-        .rank-box {
-            font-size: 32px;
+        /* BALAZOS LATERALES */
+        .rank-num {
+            font-size: 36px;
             font-weight: 900;
-            color: #eee;
-            line-height: 1;
+            color: #f0f0f0;
+            line-height: 0.8;
         }
     </style>
 </head>
 <body>
 
-    <div class="top-bar py-2 px-4 flex justify-between items-center max-w-7xl mx-auto">
+    <div class="top-bar py-3 px-4 flex justify-between items-center">
         <div>Sábado, 28 de febrero de 2026 | Periódico digital de nuestro país</div>
-        <div class="flex gap-4 items-center">
-            <span class="font-bold uppercase text-red-700 tracking-widest">México</span>
+        <div class="flex gap-4 font-bold">
+            <span class="text-red-700">MÉXICO</span>
             <span class="text-gray-300">|</span>
-            <span class="font-bold text-[10px]">EDICIÓN DIGITAL</span>
+            <span class="text-[10px] uppercase tracking-tighter">Edición Digital</span>
         </div>
     </div>
 
-    <header class="max-w-7xl mx-auto px-4 text-center pt-8">
+    <header class="max-w-6xl mx-auto px-4 text-center mt-8">
         <div class="logo-m12e">M12e</div>
-        <p class="text-[9px] font-black uppercase tracking-[0.5em] mt-2 mb-6">Protocolo de Intervención Situada</p>
         
         <nav class="nav-intervention">
-            <a href="#preambulo" class="nav-item text-red-700">PREÁMBULO</a>
-            <a href="#resumen" class="nav-item">RESUMEN</a>
-            <a href="#cronologia" class="nav-item">CRONOLOGÍA</a>
-            <a href="#escalada" class="nav-item">ESCALADA</a>
-            <a href="#narrativas" class="nav-item">NARRATIVAS</a>
-            <a href="#fetiches" class="nav-item">FETICHES</a>
-            <a href="#escenarios" class="nav-item">ESCENARIOS</a>
-            <a href="#paradoja" class="nav-item">PARADOJA</a>
-            <a href="#articulo" class="nav-item">ARTÍCULO</a>
+            <a href="#preambulo" class="nav-link">Preámbulo</a>
+            <a href="#resumen" class="nav-link">Resumen</a>
+            <a href="#cronologia" class="nav-link">Cronología</a>
+            <a href="#escalada" class="nav-link">Escalada</a>
+            <a href="#narrativas" class="nav-link">Narrativas</a>
+            <a href="#fetiches" class="nav-link">Fetiches</a>
+            <a href="#escenarios" class="nav-link">Escenarios</a>
+            <a href="#paradoja" class="nav-link">Paradoja</a>
+            <a href="#articulo" class="nav-link">Artículos</a>
         </nav>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 mt-10">
+    <main class="max-w-6xl mx-auto px-4 mt-12">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
             
             <div class="lg:col-span-8">
-                <span class="kicker-density">Análisis de la Densidad</span>
-                <h2 class="main-headline">[Título de la Demanda de Intervención]</h2>
+                <span class="kicker-analisis">Abordaje: Análisis de la Densidad</span>
                 
-                <p class="lead-intervention">
-                    [Balazo emanado de la orden de intervención: síntesis de máxima densidad]
+                <h2 class="titulo-demanda">
+                    [Título de la demanda de intervención]
+                </h2>
+                
+                <p class="balazo-orden">
+                    [Espacio para el balazo que emana de la orden de intervención]
                 </p>
 
-                <div id="intervention-photo-container">
-                    <div class="photo-slot">
-                        <p class="text-gray-400 font-bold uppercase text-[10px] tracking-widest">Cargar fotografía del análisis aquí</p>
+                <div id="contenedor-foto">
+                    <div class="photo-placeholder">
+                        <p class="text-[10px] font-black uppercase text-gray-300 tracking-[0.5em]">Cargar fotografía aquí</p>
                     </div>
-                    <p class="text-[10px] text-gray-500 italic text-right">Crédito Visual: Inteligencia M12e / 2026</p>
+                    <p class="text-[10px] text-gray-400 text-right uppercase mt-2">Agencia M12e · Inteligencia Situada</p>
                 </div>
             </div>
 
             <div class="lg:col-span-4 border-l border-gray-100 pl-8">
-                <h3 class="text-xs font-black uppercase border-b-2 border-black pb-1 mb-6">Contenidos del Análisis</h3>
+                <h3 class="text-xs font-black uppercase border-b-2 border-black pb-1 mb-8">Contenidos del Análisis</h3>
                 
-                <div class="space-y-8">
+                <div class="space-y-10">
                     <div class="flex gap-4">
-                        <span class="rank-box">01</span>
+                        <span class="rank-num">01</span>
                         <a href="#fetiches" class="text-sm font-bold leading-tight hover:text-red-700">
-                            Fetiche derribado: [Análisis del símbolo intervenido]
+                            Uno de los fetiches derribados: [Nombre del fetiche]
                         </a>
                     </div>
                     
-                    <div class="flex gap-4 border-b border-gray-100 pb-6">
-                        <span class="rank-box">02</span>
+                    <div class="flex gap-4">
+                        <span class="rank-num">02</span>
                         <a href="#escenarios" class="text-sm font-bold leading-tight hover:text-red-700">
-                            Lo que se espera que venga: Prospectiva de la fase crítica
+                            Lo que se espera que venga: Prospectiva técnica
                         </a>
                     </div>
 
-                    <div class="bg-gray-50 p-4 border-t-2 border-red-700">
-                        <p class="text-[9px] font-black uppercase text-red-700 mb-1">Dato de Intervención (IA Select):</p>
-                        <p class="text-sm font-serif italic">[Dato relevante obtenido del análisis]</p>
+                    <div class="bg-gray-50 p-5 border-l-4 border-red-700">
+                        <p class="text-[10px] font-black uppercase mb-2">Dato más importante (IA Selection):</p>
+                        <p class="text-sm font-serif italic leading-snug">
+                            [Aquí la IA insertará el hallazgo clave de la orden de intervención]
+                        </p>
                     </div>
                 </div>
 
-                <div class="mt-12 p-6 border border-gray-100 text-center">
-                    <span class="text-[9px] font-black text-gray-400 uppercase tracking-widest block mb-2">Visitas al Nodo</span>
-                    <div class="font-mono text-2xl bg-black text-white px-4 py-1 inline-block mb-6">0000432</div>
+                <div class="mt-16 pt-8 border-t border-gray-200 text-center">
+                    <p class="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-3">Visitas al Nodo</p>
+                    <div class="font-mono text-2xl bg-black text-white px-4 py-1 inline-block mb-8">0000432</div>
                     
-                    <div class="pt-4 border-t border-gray-100">
-                        <a href="https://www.youtube.com/@m12eradio31" target="_blank" class="text-[11px] font-black hover:text-red-700 flex items-center justify-center gap-2">
-                            <span class="w-2 h-2 bg-red-600 rounded-full animate-ping"></span>
-                            M12E RADIO EN VIVO
-                        </a>
-                    </div>
+                    <a href="https://www.youtube.com/@m12eradio31" target="_blank" class="block group">
+                        <div class="flex items-center justify-center gap-3 text-[11px] font-black group-hover:text-red-700">
+                            <span class="w-3 h-3 bg-red-600 rounded-full animate-pulse"></span>
+                            M12E RADIO 31 EN VIVO
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer class="mt-20 border-t border-black py-16 text-center">
+    <footer class="mt-24 border-t border-black py-12 text-center">
         <div class="logo-m12e text-2xl mb-4">M12e</div>
-        <p class="text-[10px] text-gray-400 uppercase tracking-[0.3em]">México · Nodo Digital · 2026</p>
+        <p class="text-[10px] text-gray-400 uppercase tracking-widest">México · 2026 · Nodo de Inteligencia Digital</p>
     </footer>
 
 </body>
