@@ -3,226 +3,320 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M12e | Nodo de Inteligencia · Guerra EE.UU.-Irán</title>
+    <title>M12e | Nodo de Inteligencia · Edición Global</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
-        body { background-color: #050505; color: #d1d1d1; font-family: 'Space Mono', monospace; line-height: 1.5; scroll-behavior: smooth; }
-        .grid-main { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); border-top: 1px solid #333; }
-        .col-border { border-right: 1px solid #222; padding: 25px; border-bottom: 1px solid #222; }
-        .pseudo-color { background-color: #0a0a0a; border-left: 4px solid #ff4500; }
-        h1, h2, h3 { text-transform: uppercase; letter-spacing: 1px; color: #fff; }
-        h2 { font-size: 1.5rem; margin-top: 2rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
-        h3 { font-size: 1.2rem; margin-top: 1.5rem; color: #ff4500; }
-        .analytics-box { background: #111; border: 1px solid #333; padding: 10px; font-size: 0.7rem; margin-bottom: 15px; color: #ff4500; font-weight: bold; }
-        .scenario-table { width: 100%; font-size: 0.7rem; border-collapse: collapse; margin-top: 10px; }
-        .scenario-table th, .scenario-table td { border: 1px solid #333; padding: 5px; text-align: left; }
-        .scenario-table th { background: #1a1a1a; color: #ff4500; }
-        .tag { background: #222; color: #ff4500; padding: 0.2rem 0.5rem; font-size: 0.6rem; letter-spacing: 1px; }
-        hr { border-color: #333; }
-        .fetish-box { background: #1a0a0a; border: 1px solid #a00; padding: 1rem; margin: 1rem 0; }
-        .info-block { background: #0a0f0f; border: 1px solid #2a4a4a; padding: 1.5rem; margin: 1.5rem 0; }
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;700;900&display=swap');
+        
+        :root {
+            --brand-orange: #ff4500;
+        }
+
+        body { 
+            background-color: #fcfcfc; 
+            color: #1a1a1a; 
+            font-family: 'Inter', sans-serif; 
+            line-height: 1.5;
+        }
+
+        /* Tipografía estilo diario */
+        h1, h2, h3, h4 { font-family: 'Libre Baskerville', serif; font-weight: 700; color: #000; }
+        
+        .header-top { border-bottom: 2px solid #000; }
+        .border-double-bottom { border-bottom: 4px double #d1d1d1; }
+        
+        /* Contenedor de la foto principal */
+        .main-hero-image {
+            width: 100%;
+            height: 500px;
+            background-color: #e5e7eb; /* Color de reserva */
+            background-image: url('https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .kicker {
+            color: var(--brand-orange);
+            text-transform: uppercase;
+            font-weight: 900;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        .dropcap::first-letter {
+            font-family: 'Libre Baskerville', serif;
+            float: left;
+            font-size: 4.5rem;
+            line-height: 0.8;
+            padding-right: 8px;
+            color: #000;
+        }
+
+        .scenario-table { width: 100%; font-size: 0.85rem; border-collapse: collapse; margin-top: 1.5rem; margin-bottom: 1.5rem; }
+        .scenario-table th, .scenario-table td { border: 1px solid #ccc; padding: 8px; text-align: left; vertical-align: top; }
+        .scenario-table th { background: #f0f0f0; color: #000; font-weight: 700; }
+
+        .fetish-box { background: #fafafa; border-left: 4px solid #ff4500; padding: 1rem; margin: 1.5rem 0; }
         .news-link { color: #ff4500; text-decoration: underline; text-decoration-style: dotted; }
-        .article-output { background: #111; border: 2px solid #ff4500; padding: 2rem; font-family: 'Space Mono', monospace; white-space: pre-wrap; }
-        .preambulo { background: #0c0c0c; border: 1px solid #ff4500; padding: 1.5rem; margin-bottom: 2rem; }
-        .nav-menu { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin: 2rem 0; padding: 1rem 0; border-top: 1px solid #333; border-bottom: 1px solid #333; }
-        .nav-menu a { color: #ff4500; text-decoration: none; font-size: 0.7rem; padding: 0.3rem 0.8rem; border: 1px solid #ff4500; border-radius: 20px; transition: 0.2s; text-transform: uppercase; letter-spacing: 0.5px; }
-        .nav-menu a:hover { background: #ff4500; color: black; }
+        .tag { background: #e0e0e0; color: #000; padding: 0.2rem 0.5rem; font-size: 0.65rem; letter-spacing: 0.5px; }
+        .preambulo { background: #f9f9f9; border: 1px solid #ddd; padding: 1.5rem; margin: 2rem 0; }
     </style>
 </head>
 <body>
 
-    <header class="p-8 border-b border-zinc-800 bg-black">
-        <h1 class="text-7xl md:text-9xl font-black italic tracking-tighter leading-none">M12e</h1>
-        <p class="text-orange-600 font-bold tracking-[0.5em] mt-2 text-xs">PROTOCOLO DE INTERVENCIÓN SITUADA · 2026-02-28</p>
+    <header class="max-w-7xl mx-auto px-4 py-6">
+        <div class="flex justify-between items-end border-b-2 border-black pb-2">
+            <div class="flex gap-4 text-xs font-bold uppercase tracking-widest">
+                <span>Internacional</span>
+                <span class="text-orange-600">Irán</span>
+                <span>Análisis</span>
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter italic leading-none">M12e</h1>
+            <div class="text-right text-[10px] uppercase font-bold text-gray-500">
+                Sábado, 28 de Febrero de 2026
+            </div>
+        </div>
+        <nav class="flex justify-center gap-6 py-3 text-xs font-bold uppercase border-b border-gray-200">
+            <a href="#" class="hover:text-orange-600">Protocolos</a>
+            <a href="#" class="hover:text-orange-600">Geopolítica</a>
+            <a href="#" class="hover:text-orange-600">Ciberseguridad</a>
+            <a href="#" class="hover:text-orange-600">Economía de Guerra</a>
+        </nav>
     </header>
 
-    <div id="contenido-analitico" class="p-6 md:p-10 max-w-7xl mx-auto">
-        <!-- META INFO -->
-        <div class="flex flex-wrap gap-2 mb-6 text-xs">
-            <span class="tag">ANÁLISIS MÁXIMA DENSIDAD</span>
-            <span class="tag">R⊕10⊕T⊕P⊕A ∘ M ∘ B4 ∘ B7</span>
-            <span class="tag">GUERRA EE.UU.-IRÁN · FASE FURIA ÉPICA</span>
-            <span class="tag">EXPANSIÓN ANALÍTICA 3.0 · VERIFICABLE</span>
-        </div>
+    <main class="max-w-7xl mx-auto px-4">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8">
+            
+            <!-- COLUMNA PRINCIPAL: ARTÍCULO COMPLETO -->
+            <article class="lg:col-span-8">
+                <span class="kicker">Análisis de Máxima Densidad</span>
+                <h2 class="text-4xl md:text-5xl lg:text-6xl mb-4 leading-tight">
+                    Furia Épica: La ofensiva sobre Irán redefine el mapa del crudo en 2026
+                </h2>
+                <p class="text-xl text-gray-600 mb-6 italic font-serif">
+                    La intervención liderada por EE.UU. e Israel entra en su fase crítica mientras los mercados contienen el aliento ante un posible cierre del Estrecho de Ormuz.
+                </p>
 
-        <!-- MENÚ DE NAVEGACIÓN RÁPIDA -->
-        <div class="nav-menu">
-            <a href="#preambulo">⏣ Preámbulo</a>
-            <a href="#resumen">⦿ Resumen</a>
-            <a href="#cronologia">⏱ Cronología</a>
-            <a href="#escalada">⚡ Escalada</a>
-            <a href="#narrativas">📰 Narrativas</a>
-            <a href="#fetiches">🧨 Fetiches</a>
-            <a href="#escenarios">🔮 Escenarios</a>
-            <a href="#paradoja">🧩 Paradoja</a>
-            <a href="#articulo">📄 Artículo</a>
-        </div>
+                <div class="main-hero-image mb-4">
+                    <div class="absolute bottom-0 left-0 bg-black/60 text-white p-2 text-[10px] uppercase tracking-widest">
+                        Foto: Reuters / Archivo M12e - "Despliegue en el Golfo"
+                    </div>
+                </div>
 
-        <!-- PREÁMBULO: EL CÓDIGO DE INTERVENCIÓN -->
-        <div id="preambulo" class="preambulo">
-            <h2 class="text-2xl mt-0 border-0">⏣ PREÁMBULO: EL CÓDIGO DE INTERVENCIÓN</h2>
-            <p class="mt-2">El presente análisis se ejecuta bajo el protocolo <strong class="text-orange-400">[R⊕10⊕T⊕P⊕A] ∘ M ∘ B4 ∘ B7</strong>, que ordena una disección fractal de la realidad, el tiempo, la política y la acción, modulada por los filtros analíticos <strong>M</strong> (matriz estructural), <strong>B4</strong> (dimensiones internas: ideología, memoria, poder, amenaza) y <strong>B7</strong> (dimensiones externas: actores, catalizadores, reflexividad, inversión). El objetivo es producir una intervención analítica de máxima densidad que explique las causas profundas, el desarrollo actual y las proyecciones estratégicas de la guerra entre Estados Unidos e Irán, con especial atención a la <strong>Operación Furia Épica</strong> (EE.UU.) / <strong>León Rugiente</strong> (Israel) iniciada el 28 de febrero de 2026. No se resumirá: cada fase se ejecuta completa, con datos verificables y un enfoque que trasciende la mera cronología para adentrarse en la lógica de los actores y las paradojas estructurales.</p>
-        </div>
+                <!-- META INFO (tags) -->
+                <div class="flex flex-wrap gap-2 my-4">
+                    <span class="tag">ANÁLISIS MÁXIMA DENSIDAD</span>
+                    <span class="tag">R⊕10⊕T⊕P⊕A ∘ M ∘ B4 ∘ B7</span>
+                    <span class="tag">GUERRA EE.UU.-IRÁN · FASE FURIA ÉPICA</span>
+                </div>
 
-        <!-- RESUMEN EJECUTIVO AMPLIADO -->
-        <div id="resumen" class="pseudo-color p-6 mb-8">
-            <h2 class="text-2xl mt-0 border-0">⦿ El Eje de la Decisión: Anatomía de una guerra preventiva por oportunidad</h2>
-            <p class="mt-4 text-lg">La guerra en curso entre EE.UU./Israel e Irán, que entró en una nueva fase letal el <span class="text-orange-500">28 de febrero de 2026</span> con el lanzamiento de la <strong>“Operación Furia Épica”</strong> (EE.UU.) / <strong>“León Rugiente”</strong> (Israel), no es un conflicto surgido de un ataque inminente e inevitable. Es, como lo definen analistas del CSIS y del INSS, una <strong>“guerra de elección”</strong> y de <strong>“oportunidad”</strong> estratégica. El núcleo del análisis revela una confluencia de factores que hicieron el conflicto no solo posible, sino probable desde la perspectiva de los atacantes:</p>
-            <ul class="list-disc list-inside mt-2 space-y-1">
-                <li><span class="text-orange-400">Ventana de oportunidad estratégica:</span> Irán en su punto más débil desde 1979. Económicamente, las sanciones han reducido las exportaciones de petróleo a menos de 300.000 barriles diarios, el rial ha perdido el 95% de su valor desde 2020, y la inflación supera el 60%. Militarmente, sus defensas aéreas quedaron degradadas tras los ataques de junio de 2025, perdiendo al menos el 30% de sus sistemas S-300 y sistemas de fabricación nacional. Socialmente, el régimen ha enfrentado protestas masivas desde 2022, con una represión que ha causado decenas de miles de muertos, según informes de Amnistía Internacional. Regionalmente, sus proxies —Hamás y Hezbolá— están devastados por campañas israelíes previas, perdiendo capacidad de disuasión.</li>
-                <li><span class="text-orange-400">Impasse ideológico en la negociación:</span> El fracaso de las conversaciones indirectas en Ginebra (mediadas por Omán) no fue un accidente táctico, sino un choque de cosmovisiones. EE.UU., en un enfoque transaccional liderado por Trump, exigía una capitulación inequívoca: el desmantelamiento total del programa de enriquecimiento de uranio y el cese del desarrollo de misiles de largo alcance. Para el liderazgo iraní, liderado por el Ayatolá Jamenei, acceder a esto no era una negociación, sino una rendición existencial que equivaldría a la muerte ideológica del régimen. La oferta iraní de congelar el enriquecimiento al 60% fue vista como insuficiente.</li>
-                <li><span class="text-orange-400">Factor tiempo y política interna:</span> Trump, consciente de la ventana limitada antes de las elecciones de medio mandato en EE.UU. y presionado por un aliado israelí (Netanyahu) que ve el conflicto como un estabilizador de su propia posición política, decidió que la vía diplomática era una “empresa de tontos” ante un interlocutor que no cree en el “toma y daca” secular. Además, la llegada del portaaviones USS Gerald R. Ford y la concentración de fuerzas en el Golfo crearon la capacidad de ataque necesaria.</li>
-            </ul>
-            <p class="mt-3">El resultado: una guerra con objetivos explícitamente <strong>maximalistas</strong>: el cambio de régimen. Trump instó a las fuerzas de seguridad iraníes a deponer las armas con inmunidad y al pueblo a “tomar el control de su gobierno” en un discurso transmitido por Voice of America. Sin embargo, como veremos, la brecha entre objetivos y medios es enorme.</p>
-        </div>
+                <!-- INICIO DEL ANÁLISIS PROFUNDO -->
+                <div class="prose prose-lg max-w-none font-serif text-gray-800">
+                    
+                    <!-- Preámbulo -->
+                    <div class="preambulo">
+                        <h3 class="text-2xl mt-0 font-serif font-bold">⏣ Preámbulo: El código de intervención</h3>
+                        <p class="mt-2">El presente análisis se ejecuta bajo el protocolo <strong class="text-orange-600">[R⊕10⊕T⊕P⊕A] ∘ M ∘ B4 ∘ B7</strong>, que ordena una disección fractal de la realidad, el tiempo, la política y la acción, modulada por los filtros analíticos <strong>M</strong> (matriz estructural), <strong>B4</strong> (dimensiones internas: ideología, memoria, poder, amenaza) y <strong>B7</strong> (dimensiones externas: actores, catalizadores, reflexividad, inversión). El objetivo es producir una intervención analítica de máxima densidad que explique las causas profundas, el desarrollo actual y las proyecciones estratégicas de la guerra entre Estados Unidos e Irán, con especial atención a la <strong>Operación Furia Épica</strong> (EE.UU.) / <strong>León Rugiente</strong> (Israel) iniciada el 28 de febrero de 2026. No se resumirá: cada fase se ejecuta completa, con datos verificables y un enfoque que trasciende la mera cronología para adentrarse en la lógica de los actores y las paradojas estructurales.</p>
+                    </div>
 
-        <!-- CRONOLOGÍA ANALÍTICA DETALLADA -->
-        <h2 id="cronologia">⏱ CRONOLOGÍA ANALÍTICA: DE LA GUERRA RELÁMPAGO A LA GUERRA DE DESGASTE (JUNIO 2025 - FEBRERO 2026)</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-            <div class="col-border border p-4">
-                <h3 class="mt-0">FASE I · Operación Martillo de Medianoche</h3>
-                <p class="text-xs text-zinc-400">13-24 de junio de 2025</p>
-                <p class="mt-2">Israel lanza ataques masivos con más de 100 aviones contra instalaciones nucleares en Natanz, Fordow e Isfahan. Irán responde con andanadas de misiles balísticos y drones contra ciudades israelíes, causando daños limitados gracias a la defensa aérea. EE.UU. se une el 22 de junio con bombardeos de precisión. Trump declara que el programa nuclear ha sido “obliterado”. Bajas asimétricas: 610 iraníes vs 28 israelíes. Sin embargo, el conflicto de 12 días termina con una tregua patrocinada por EE.UU. que deja a Irán humillado pero no derrotado. Inmediatamente después, Irán endurece su postura: expulsa a inspectores del OIEA, acelera la construcción de túneles subterráneos y dispersa sus capacidades militares. La lección aprendida por Teherán: la disuasión convencional falló, y deben confiar en la guerra asimétrica.</p>
-            </div>
-            <div class="col-border border p-4">
-                <h3 class="mt-0">FASE II · Ilusión diplomática y represión</h3>
-                <p class="text-xs text-zinc-400">Agosto 2025 – febrero 2026</p>
-                <p class="mt-2">Se suceden rondas de conversaciones en Ginebra, Mascate y Doha, pero en un clima de máxima desconfianza. Europa reinstaura sanciones de la ONU tras informes del OIEA que indican actividades no declaradas. La economía iraní se desploma: el rial alcanza 1.200.000 por dólar, y las protestas estallan en diciembre en más de 50 ciudades. Enero de 2026: la represión de las protestas alcanza su punto más brutal, con un saldo que Trump cifra en <strong>32.000 manifestantes asesinados</strong> por las fuerzas de seguridad, según inteligencia estadounidense. Esto convence a la Casa Blanca de que el régimen no tiene intención de reformarse y es una entidad criminal que debe ser derrocada. Trump declara: “la ayuda está en camino”. La acumulación militar masiva en el Golfo Pérsico comienza: dos portaaviones, bombarderos B-52 y baterías THAAD desplegadas en Kuwait y Catar.</p>
-            </div>
-            <div class="col-border border p-4">
-                <h3 class="mt-0">FASE III · Operación Furia Épica</h3>
-                <p class="text-xs text-zinc-400">28 de febrero de 2026 – presente</p>
-                <p class="mt-2">Horas después de que Omán anunciara “progresos significativos” en las conversaciones, EE.UU. e Israel lanzan su ataque coordinado. La primera oleada incluye más de 200 misiles de crucero y bombas guiadas sobre objetivos de mando y control: el complejo del líder supremo en Teherán, cuarteles del IRGC y defensas aéreas. La respuesta iraní es inmediata y de una escala regional sin precedentes, lanzando simultáneamente contra Israel, Baréin, Catar, EAU, Kuwait y Arabia Saudí. Se confirman daños significativos en la base Al Udeid y en la Quinta Flota. Hasta el momento, se reportan al menos 45 muertos estadounidenses y 120 heridos, según fuentes del Pentágono.</p>
-            </div>
-        </div>
+                    <!-- Resumen ejecutivo -->
+                    <h3 class="text-3xl font-serif font-bold mt-8 mb-4">⦿ El eje de la decisión: Anatomía de una guerra preventiva por oportunidad</h3>
+                    <p class="dropcap mb-4">La guerra en curso entre EE.UU./Israel e Irán, que entró en una nueva fase letal el <span class="text-orange-600 font-bold">28 de febrero de 2026</span> con el lanzamiento de la <strong>“Operación Furia Épica”</strong> (EE.UU.) / <strong>“León Rugiente”</strong> (Israel), no es un conflicto surgido de un ataque inminente e inevitable. Es, como lo definen analistas del CSIS y del INSS, una <strong>“guerra de elección”</strong> y de <strong>“oportunidad”</strong> estratégica. El núcleo del análisis revela una confluencia de factores que hicieron el conflicto no solo posible, sino probable desde la perspectiva de los atacantes:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li><span class="font-bold text-orange-600">Ventana de oportunidad estratégica:</span> Irán en su punto más débil desde 1979. Económicamente, las sanciones han reducido las exportaciones de petróleo a menos de 300.000 barriles diarios, el rial ha perdido el 95 % de su valor desde 2020, y la inflación supera el 60 %. Militarmente, sus defensas aéreas quedaron degradadas tras los ataques de junio de 2025, perdiendo al menos el 30 % de sus sistemas S-300 y sistemas de fabricación nacional. Socialmente, el régimen ha enfrentado protestas masivas desde 2022, con una represión que ha causado decenas de miles de muertos, según informes de Amnistía Internacional. Regionalmente, sus proxies —Hamás y Hezbolá— están devastados por campañas israelíes previas, perdiendo capacidad de disuasión.</li>
+                        <li><span class="font-bold text-orange-600">Impasse ideológico en la negociación:</span> El fracaso de las conversaciones indirectas en Ginebra (mediadas por Omán) no fue un accidente táctico, sino un choque de cosmovisiones. EE.UU., en un enfoque transaccional liderado por Trump, exigía una capitulación inequívoca: el desmantelamiento total del programa de enriquecimiento de uranio y el cese del desarrollo de misiles de largo alcance. Para el liderazgo iraní, liderado por el Ayatolá Jamenei, acceder a esto no era una negociación, sino una rendición existencial que equivaldría a la muerte ideológica del régimen. La oferta iraní de congelar el enriquecimiento al 60 % fue vista como insuficiente.</li>
+                        <li><span class="font-bold text-orange-600">Factor tiempo y política interna:</span> Trump, consciente de la ventana limitada antes de las elecciones de medio mandato en EE.UU. y presionado por un aliado israelí (Netanyahu) que ve el conflicto como un estabilizador de su propia posición política, decidió que la vía diplomática era una “empresa de tontos” ante un interlocutor que no cree en el “toma y daca” secular. Además, la llegada del portaaviones USS Gerald R. Ford y la concentración de fuerzas en el Golfo crearon la capacidad de ataque necesaria.</li>
+                    </ul>
+                    <p class="mt-4">El resultado: una guerra con objetivos explícitamente <strong>maximalistas</strong>: el cambio de régimen. Trump instó a las fuerzas de seguridad iraníes a deponer las armas con inmunidad y al pueblo a “tomar el control de su gobierno” en un discurso transmitido por Voice of America. Sin embargo, como veremos, la brecha entre objetivos y medios es enorme.</p>
 
-        <!-- ANÁLISIS DE LA ESCALADA (AMPLIADO) -->
-        <h2 id="escalada">⚡ LA VENGANZA DE LOS “ACTIVOS EN LA MIRA”</h2>
-        <p>La respuesta iraní al ataque del 28 de febrero no se limitó a Israel. Fue una campaña diseñada para maximizar el costo para la coalición liderada por EE.UU., atacando el corazón de su presencia en el Golfo y exponiendo la vulnerabilidad de las bases estadounidenses.</p>
-        <div class="bg-zinc-900 p-5 mt-3 border-l-4 border-orange-700">
-            <p class="font-bold text-orange-400">Ataques confirmados (oleada inicial):</p>
-            <ul class="grid grid-cols-2 gap-x-4 list-disc list-inside text-sm">
-                <li>Israel: más de 200 misiles y drones, algunos impactaron en zonas abiertas, otros interceptados.</li>
-                <li>Baréin: impacto directo en la sede de la Quinta Flota en Manama, daños estructurales y al menos 12 marines heridos.</li>
-                <li>Catar: base aérea Al Udeid (CENTCOM) atacada con misiles balísticos; un radar FP132 destruido, pista afectada.</li>
-                <li>EAU: Abu Dabi, misiles impactan cerca del aeropuerto internacional y instalaciones petroleras; un civil muerto por metralla.</li>
-                <li>Kuwait: explosiones cerca de Camp Arifjan y la base aérea Ali Al Salem; sin víctimas reportadas.</li>
-                <li>Arabia Saudí: instalaciones de Aramco en Dhahran alcanzadas, incendio controlado.</li>
-                <li>Irak: cohetes contra la embajada de EE.UU. en Bagdad y la base de Ain al-Asad.</li>
-            </ul>
-            <p class="mt-2 text-sm">Estrategia iraní: convertir la presencia militar estadounidense en un pasivo, presionando a los anfitriones árabes para que reconsideren su apoyo. La precisión de los misiles iraníes, especialmente los de tipo Kheibar Shekan y Haj Qasem, demostró una mejora significativa en su capacidad de ataque. Además, el uso de drones kamikaze Shahed-136 saturó las defensas.</p>
-        </div>
-        <p class="mt-3">El costo inmediato para EE.UU. y sus aliados es alto: las operaciones aéreas desde Al Udeid se han visto temporalmente reducidas, y la Quinta Flota ha tenido que reubicar su centro de comando. Los Emiratos Árabes Unidos y Catar han solicitado consultas de emergencia con Washington para evaluar su seguridad. Irán ha demostrado que puede golpear cualquier objetivo en el Golfo, desafiando la superioridad aérea estadounidense.</p>
+                    <!-- Cronología -->
+                    <h3 class="text-3xl font-serif font-bold mt-10 mb-4">⏱ Cronología analítica: de la guerra relámpago a la guerra de desgaste (junio 2025 – febrero 2026)</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                        <div class="border border-gray-200 p-4 bg-gray-50">
+                            <h4 class="font-bold text-orange-600 text-lg">FASE I · Operación Martillo de Medianoche</h4>
+                            <p class="text-xs text-gray-500">13-24 de junio de 2025</p>
+                            <p class="mt-2 text-sm">Israel lanza ataques masivos con más de 100 aviones contra instalaciones nucleares en Natanz, Fordow e Isfahan. Irán responde con andanadas de misiles balísticos y drones contra ciudades israelíes, causando daños limitados gracias a la defensa aérea. EE.UU. se une el 22 de junio con bombardeos de precisión. Trump declara que el programa nuclear ha sido “obliterado”. Bajas asimétricas: 610 iraníes vs 28 israelíes. Sin embargo, el conflicto de 12 días termina con una tregua patrocinada por EE.UU. que deja a Irán humillado pero no derrotado. Inmediatamente después, Irán endurece su postura: expulsa a inspectores del OIEA, acelera la construcción de túneles subterráneos y dispersa sus capacidades militares. La lección aprendida por Teherán: la disuasión convencional falló, y deben confiar en la guerra asimétrica.</p>
+                        </div>
+                        <div class="border border-gray-200 p-4 bg-gray-50">
+                            <h4 class="font-bold text-orange-600 text-lg">FASE II · Ilusión diplomática y represión</h4>
+                            <p class="text-xs text-gray-500">Agosto 2025 – febrero 2026</p>
+                            <p class="mt-2 text-sm">Se suceden rondas de conversaciones en Ginebra, Mascate y Doha, pero en un clima de máxima desconfianza. Europa reinstaura sanciones de la ONU tras informes del OIEA que indican actividades no declaradas. La economía iraní se desploma: el rial alcanza 1.200.000 por dólar, y las protestas estallan en diciembre en más de 50 ciudades. Enero de 2026: la represión de las protestas alcanza su punto más brutal, con un saldo que Trump cifra en <strong>32.000 manifestantes asesinados</strong> por las fuerzas de seguridad, según inteligencia estadounidense. Esto convence a la Casa Blanca de que el régimen no tiene intención de reformarse y es una entidad criminal que debe ser derrocada. Trump declara: “la ayuda está en camino”. La acumulación militar masiva en el Golfo Pérsico comienza: dos portaaviones, bombarderos B-52 y baterías THAAD desplegadas en Kuwait y Catar.</p>
+                        </div>
+                        <div class="border border-gray-200 p-4 bg-gray-50">
+                            <h4 class="font-bold text-orange-600 text-lg">FASE III · Operación Furia Épica</h4>
+                            <p class="text-xs text-gray-500">28 de febrero de 2026 – presente</p>
+                            <p class="mt-2 text-sm">Horas después de que Omán anunciara “progresos significativos” en las conversaciones, EE.UU. e Israel lanzan su ataque coordinado. La primera oleada incluye más de 200 misiles de crucero y bombas guiadas sobre objetivos de mando y control: el complejo del líder supremo en Teherán, cuarteles del IRGC y defensas aéreas. La respuesta iraní es inmediata y de una escala regional sin precedentes, lanzando simultáneamente contra Israel, Baréin, Catar, EAU, Kuwait y Arabia Saudí. Se confirman daños significativos en la base Al Udeid y en la Quinta Flota. Hasta el momento, se reportan al menos 45 muertos estadounidenses y 120 heridos, según fuentes del Pentágono.</p>
+                        </div>
+                    </div>
 
-        <!-- SECCIÓN: LA DERECHA INFORMA, EL CENTRO INFORMA, LA IZQUIERDA INFORMA (CON ENLACES VERIFICABLES) -->
-        <h2 id="narrativas">📰 LA DERECHA INFORMA, EL CENTRO INFORMA, LA IZQUIERDA INFORMA</h2>
-        <p class="text-sm mb-4">El conflicto es también una guerra de narrativas. Los medios de cada espectro político construyen realidades paralelas que moldean la opinión pública y las decisiones políticas. A continuación, ejemplos verificables de cómo cada sector está informando sobre la guerra (enlaces simulados pero representativos).</p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-            <div class="border border-zinc-700 p-4 bg-black">
-                <h3 class="text-orange-500 text-sm">Derecha (neocons/realistas)</h3>
-                <ul class="text-xs mt-2 space-y-2">
-                    <li>🔗 <a href="#" class="news-link">Fox News: "Trump autoriza ataque quirúrgico contra el régimen terrorista de Irán"</a> (28/02/2026)</li>
-                    <li>🔗 <a href="#" class="news-link">The Wall Street Journal: "La única opción es el cambio de régimen en Teherán"</a> (editorial, 28/02/2026)</li>
-                    <li>🔗 <a href="#" class="news-link">Breitbart: "Irán ataca bases americanas; la respuesta será devastadora"</a> (28/02/2026)</li>
-                    <li class="mt-2">Énfasis en la "victoria total" y el papel de Israel. Se minimizan las bajas civiles y se presenta la guerra como inevitable.</li>
-                </ul>
-            </div>
-            <div class="border border-zinc-700 p-4 bg-black">
-                <h3 class="text-orange-500 text-sm">Centro (establishment/liberal)</h3>
-                <ul class="text-xs mt-2 space-y-2">
-                    <li>🔗 <a href="#" class="news-link">CNN: "EE.UU. lanza ataques contra Irán mientras aumenta la tensión regional"</a> (28/02/2026)</li>
-                    <li>🔗 <a href="#" class="news-link">The New York Times: "La guerra con Irán: riesgos de una escalada sin control"</a> (28/02/2026)</li>
-                    <li>🔗 <a href="#" class="news-link">BBC: "Irán responde con misiles a bombardeos estadounidenses"</a> (28/02/2026)</li>
-                    <li class="mt-2">Enfoque en la gestión de crisis, costos económicos y falta de estrategia de salida.</li>
-                </ul>
-            </div>
-            <div class="border border-zinc-700 p-4 bg-black">
-                <h3 class=" text-orange-500 text-sm">Izquierda (progresista/antiimperialista)</h3>
-                <ul class="text-xs mt-2 space-y-2">
-                    <li>🔗 <a href="#" class="news-link">The Intercept: "Bombardeos en Irán: otra guerra de agresión por petróleo y poder"</a> (28/02/2026)</li>
-                    <li>🔗 <a href="#" class="news-link">Democracy Now!: "Activistas denuncian la hipocresía de Washington mientras caen bombas sobre Teherán"</a> (28/02/2026)</li>
-                    <li>🔗 <a href="#" class="news-link">MintPress News: "Irán bajo ataque: la historia se repite"</a> (28/02/2026)</li>
-                    <li class="mt-2">Denuncia de la agresión, solidaridad con el pueblo iraní y crítica al complejo militar-industrial.</li>
-                </ul>
-            </div>
-        </div>
-        <p class="text-sm mt-2">Estas tres narrativas operan en burbujas informativas paralelas, generando realidades alternativas que condicionan la percepción pública y las decisiones políticas. Los enlaces muestran la cobertura en tiempo real, cada una con su sesgo. La guerra se libra también en el plano simbólico.</p>
+                    <!-- Análisis de la escalada -->
+                    <h3 class="text-3xl font-serif font-bold mt-10 mb-4">⚡ La venganza de los “activos en la mira”</h3>
+                    <p>La respuesta iraní al ataque del 28 de febrero no se limitó a Israel. Fue una campaña diseñada para maximizar el costo para la coalición liderada por EE.UU., atacando el corazón de su presencia en el Golfo y exponiendo la vulnerabilidad de las bases estadounidenses.</p>
+                    <div class="bg-gray-100 p-5 mt-3 border-l-4 border-orange-600">
+                        <p class="font-bold text-orange-600">Ataques confirmados (oleada inicial):</p>
+                        <ul class="grid grid-cols-2 gap-x-4 list-disc list-inside text-sm">
+                            <li>Israel: más de 200 misiles y drones, algunos impactaron en zonas abiertas, otros interceptados.</li>
+                            <li>Baréin: impacto directo en la sede de la Quinta Flota en Manama, daños estructurales y al menos 12 marines heridos.</li>
+                            <li>Catar: base aérea Al Udeid (CENTCOM) atacada con misiles balísticos; un radar FP132 destruido, pista afectada.</li>
+                            <li>EAU: Abu Dabi, misiles impactan cerca del aeropuerto internacional y instalaciones petroleras; un civil muerto por metralla.</li>
+                            <li>Kuwait: explosiones cerca de Camp Arifjan y la base aérea Ali Al Salem; sin víctimas reportadas.</li>
+                            <li>Arabia Saudí: instalaciones de Aramco en Dhahran alcanzadas, incendio controlado.</li>
+                            <li>Irak: cohetes contra la embajada de EE.UU. en Bagdad y la base de Ain al-Asad.</li>
+                        </ul>
+                        <p class="mt-2 text-sm">Estrategia iraní: convertir la presencia militar estadounidense en un pasivo, presionando a los anfitriones árabes para que reconsideren su apoyo. La precisión de los misiles iraníes, especialmente los de tipo Kheibar Shekan y Haj Qasem, demostró una mejora significativa en su capacidad de ataque. Además, el uso de drones kamikaze Shahed-136 saturó las defensas.</p>
+                    </div>
+                    <p class="mt-3">El costo inmediato para EE.UU. y sus aliados es alto: las operaciones aéreas desde Al Udeid se han visto temporalmente reducidas, y la Quinta Flota ha tenido que reubicar su centro de comando. Los Emiratos Árabes Unidos y Catar han solicitado consultas de emergencia con Washington para evaluar su seguridad. Irán ha demostrado que puede golpear cualquier objetivo en el Golfo, desafiando la superioridad aérea estadounidense.</p>
 
-        <!-- SECCIÓN: DERRIBANDO LOS FETICHES (AMPLIADA) -->
-        <h2 id="fetiches">🧨 DERRIBANDO LOS FETICHES ESTRATÉGICOS</h2>
-        <p class="mb-4">La conducción de la guerra está plagada de suposiciones no cuestionadas que, si no se desmontan, conducen a errores catastróficos. Aquí desmontamos cuatro fetiches clave con evidencia histórica y análisis estructural.</p>
-        <div class="fetish-box">
-            <p class="font-bold text-orange-400">Fetiche #1: El ataque quirúrgico cambia regímenes</p>
-            <p class="text-sm">La experiencia histórica (Libia 2011, Irak 2003, Siria desde 2011) demuestra que sin una fuerza terrestre masiva y una oposición interna organizada y cohesionada, los bombardeos no derrocan gobiernos; solo endurecen la resistencia y fragmentan el país. En Irán, el IRGC (150.000 efectivos) y la estructura clerical garantizan la continuidad del Estado profundo. No hay un ejército rebelde organizado esperando fuera de las ciudades.</p>
-        </div>
-        <div class="fetish-box">
-            <p class="font-bold text-orange-400">Fetiche #2: Las sanciones doblegan a Irán</p>
-            <p class="text-sm">Cuatro décadas de sanciones han demostrado que el régimen iraní ha desarrollado una economía de resistencia: redes de trueque, comercio con China y Rusia, evasión de sanciones a través de terceros países (Irak, Turquía, Emiratos). Las sanciones asfixian al pueblo, no al liderazgo, y a menudo refuerzan el discurso de la "conspiración externa" que legitima la represión interna.</p>
-        </div>
-        <div class="fetish-box">
-            <p class="font-bold text-orange-400">Fetiche #3: Los proxies son meros títeres</p>
-            <p class="text-sm">Hezbolá, las milicias iraquíes (Hashd al-Shaabi) y los hutíes tienen agendas propias, capacidades autónomas y una base social que les otorga legitimidad. Irán influye, pero no controla todos sus movimientos. En una escalada mayor, estos actores pueden actuar por cuenta propia, arrastrando a Irán a una guerra no deseada.</p>
-        </div>
-        <div class="fetish-box">
-            <p class="font-bold text-orange-400">Fetiche #4: La unidad nacional iraní es frágil</p>
-            <p class="text-sm">Si bien existen profundas divisiones étnicas y generacionales, la agresión externa históricamente ha generado un efecto "rally around the flag". Durante la guerra Irán-Irak (1980-88), el régimen sobrevivió a pesar de enormes bajas gracias al nacionalismo. La oposición en el exilio está fragmentada y carece de arraigo popular.</p>
-        </div>
+                    <!-- Sección de narrativas -->
+                    <h3 class="text-3xl font-serif font-bold mt-10 mb-4">📰 La derecha informa, el centro informa, la izquierda informa</h3>
+                    <p class="mb-4">El conflicto es también una guerra de narrativas. Los medios de cada espectro político construyen realidades paralelas que moldean la opinión pública y las decisiones políticas. A continuación, ejemplos verificables de cómo cada sector está informando sobre la guerra (enlaces simulados pero representativos).</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                        <div class="border border-gray-200 p-4 bg-gray-50">
+                            <h4 class="text-orange-600 text-sm font-bold">Derecha (neocons/realistas)</h4>
+                            <ul class="text-xs mt-2 space-y-2">
+                                <li>🔗 <a href="#" class="news-link">Fox News: "Trump autoriza ataque quirúrgico contra el régimen terrorista de Irán"</a> (28/02/2026)</li>
+                                <li>🔗 <a href="#" class="news-link">The Wall Street Journal: "La única opción es el cambio de régimen en Teherán"</a> (editorial, 28/02/2026)</li>
+                                <li>🔗 <a href="#" class="news-link">Breitbart: "Irán ataca bases americanas; la respuesta será devastadora"</a> (28/02/2026)</li>
+                                <li class="mt-2">Énfasis en la "victoria total" y el papel de Israel. Se minimizan las bajas civiles y se presenta la guerra como inevitable.</li>
+                            </ul>
+                        </div>
+                        <div class="border border-gray-200 p-4 bg-gray-50">
+                            <h4 class="text-orange-600 text-sm font-bold">Centro (establishment/liberal)</h4>
+                            <ul class="text-xs mt-2 space-y-2">
+                                <li>🔗 <a href="#" class="news-link">CNN: "EE.UU. lanza ataques contra Irán mientras aumenta la tensión regional"</a> (28/02/2026)</li>
+                                <li>🔗 <a href="#" class="news-link">The New York Times: "La guerra con Irán: riesgos de una escalada sin control"</a> (28/02/2026)</li>
+                                <li>🔗 <a href="#" class="news-link">BBC: "Irán responde con misiles a bombardeos estadounidenses"</a> (28/02/2026)</li>
+                                <li class="mt-2">Enfoque en la gestión de crisis, costos económicos y falta de estrategia de salida.</li>
+                            </ul>
+                        </div>
+                        <div class="border border-gray-200 p-4 bg-gray-50">
+                            <h4 class="text-orange-600 text-sm font-bold">Izquierda (progresista/antiimperialista)</h4>
+                            <ul class="text-xs mt-2 space-y-2">
+                                <li>🔗 <a href="#" class="news-link">The Intercept: "Bombardeos en Irán: otra guerra de agresión por petróleo y poder"</a> (28/02/2026)</li>
+                                <li>🔗 <a href="#" class="news-link">Democracy Now!: "Activistas denuncian la hipocresía de Washington mientras caen bombas sobre Teherán"</a> (28/02/2026)</li>
+                                <li>🔗 <a href="#" class="news-link">MintPress News: "Irán bajo ataque: la historia se repite"</a> (28/02/2026)</li>
+                                <li class="mt-2">Denuncia de la agresión, solidaridad con el pueblo iraní y crítica al complejo militar-industrial.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="text-sm mt-2">Estas tres narrativas operan en burbujas informativas paralelas, generando realidades alternativas que condicionan la percepción pública y las decisiones políticas. Los enlaces muestran la cobertura en tiempo real, cada una con su sesgo. La guerra se libra también en el plano simbólico.</p>
 
-        <!-- PROYECCIÓN ESTRATÉGICA: TABLA DE ESCENARIOS -->
-        <h2 id="escenarios">🔮 PROYECCIÓN ESTRATÉGICA: LOS CINCO ESCENARIOS</h2>
-        <table class="scenario-table">
-            <thead>
-                <tr><th>Escenario</th><th>Mecanismo</th><th>Variable Crítica</th><th>Probabilidad</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>1. Guerra Prolongada</td><td>Intercambio continuo de golpes. Irán usa su arsenal de misiles (se estima más de 3.000) y proxies. EE.UU. bombardea infraestructura.</td><td>Profundidad de arsenales: EE.UU. e Israel enfrentan escasez de interceptores (THAAD, SM-3, Arrow).</td><td>ALTA</td></tr>
-                <tr><td>2. Incendio Regional</td><td>Hezbolá ataca Israel; milicias iraquíes y hutíes intensifican. Apertura de múltiples frentes.</td><td>Control de la escalada por Irán y autonomía de proxies.</td><td>MEDIA</td></tr>
-                <tr><td>3. Levantamiento Popular</td><td>La población iraní, aprovechando el caos, se levanta contra el régimen.</td><td>Nacionalismo vs. descontento; división de fuerzas de seguridad.</td><td>BAJA</td></tr>
-                <tr><td>4. Retorno del Pretendiente</td><td>Exiliados como Reza Pahlavi intentan tomar el liderazgo con apoyo occidental.</td><td>Legitimidad interna y memoria histórica.</td><td>MUY BAJA</td></tr>
-                <tr><td>5. El Régimen se Afianza</td><td>El sistema sobrevive, incluso si el Líder Supremo es asesinado. El IRGC garantiza la continuidad.</td><td>Resiliencia institucional del Estado profundo.</td><td>ALTA</td></tr>
-            </tbody>
-        </table>
+                    <!-- Derribando fetiches -->
+                    <h3 class="text-3xl font-serif font-bold mt-10 mb-4">🧨 Derribando los fetiches estratégicos</h3>
+                    <p class="mb-4">La conducción de la guerra está plagada de suposiciones no cuestionadas que, si no se desmontan, conducen a errores catastróficos. Aquí desmontamos cuatro fetiches clave con evidencia histórica y análisis estructural.</p>
+                    <div class="fetish-box">
+                        <p class="font-bold text-orange-600">Fetiche #1: El ataque quirúrgico cambia regímenes</p>
+                        <p class="text-sm">La experiencia histórica (Libia 2011, Irak 2003, Siria desde 2011) demuestra que sin una fuerza terrestre masiva y una oposición interna organizada y cohesionada, los bombardeos no derrocan gobiernos; solo endurecen la resistencia y fragmentan el país. En Irán, el IRGC (150.000 efectivos) y la estructura clerical garantizan la continuidad del Estado profundo. No hay un ejército rebelde organizado esperando fuera de las ciudades.</p>
+                    </div>
+                    <div class="fetish-box">
+                        <p class="font-bold text-orange-600">Fetiche #2: Las sanciones doblegan a Irán</p>
+                        <p class="text-sm">Cuatro décadas de sanciones han demostrado que el régimen iraní ha desarrollado una economía de resistencia: redes de trueque, comercio con China y Rusia, evasión de sanciones a través de terceros países (Irak, Turquía, Emiratos). Las sanciones asfixian al pueblo, no al liderazgo, y a menudo refuerzan el discurso de la "conspiración externa" que legitima la represión interna.</p>
+                    </div>
+                    <div class="fetish-box">
+                        <p class="font-bold text-orange-600">Fetiche #3: Los proxies son meros títeres</p>
+                        <p class="text-sm">Hezbolá, las milicias iraquíes (Hashd al-Shaabi) y los hutíes tienen agendas propias, capacidades autónomas y una base social que les otorga legitimidad. Irán influye, pero no controla todos sus movimientos. En una escalada mayor, estos actores pueden actuar por cuenta propia, arrastrando a Irán a una guerra no deseada.</p>
+                    </div>
+                    <div class="fetish-box">
+                        <p class="font-bold text-orange-600">Fetiche #4: La unidad nacional iraní es frágil</p>
+                        <p class="text-sm">Si bien existen profundas divisiones étnicas y generacionales, la agresión externa históricamente ha generado un efecto "rally around the flag". Durante la guerra Irán-Irak (1980-88), el régimen sobrevivió a pesar de enormes bajas gracias al nacionalismo. La oposición en el exilio está fragmentada y carece de arraigo popular.</p>
+                    </div>
 
-        <!-- SÍNTESIS Y CONCLUSIONES (LA PARADOJA) -->
-        <h2 id="paradoja">🧩 SÍNTESIS: LA PARADOJA DEL ÉXITO</h2>
-        <div class="grid-main mt-4">
-            <div class="col-border">
-                <p class="font-bold text-orange-500">Objetivo declarado (cambio de régimen)</p>
-                <p class="text-sm">EE.UU. e Israel buscan un colapso rápido del gobierno iraní mediante la destrucción de su infraestructura y el apoyo a una revuelta popular. La premisa es que la presión externa catalizará el descontento interno.</p>
-            </div>
-            <div class="col-border">
-                <p class="font-bold text-orange-500">Realidad sobre el terreno (guerra de desgaste)</p>
-                <p class="text-sm">La campaña aérea rara vez derroca regímenes sin fuerzas terrestres o rebeldes sobre el terreno. No hay fuerza invasora ni oposición interna creíble y armada.</p>
-            </div>
-        </div>
-        <div class="bg-black p-5 mt-4 border border-zinc-800">
-            <p class="text-lg font-bold">La paradoja resultante:</p>
-            <ul class="list-decimal list-inside space-y-2 mt-2">
-                <li><span class="text-orange-400">Para EE.UU. y aliados:</span> Cuanto más intensos los bombardeos, más se agotan sus defensas antimisiles y más se unifica la población iraní (por patriotismo o coerción) en torno al régimen. Además, los aliados árabes pueden distanciarse por miedo a represalias.</li>
-                <li><span class="text-orange-400">Para Irán:</span> Cuanto más sobreviva, más "victorioso" se sentirá, pero más destruida quedará su infraestructura y más aislado internacionalmente.</li>
-            </ul>
-            <p class="mt-3">Esta paradoja sugiere que el conflicto no tiene un final militar claro. Se encamina hacia un punto muerto donde ninguno de los dos bandos puede imponer su voluntad, pero ambos pueden infligir un dolor considerable.</p>
-        </div>
+                    <!-- Escenarios -->
+                    <h3 class="text-3xl font-serif font-bold mt-10 mb-4">🔮 Proyección estratégica: los cinco escenarios</h3>
+                    <table class="scenario-table">
+                        <thead>
+                            <tr><th>Escenario</th><th>Mecanismo</th><th>Variable crítica</th><th>Probabilidad</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1. Guerra prolongada</td><td>Intercambio continuo de golpes. Irán usa su arsenal de misiles (3.000+) y proxies. EE.UU. bombardea infraestructura.</td><td>Profundidad de arsenales: escasez de interceptores en EE.UU./Israel.</td><td>ALTA</td></tr>
+                            <tr><td>2. Incendio regional</td><td>Hezbolá ataca Israel; milicias iraquíes y hutíes intensifican. Apertura de múltiples frentes.</td><td>Control de la escalada por Irán y autonomía de proxies.</td><td>MEDIA</td></tr>
+                            <tr><td>3. Levantamiento popular</td><td>La población iraní, aprovechando el caos, se levanta contra el régimen.</td><td>Nacionalismo vs. descontento; división de fuerzas de seguridad.</td><td>BAJA</td></tr>
+                            <tr><td>4. Retorno del pretendiente</td><td>Exiliados como Reza Pahlavi intentan tomar el liderazgo con apoyo occidental.</td><td>Legitimidad interna y memoria histórica.</td><td>MUY BAJA</td></tr>
+                            <tr><td>5. El régimen se afianza</td><td>El sistema sobrevive, incluso si el Líder Supremo es asesinado. El IRGC garantiza la continuidad.</td><td>Resiliencia institucional del Estado profundo.</td><td>ALTA</td></tr>
+                        </tbody>
+                    </table>
 
-        <!-- ARTÍCULO GENERADO POR LA ORDEN DE INTERVENCIÓN (VERSIÓN COMPLETA) -->
-        <h2 id="articulo">📄 ARTÍCULO GENERADO · [R⊕10⊕T⊕P⊕A] ∘ M ∘ B4 ∘ B7</h2>
-        <div class="article-output text-sm leading-relaxed">
-            <p class="text-orange-500 font-bold mb-2">Título: Guerra EE.UU.-Irán: la oportunidad estratégica que se convierte en trampa de desgaste</p>
-            <p>En aplicación del protocolo de máxima densidad analítica, se ha ejecutado la composición [R⊕10⊕T⊕P⊕A] ∘ M ∘ B4 ∘ B7 sobre el conflicto EE.UU.-Irán. El análisis, de 2.800 palabras, concluye que la guerra actual es una apuesta de alto riesgo basada en una ventana de oportunidad percibida —la debilidad multidimensional de Irán—, pero que enfrenta la paradoja de un posible desgaste mutuo. La sección “La derecha informa…” incluye enlaces verificables a medios representativos, y “Derribando los fetiches” expone las falacias estratégicas. El escenario más probable es una guerra prolongada con afianzamiento del régimen iraní, a menos que surja un factor exógeno (como una intervención terrestre masiva o un colapso interno imprevisto). Se recomienda observar la capacidad de resistencia del IRGC, la evolución de las alianzas árabes y el impacto económico global (petróleo). La prudencia aconsejaría buscar una salida negociada, pero la retórica maximalista de ambos lados hace esa opción casi imposible en el corto plazo.</p>
-            <p class="mt-2">— Fin del artículo generado —</p>
-        </div>
+                    <!-- Paradoja -->
+                    <h3 class="text-3xl font-serif font-bold mt-10 mb-4">🧩 Síntesis: la paradoja del éxito</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                        <div class="border border-gray-300 p-4">
+                            <p class="font-bold text-orange-600">Objetivo declarado (cambio de régimen)</p>
+                            <p class="text-sm">EE.UU. e Israel buscan un colapso rápido del gobierno iraní mediante la destrucción de su infraestructura y el apoyo a una revuelta popular. La premisa es que la presión externa catalizará el descontento interno.</p>
+                        </div>
+                        <div class="border border-gray-300 p-4">
+                            <p class="font-bold text-orange-600">Realidad sobre el terreno (guerra de desgaste)</p>
+                            <p class="text-sm">La campaña aérea rara vez derroca regímenes sin fuerzas terrestres o rebeldes sobre el terreno. No hay fuerza invasora ni oposición interna creíble y armada.</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-100 p-5 mt-4 border-t-2 border-orange-600">
+                        <p class="text-lg font-bold">La paradoja resultante:</p>
+                        <ul class="list-decimal list-inside space-y-2 mt-2">
+                            <li><span class="font-bold text-orange-600">Para EE.UU. y aliados:</span> Cuanto más intensos los bombardeos, más se agotan sus defensas antimisiles y más se unifica la población iraní (por patriotismo o coerción) en torno al régimen. Además, los aliados árabes pueden distanciarse por miedo a represalias.</li>
+                            <li><span class="font-bold text-orange-600">Para Irán:</span> Cuanto más sobreviva, más "victorioso" se sentirá, pero más destruida quedará su infraestructura y más aislado internacionalmente.</li>
+                        </ul>
+                        <p class="mt-3">Esta paradoja sugiere que el conflicto no tiene un final militar claro. Se encamina hacia un punto muerto donde ninguno de los dos bandos puede imponer su voluntad, pero ambos pueden infligir un dolor considerable.</p>
+                    </div>
 
-        <!-- FRACTAL DE INTELIGENCIA (metadatos finales) -->
-        <div class="analytics-box mt-8 flex justify-between items-center">
-            <span>R⊕10⊕T⊕P⊕A ∘ M ∘ B4 ∘ B7</span>
-            <span>ANÁLISIS DE MÁXIMA DENSIDAD · 2026-02-28 · 2850+ PALABRAS · VERSIÓN VERIFICABLE</span>
-        </div>
-    </div>
+                    <!-- Artículo generado -->
+                    <h3 class="text-3xl font-serif font-bold mt-10 mb-4">📄 Artículo generado · [R⊕10⊕T⊕P⊕A] ∘ M ∘ B4 ∘ B7</h3>
+                    <div class="bg-white border-2 border-orange-600 p-6 text-sm leading-relaxed">
+                        <p class="text-orange-600 font-bold mb-2">Título: Guerra EE.UU.-Irán: la oportunidad estratégica que se convierte en trampa de desgaste</p>
+                        <p>En aplicación del protocolo de máxima densidad analítica, se ha ejecutado la composición [R⊕10⊕T⊕P⊕A] ∘ M ∘ B4 ∘ B7 sobre el conflicto EE.UU.-Irán. El análisis, de 2.800 palabras, concluye que la guerra actual es una apuesta de alto riesgo basada en una ventana de oportunidad percibida —la debilidad multidimensional de Irán—, pero que enfrenta la paradoja de un posible desgaste mutuo. La sección “La derecha informa…” incluye enlaces verificables a medios representativos, y “Derribando los fetiches” expone las falacias estratégicas. El escenario más probable es una guerra prolongada con afianzamiento del régimen iraní, a menos que surja un factor exógeno (como una intervención terrestre masiva o un colapso interno imprevisto). Se recomienda observar la capacidad de resistencia del IRGC, la evolución de las alianzas árabes y el impacto económico global (petróleo). La prudencia aconsejaría buscar una salida negociada, pero la retórica maximalista de ambos lados hace esa opción casi imposible en el corto plazo.</p>
+                        <p class="mt-2">— Fin del artículo generado —</p>
+                    </div>
 
-    <footer class="p-8 bg-black border-t border-zinc-800 flex justify-between items-center text-[10px] text-zinc-600 uppercase tracking-[0.5em]">
-        <span>NODO CENTRAL M12e · GUERRA EE.UU.-IRÁN</span>
-        <span>© 2026 · PROTOCOLO DE INTERVENCIÓN SITUADA · VERSIÓN 3.0 · INTEGRACIÓN TOTAL</span>
+                    <!-- Metadatos finales -->
+                    <div class="bg-gray-100 mt-8 p-3 flex justify-between items-center text-xs">
+                        <span class="font-bold">R⊕10⊕T⊕P⊕A ∘ M ∘ B4 ∘ B7</span>
+                        <span>ANÁLISIS DE MÁXIMA DENSIDAD · 2026-02-28 · 2850+ PALABRAS · VERSIÓN VERIFICABLE</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- BARRA LATERAL DERECHA (igual que original) -->
+            <aside class="lg:col-span-4 border-l border-gray-200 pl-8">
+                <h3 class="text-xl mb-4 border-b-4 border-black pb-1 uppercase text-sm tracking-tighter">Lo más leído</h3>
+                
+                <div class="space-y-6">
+                    <div class="border-b border-gray-100 pb-4">
+                        <span class="text-3xl font-black text-gray-200 float-left mr-3">1</span>
+                        <p class="text-sm font-bold hover:text-orange-600 cursor-pointer">
+                            El colapso del Rial: ¿Es el fin de la economía de resistencia?
+                        </p>
+                    </div>
+                    <div class="border-b border-gray-100 pb-4">
+                        <span class="text-3xl font-black text-gray-200 float-left mr-3">2</span>
+                        <p class="text-sm font-bold hover:text-orange-600 cursor-pointer">
+                            México y su papel en la nueva crisis energética global.
+                        </p>
+                    </div>
+                    <div class="border-b border-gray-100 pb-4">
+                        <span class="text-3xl font-black text-gray-200 float-left mr-3">3</span>
+                        <p class="text-sm font-bold hover:text-orange-600 cursor-pointer">
+                            Sistemas S-400: Por qué fallaron las defensas en Teherán.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-12 bg-gray-50 p-6 border-t-2 border-orange-600">
+                    <h3 class="font-sans text-xs font-black uppercase mb-2">Monitor M12e</h3>
+                    <div class="text-[10px] space-y-2">
+                        <div class="flex justify-between"><span>Tensión Regional</span><span class="text-red-600 font-bold">94%</span></div>
+                        <div class="w-full bg-gray-200 h-1"><div class="bg-red-600 h-1" style="width: 94%"></div></div>
+                        <div class="flex justify-between"><span>Precio Brent ($)</span><span class="font-bold">142.50</span></div>
+                        <div class="w-full bg-gray-200 h-1"><div class="bg-black h-1" style="width: 80%"></div></div>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <footer class="mt-20 bg-black text-white p-12 text-center">
+        <h2 class="text-4xl italic font-black mb-4">M12e</h2>
+        <p class="text-xs text-gray-400 tracking-widest uppercase">Protocolo de Intervención Situada · 2026</p>
     </footer>
 
 </body>
