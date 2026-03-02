@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M12e · Análisis de Alta Densidad: Ormuz</title>
+    <title>M12e · Análisis de Alta Densidad</title>
     <style>
-        /* === ESTILOS (se mantienen los de la plantilla original, con ligeros ajustes) === */
+        /* === ESTILOS (se mantienen los mismos) === */
         body {
             margin: 0;
             font-family: "Georgia", serif;
             background-color: #f4f4f4;
             color: #111;
             line-height: 1.5;
+            scroll-padding-top: 80px; /* Evita que el menú tape el título al navegar por anclajes */
         }
         header {
             background: #111;
             color: white;
             padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         .top-bar {
             display: flex;
@@ -68,6 +72,9 @@
             display: flex;
             flex-wrap: wrap;
             gap: 10px 20px;
+            position: sticky;
+            top: 80px; /* Justo debajo del header */
+            z-index: 99;
         }
         nav a {
             color: white;
@@ -88,19 +95,23 @@
             padding: 40px;
             box-shadow: 0 0 15px rgba(0,0,0,0.08);
         }
+        .seccion {
+            margin-bottom: 80px; /* Espacio entre secciones */
+            scroll-margin-top: 100px; /* Ajuste fino para anclajes */
+        }
         .section-meta {
             font-family: Arial, sans-serif;
             font-size: 13px;
             text-transform: uppercase;
             color: #777;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             letter-spacing: 1px;
         }
         .balazo {
             background: #111;
             color: white;
             padding: 20px 25px;
-            margin: 30px 0 20px 0;
+            margin: 20px 0;
             font-family: Arial, sans-serif;
             font-size: 24px;
             font-weight: bold;
@@ -114,9 +125,15 @@
             font-size: 28px;
         }
         h1 {
-            font-size: 48px;
-            margin: 20px 0 10px 0;
+            font-size: 42px;
+            margin: 20px 0 10px;
             line-height: 1.1;
+        }
+        h2 {
+            font-size: 32px;
+            margin: 30px 0 15px;
+            border-bottom: 2px solid #111;
+            padding-bottom: 5px;
         }
         .article-image {
             width: 100%;
@@ -206,49 +223,152 @@
 </header>
 
 <nav>
-    <a href="#">INICIO</a>
-    <a href="#">LAS VOCES</a>
-    <a href="#">LA RAÍZ</a>
-    <a href="#">LOS FILTROS</a>
-    <a href="#">EL TABLERO</a>
-    <a href="#">DETRÁS DE LA MÁSCARA</a>
-    <a href="#">REIFICACIÓN</a>
-    <a href="#">GUERRA DEL SENTIDO</a>
-    <a href="#">PUNTO SIN RETORNO</a>
-    <a href="#">HORIZONTE</a>
-    <a href="#">TIEMPO REAL</a>
-    <a href="#">MANIFIESTO</a>
+    <a href="#inicio">INICIO</a>
+    <a href="#las-voces">LAS VOCES</a>
+    <a href="#la-raiz">LA RAÍZ</a>
+    <a href="#los-filtros">LOS FILTROS</a>
+    <a href="#el-tablero">EL TABLERO</a>
+    <a href="#detras-mascara">DETRÁS DE LA MÁSCARA</a>
+    <a href="#reificacion">REIFICACIÓN</a>
+    <a href="#guerra-sentido">GUERRA DEL SENTIDO</a>
+    <a href="#punto-sin-retorno">PUNTO SIN RETORNO</a>
+    <a href="#horizonte">HORIZONTE</a>
+    <a href="#tiempo-real">TIEMPO REAL</a>
+    <a href="#manifiesto">MANIFIESTO</a>
 </nav>
 
 <div class="container">
 
-    <div class="section-meta">SECCIÓN: EL TABLERO DE FUERZAS / GEOPOLÍTICA</div>
+    <!-- SECCIÓN INICIO (puede ser la portada) -->
+    <section id="inicio" class="seccion">
+        <div class="section-meta">PORTADA</div>
+        <h1>M12e: ANÁLISIS DE ALTA DENSIDAD</h1>
+        <p class="author">[R⊕10⊕T⊕P⊕A] ∘ M ∘ B4 ∘ B7</p>
+        <p>Bienvenidos al primer número de nuestra revista digital. Aquí encontrarás análisis de coyuntura con método dialéctico.</p>
+    </section>
 
-    <!-- BALAZO (cuadro negro con texto breve) -->
-    <div class="balazo">
-        Cuando misiles y petroleros danzan en el umbral: Irán, EE.UU. y la disputa por la última vuelta de tuerca del capital fósil.
-    </div>
+    <!-- SECCIÓN LAS VOCES -->
+    <section id="las-voces" class="seccion">
+        <div class="section-meta">LAS VOCES DE LA DISPUTA</div>
+        <h2>Triangulación de medios y rastreo de la fase precrítica</h2>
+        <div class="article-content">
+            <p>En esta sección confrontamos narrativas. Por ejemplo, sobre el conflicto Irán-EE.UU.:</p>
+            <ul>
+                <li><strong>Izquierda:</strong> La escalada es resultado de la agresión imperialista.</li>
+                <li><strong>Centro:</strong> Riesgo de conflicto abierto por el programa nuclear.</li>
+                <li><strong>Derecha:</strong> Irán es una amenaza que debe ser enfrentada.</li>
+            </ul>
+            <p>Próximamente ampliaremos con más casos.</p>
+        </div>
+    </section>
 
-    <h1>Ormuz: el estrecho donde la geopolítica revela su esqueleto energético</h1>
+    <!-- SECCIÓN LA RAÍZ -->
+    <section id="la-raiz" class="seccion">
+        <div class="section-meta">LA RAÍZ Y SUS GRIETAS</div>
+        <h2>Contradicción estructural central (Capital-Vida) y fracturas subordinadas</h2>
+        <div class="article-content">
+            <p>Artículo de fondo: <em>La financiarización de los recursos naturales</em>. En preparación.</p>
+        </div>
+    </section>
 
-    <!-- IMAGEN PROPORCIONADA POR EL USUARIO -->
-    <img src="https://www.shutterstock.com/image-illustration/rockets-near-iranian-flag-ballistic-260nw-2458013049.jpg" alt="Cohetes iraníes junto a la bandera nacional" class="article-image">
+    <!-- SECCIÓN LOS FILTROS -->
+    <section id="los-filtros" class="seccion">
+        <div class="section-meta">LOS FILTROS DEL ORDEN</div>
+        <h2>Complejo de mediaciones, Estado y Aparatos Ideológicos</h2>
+        <div class="article-content">
+            <p>Análisis de cómo el Estado y los medios gestionan las contradicciones. Próximamente.</p>
+        </div>
+    </section>
 
-    <div class="author">Por: Redacción M12e · Análisis de Intervención Dialéctica · 1 marzo 2026</div>
+    <!-- SECCIÓN EL TABLERO (aquí va el artículo de Irán) -->
+    <section id="el-tablero" class="seccion">
+        <div class="section-meta">EL TABLERO DE FUERZAS</div>
+        
+        <!-- Balazo (tomado del artículo) -->
+        <div class="balazo">
+            Cuando misiles y petroleros danzan en el umbral: Irán, EE.UU. y la disputa por la última vuelta de tuerca del capital fósil.
+        </div>
 
-    <div class="article-content">
-        <p>Imaginemos por un instante el Estrecho de Ormuz visto desde la cabina de un petrolero. A babor, la costa iraní; a estribor, Omán. El mar, aparentemente vacío, es un campo de fuerzas: fragatas de la Armada de EE.UU., lanchas rápidas de los Cuerpos de la Guardia Revolucionaria Islámica, buques mercantes con banderas de conveniencia. La imagen que abre este análisis —cohetes iraníes erguidos junto a la bandera nacional— no es una postal belicista, sino la cristalización de una contradicción que lleva décadas gestándose: el momento en que la soberanía nacional y el flujo global del capital chocan en un embudo de 33 kilómetros de ancho.</p>
+        <h1>Ormuz: el estrecho donde la geopolítica revela su esqueleto energético</h1>
 
-        <p>La narrativa dominante insiste en presentar la tensión como un conflicto entre un Irán "expansionista" y un EE.UU. "defensor del orden internacional". Pero esta representación oculta la realidad material: el 20% del petróleo mundial atraviesa ese angosto pasillo. No hay aquí una guerra santa ni una cruzada por la democracia; hay, en el sentido más crudo, una disputa por quién controla la válvula que regula el flujo sanguíneo del capitalismo global. Cuando Washington habla de "libertad de navegación", en realidad defiende la libertad del capital para circular sin obstáculos. Cuando Teherán amenaza con cerrar el estrecho, no defiende solo su territorio, sino la capacidad de usar su principal activo geopolítico como moneda de cambio frente a décadas de asfixia económica.</p>
+        <!-- Imagen proporcionada -->
+        <img src="https://www.shutterstock.com/image-illustration/rockets-near-iranian-flag-ballistic-260nw-2458013049.jpg" alt="Cohetes iraníes junto a la bandera nacional" class="article-image">
 
-        <p>Aquí emerge la novedad de la fase actual: la presencia de China y Rusia ya no es un telón de fondo, sino un factor activo que reconfigura la ecuación. China importa más del 40% de su petróleo desde el Golfo, y su iniciativa de la Franja y la Ruta depende de la estabilidad regional. Pero Pekín no juega el papel de Washington: en lugar de portaviones, despliega chequeras y acuerdos de seguridad a largo plazo (como el acercamiento diplomático entre Arabia Saudí e Irán mediado por China en 2023). Rusia, por su parte, ve en Irán un socio en la producción energética y un aliado en su confrontación con Occidente, lo que se traduce en cooperación militar y tecnológica. El resultado es una compleja correlación de fuerzas donde EE.UU. ya no puede actuar como el sheriff unilateral que fue en 2003. Cada movimiento en Ormuz es ahora observado desde Pekín y Moscú, y cualquier escalada debe calcularse en un tablero global.</p>
+        <div class="author">Por: Redacción M12e · 1 marzo 2026</div>
 
-        <p>El umbral de ruptura está más cerca de lo que los titulares admiten. Un ataque no atribuido pero sí asumido por uno de los bandos podría desencadenar una espiral: Irán mina el estrecho, EE.UU. responde bombardeando instalaciones nucleares, Hezbolá lanza cohetes sobre Israel, el petróleo se dispara a 200 dólares el barril... y mientras, en las costas de Hormuzgan, los pescadores ven cómo sus redes se llenan de residuos de petróleo en lugar de peces. La reificación alcanza su punto más siniestro cuando los humanos se convierten en daños colaterales de una ecuación que solo incluye barriles y megatones.</p>
+        <div class="article-content">
+            <p>Imaginemos por un instante el Estrecho de Ormuz visto desde la cabina de un petrolero. A babor, la costa iraní; a estribor, Omán. El mar, aparentemente vacío, es un campo de fuerzas: fragatas de la Armada de EE.UU., lanchas rápidas de los Cuerpos de la Guardia Revolucionaria Islámica, buques mercantes con banderas de conveniencia. La imagen que abre este análisis —cohetes iraníes erguidos junto a la bandera nacional— no es una postal belicista, sino la cristalización de una contradicción que lleva décadas gestándose: el momento en que la soberanía nacional y el flujo global del capital chocan en un embudo de 33 kilómetros de ancho.</p>
+            <p>La narrativa dominante insiste en presentar la tensión como un conflicto entre un Irán "expansionista" y un EE.UU. "defensor del orden internacional". Pero esta representación oculta la realidad material: el 20% del petróleo mundial atraviesa ese angosto pasillo. No hay aquí una guerra santa ni una cruzada por la democracia; hay, en el sentido más crudo, una disputa por quién controla la válvula que regula el flujo sanguíneo del capitalismo global. Cuando Washington habla de "libertad de navegación", en realidad defiende la libertad del capital para circular sin obstáculos. Cuando Teherán amenaza con cerrar el estrecho, no defiende solo su territorio, sino la capacidad de usar su principal activo geopolítico como moneda de cambio frente a décadas de asfixia económica.</p>
+            <p>Aquí emerge la novedad de la fase actual: la presencia de China y Rusia ya no es un telón de fondo, sino un factor activo que reconfigura la ecuación. China importa más del 40% de su petróleo desde el Golfo, y su iniciativa de la Franja y la Ruta depende de la estabilidad regional. Pero Pekín no juega el papel de Washington: en lugar de portaviones, despliega chequeras y acuerdos de seguridad a largo plazo (como el acercamiento diplomático entre Arabia Saudí e Irán mediado por China en 2023). Rusia, por su parte, ve en Irán un socio en la producción energética y un aliado en su confrontación con Occidente, lo que se traduce en cooperación militar y tecnológica. El resultado es una compleja correlación de fuerzas donde EE.UU. ya no puede actuar como el sheriff unilateral que fue en 2003. Cada movimiento en Ormuz es ahora observado desde Pekín y Moscú, y cualquier escalada debe calcularse en un tablero global.</p>
+            <p>El umbral de ruptura está más cerca de lo que los titulares admiten. Un ataque no atribuido pero sí asumido por uno de los bandos podría desencadenar una espiral: Irán mina el estrecho, EE.UU. responde bombardeando instalaciones nucleares, Hezbolá lanza cohetes sobre Israel, el petróleo se dispara a 200 dólares el barril... y mientras, en las costas de Hormuzgan, los pescadores ven cómo sus redes se llenan de residuos de petróleo en lugar de peces. La reificación alcanza su punto más siniestro cuando los humanos se convierten en daños colaterales de una ecuación que solo incluye barriles y megatones.</p>
+            <p>Frente a esta realidad, la tarea de la crítica no es solo desvelar el engranaje, sino contribuir a construir una correlación de fuerzas que desactive la bomba. Ello implica, desde las trincheras del pensamiento dialéctico, apoyar las iniciativas que fortalezcan la soberanía regional sin caer en nacionalismos que alimenten la militarización. La experiencia de los movimientos por la paz en Medio Oriente, el activismo ambiental que denuncia la ficción del "capitalismo verde" mientras se sostiene sobre combustibles fósiles, y la solidaridad internacionalista con el pueblo iraní (víctima tanto de las sanciones como de su propia teocracia) son fragmentos de una praxis que apunta a un horizonte posfósil y posimperial. En Ormuz, como en cada rincón del planeta, la disputa última no es entre potencias, sino entre la lógica del capital y la posibilidad de la vida.</p>
+        </div>
+    </section>
 
-        <p>Frente a esta realidad, la tarea de la crítica no es solo desvelar el engranaje, sino contribuir a construir una correlación de fuerzas que desactive la bomba. Ello implica, desde las trincheras del pensamiento dialéctico, apoyar las iniciativas que fortalezcan la soberanía regional sin caer en nacionalismos que alimenten la militarización. La experiencia de los movimientos por la paz en Medio Oriente, el activismo ambiental que denuncia la ficción del "capitalismo verde" mientras se sostiene sobre combustibles fósiles, y la solidaridad internacionalista con el pueblo iraní (víctima tanto de las sanciones como de su propia teocracia) son fragmentos de una praxis que apunta a un horizonte posfósil y posimperial. En Ormuz, como en cada rincón del planeta, la disputa última no es entre potencias, sino entre la lógica del capital y la posibilidad de la vida.</p>
-    </div>
+    <!-- SECCIÓN DETRÁS DE LA MÁSCARA -->
+    <section id="detras-mascara" class="seccion">
+        <div class="section-meta">DETRÁS DE LA MÁSCARA</div>
+        <h2>Ruptura de la pseudoconcreción y desfetichización del fenómeno</h2>
+        <div class="article-content">
+            <p>Análisis de casos donde la apariencia oculta la esencia. En construcción.</p>
+        </div>
+    </section>
 
-    <!-- ESPACIO PARA COMENTARIOS CRÍTICOS -->
+    <!-- SECCIÓN REIFICACIÓN -->
+    <section id="reificacion" class="seccion">
+        <div class="section-meta">REIFICACIÓN SOCIAL</div>
+        <h2>Denuncia de la reducción del ser humano a cosa o mercancía</h2>
+        <div class="article-content">
+            <p>Estudios sobre precarización, algoritmos y cosificación. Próximamente.</p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN GUERRA DEL SENTIDO -->
+    <section id="guerra-sentido" class="seccion">
+        <div class="section-meta">LA GUERRA DEL SENTIDO COMÚN</div>
+        <h2>Disputa por la hegemonía y narrativas dominantes</h2>
+        <div class="article-content">
+            <p>Análisis de discurso, propaganda y batalla cultural. En preparación.</p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN PUNTO SIN RETORNO -->
+    <section id="punto-sin-retorno" class="seccion">
+        <div class="section-meta">EL PUNTO SIN RETORNO</div>
+        <h2>Identificación del umbral de ruptura estructural</h2>
+        <div class="article-content">
+            <p>Indicadores de colapso ecológico y social. Próximos informes.</p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN HORIZONTE -->
+    <section id="horizonte" class="seccion">
+        <div class="section-meta">HORIZONTE EN JUEGO</div>
+        <h2>Proyección de la direccionalidad histórica y tendencias</h2>
+        <div class="article-content">
+            <p>Escenarios futuros y prospectiva. En desarrollo.</p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN TIEMPO REAL -->
+    <section id="tiempo-real" class="seccion">
+        <div class="section-meta">TIEMPO REAL</div>
+        <h2>Criterio ético-normativo de libertad material efectiva</h2>
+        <div class="article-content">
+            <p>Columna filosófica sobre la libertad real. Próximamente.</p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN MANIFIESTO -->
+    <section id="manifiesto" class="seccion">
+        <div class="section-meta">MANIFIESTO DE LO POSIBLE</div>
+        <h2>Determinación de la praxis y artículo de síntesis dialéctica</h2>
+        <div class="article-content">
+            <p>Llamados a la acción y propuestas programáticas. En construcción.</p>
+        </div>
+    </section>
+
+    <!-- ESPACIO PARA COMENTARIOS CRÍTICOS (al final de todo) -->
     <div class="comentarios">
         <h2>🔽 Espacio para la disputa · Comentarios críticos</h2>
         <textarea rows="4" placeholder="Escribe tu comentario..."></textarea>
@@ -265,13 +385,27 @@
     <span style="opacity: 0.6; font-size: 12px;">Visitantes: 12,458 (contador dinámico próximamente)</span>
 </footer>
 
-<!-- Script opcional para actualizar fecha automáticamente (mejora) -->
+<!-- Script para desplazamiento suave -->
 <script>
-    // Actualiza la fecha a la actual si se desea
+    // Actualizar fecha
     const fecha = new Date();
     const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     const fechaStr = fecha.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).toUpperCase() + ' - ' + fecha.getHours().toString().padStart(2,'0') + ':' + fecha.getMinutes().toString().padStart(2,'0') + ' UTC';
     document.querySelector('.date-line').textContent = fechaStr;
+
+    // Desplazamiento suave para los enlaces internos
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
 </script>
 
 </body>
