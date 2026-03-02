@@ -93,12 +93,17 @@
             color: #ffaa00;
         }
         
-        /* === IMAGEN DESTACADA (ahora al inicio) === */
+        /* === IMAGEN DESTACADA (placeholder) === */
         .hero-image {
             width: 100%;
             max-height: 500px;
             object-fit: cover;
             display: block;
+            background: #ccc;
+            text-align: center;
+            line-height: 500px;
+            color: #666;
+            font-family: Arial, sans-serif;
         }
         
         /* === CONTENEDOR PRINCIPAL === */
@@ -240,7 +245,7 @@
             <a href="https://www.youtube.com/@m12eradio31" target="_blank">▶ M12e Radio</a>
         </div>
     </div>
-    <div class="date-line" id="fecha-actual">SÁBADO, 01 MARZO 2026 - 14:30 UTC</div>
+    <div class="date-line" id="fecha-actual">LUNES, 2 DE MARZO DE 2026 - 10:36 UTC</div>
 </header>
 
 <nav>
@@ -258,8 +263,8 @@
     <a href="#manifiesto">MANIFIESTO</a>
 </nav>
 
-<!-- IMAGEN PRINCIPAL AL INICIO (más atractiva) -->
-<img src="https://www.shutterstock.com/image-illustration/rockets-near-iranian-flag-ballistic-260nw-2458013049.jpg" alt="Cohetes iraníes" class="hero-image">
+<!-- IMAGEN PRINCIPAL (cambia el src por una URL válida) -->
+<img src="https://via.placeholder.com/1200x500?text=Imagen+destacada+del+análisis" alt="Imagen destacada" class="hero-image">
 
 <div class="container">
 
@@ -273,7 +278,7 @@
         </div>
     </section>
 
-    <!-- LAS VOCES -->
+    <!-- LAS VOCES (con el contenido de tu web) -->
     <section id="las-voces" class="seccion">
         <div class="section-meta">LAS VOCES DE LA DISPUTA</div>
         <h2>Triangulación de medios y rastreo de la fase precrítica</h2>
@@ -303,7 +308,7 @@
         </div>
     </section>
 
-    <!-- TABLERO (artículo completo de Irán) -->
+    <!-- TABLERO (artículo completo de Irán con balazo) -->
     <section id="el-tablero" class="seccion">
         <div class="section-meta">EL TABLERO DE FUERZAS</div>
         <div class="balazo">
@@ -329,7 +334,7 @@
         </div>
     </section>
 
-    <!-- REIFICACIÓN (ahora: LA COSA HUMANA) -->
+    <!-- REIFICACIÓN (LA COSA HUMANA) -->
     <section id="reificacion" class="seccion">
         <div class="section-meta">LA COSA HUMANA</div>
         <h2>Cuando el ser humano se vuelve mercancía</h2>
@@ -365,7 +370,7 @@
         </div>
     </section>
 
-    <!-- TIEMPO REAL (ahora: RELATORÍA DE LO VIVO) -->
+    <!-- TIEMPO REAL (RELATORÍA DE LO VIVO) -->
     <section id="tiempo-real" class="seccion">
         <div class="section-meta">RELATORÍA DE LO VIVO</div>
         <h2>Criterio ético de libertad material</h2>
@@ -383,7 +388,7 @@
         </div>
     </section>
 
-    <!-- COMENTARIOS -->
+    <!-- COMENTARIOS (con textarea real) -->
     <div class="comentarios">
         <h2>🔽 Espacio para la disputa · Comentarios críticos</h2>
         <textarea rows="4" placeholder="Escribe tu comentario..."></textarea>
@@ -401,7 +406,7 @@
 </footer>
 
 <script>
-    // Fecha automática
+    // Fecha automática (opcional, si quieres mantener la fecha actualizada)
     const fecha = new Date();
     const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById('fecha-actual').textContent = 
