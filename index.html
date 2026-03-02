@@ -30,6 +30,8 @@
             align-items: center;
             font-family: Arial, sans-serif;
             font-size: 14px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         .site-title {
             font-size: 22px;
@@ -45,6 +47,7 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            flex-wrap: wrap;
         }
         .meta-icons a {
             color: white;
@@ -57,11 +60,25 @@
             text-decoration: underline;
             opacity: 0.8;
         }
+        /* Estilo destacado para el enlace de YouTube */
+        .meta-icons a[href*="youtube"] {
+            background-color: #c00;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        .meta-icons a[href*="youtube"]:hover {
+            background-color: #ff0000;
+            text-decoration: none;
+        }
         .contador {
             background: #333;
             padding: 3px 8px;
             border-radius: 20px;
             font-size: 13px;
+            cursor: help;
         }
         .date-line {
             margin-top: 5px;
@@ -129,6 +146,7 @@
             margin: 20px 0 10px;
             line-height: 1.1;
         }
+        /* Corregido: solo un h1 por página, los siguientes son h2 con mismo estilo */
         h2 {
             font-size: 32px;
             margin: 20px 0 15px;
@@ -223,6 +241,9 @@
         footer a:hover {
             text-decoration: underline;
         }
+        #contador-footer {
+            opacity: 0.6;
+        }
     </style>
 </head>
 <body>
@@ -233,9 +254,9 @@
             M12e <span>Análisis de coyuntura</span>
         </div>
         <div class="meta-icons">
-            <span class="contador">🧾 12,512</span>
+            <span class="contador" title="Visitas totales a esta página">🧾 12,512</span>
             <a href="mailto:m12eradio@gmail.com">✉️ m12eradio@gmail.com</a>
-            <a href="https://www.youtube.com/@m12eradio31" target="_blank">▶ M12e Radio</a>
+            <a href="https://www.youtube.com/@m12eradio31" target="_blank" title="Canal de YouTube">▶ M12e Radio</a>
         </div>
     </div>
     <div class="date-line" id="fecha-actual"></div>
@@ -298,7 +319,7 @@
         <div class="balazo-ep">
             El mundo ya no es bipolar, ni siquiera unipolar. La entrada de China y Rusia en la ecuación cambia las reglas del juego en el Golfo.
         </div>
-        <h1>Ormuz: el estrecho donde se refleja el nuevo orden mundial</h1>
+        <h2>Ormuz: el estrecho donde se refleja el nuevo orden mundial</h2>
         <div class="author">Por: Redacción M12e</div>
         <div class="article-content">
             <p>Durante décadas, la lógica en el Golfo Pérsico era simple: EE.UU. ponía los portaaviones y dictaba las reglas. Esa época se acabó. Hoy, China observa cada movimiento con la calculadora en la mano. Pekín importa más del 40% de su petróleo de la región y ha logrado lo que parecía imposible: acercar a Irán y Arabia Saudí en un acuerdo diplomático que dejó a Washington en fuera de juego. Los chinos no envían flotas, envían chequeras y promesas de inversión a largo plazo.</p>
@@ -375,10 +396,11 @@
     © 2026 M12e · Análisis de coyuntura<br>
     Contacto: <a href="mailto:m12eradio@gmail.com">m12eradio@gmail.com</a> · 
     Canal: <a href="https://www.youtube.com/@m12eradio31" target="_blank">@m12eradio31</a><br>
-    <span style="opacity: 0.6;">Visitantes: 12,512</span>
+    <span id="contador-footer">Visitantes: 12,512</span>
 </footer>
 
 <script>
+    // Fecha y hora actual
     const fecha = new Date();
     const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById('fecha-actual').textContent = 
@@ -386,6 +408,7 @@
         ' - ' + fecha.getHours().toString().padStart(2,'0') + 
         ':' + fecha.getMinutes().toString().padStart(2,'0') + ' UTC';
     
+    // Navegación suave
     document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -393,6 +416,28 @@
             if (target) target.scrollIntoView({ behavior: 'smooth' });
         });
     });
+
+    // Contador de visitas real (almacenado en localStorage)
+    (function actualizarContador() {
+        let visitas = localStorage.getItem('contadorVisitasM12e');
+        if (visitas === null) {
+            visitas = 1;
+        } else {
+            visitas = parseInt(visitas) + 1;
+        }
+        localStorage.setItem('contadorVisitasM12e', visitas);
+        const visitasFormateado = visitas.toLocaleString('es-ES');
+        // Actualizar header
+        const contadorHeader = document.querySelector('.contador');
+        if (contadorHeader) {
+            contadorHeader.innerHTML = `🧾 ${visitasFormateado}`;
+        }
+        // Actualizar footer
+        const contadorFooter = document.getElementById('contador-footer');
+        if (contadorFooter) {
+            contadorFooter.innerHTML = `Visitantes: ${visitasFormateado}`;
+        }
+    })();
 </script>
 
 </body>
