@@ -1,1 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M12e · La verdadera disputa en el Estrecho de Ormuz</title>
+    <style>
+        /* === RESET Y ESTILOS GENERALES === */
+        body {
+            margin: 0;
+            font-family: "Georgia", serif;
+            background-color: #f4f4f4;
+            color: #111;
+            line-height: 1.5;
+            scroll-padding-top: 140px;
+        }
+        
+        /* === CABECERA FIJA === */
+        header {
+            background: #111;
+            color: white;
+            padding: 12px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+        .site-title {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .site-title span {
+            font-size: 14px;
+            font-weight: normal;
+            opacity: 0.7;
+            margin-left: 8px;
+        }
+        .meta-icons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .meta-icons a {
+            color: white;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .meta-icons a:hover {
+            text-decoration: underline;
+            opacity: 0.8;
+        }
+        .contador {
+            background: #333;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+        .date-line {
+            margin-top: 5px;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        
+        /* === MENÚ FIJO === */
+        nav {
+            background: #222;
+            padding: 10px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 20px;
+            position: sticky;
+            top: 68px;
+            z-index: 999;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+            color: #ffaa00;
+        }
+        
+        /* === IMAGEN DESTACADA (hero) === */
+        .hero-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            display: block;
+            background: #ccc;
+        }
+        
+        /* === CONTENEDOR PRINCIPAL === */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto 40px auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        /* === SECCIONES === */
+        .seccion {
+            margin-bottom: 70px;
+            scroll-margin-top: 140px;
+        }
+        .section-meta {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #777;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        h1 {
+            font-size: 42px;
+            margin: 20px 0 10px;
+            line-height: 1.1;
+        }
+        h2 {
+            font-size: 32px;
+            margin: 20px 0 15px;
+            border-bottom: 2px solid #111;
+            padding-bottom: 8px;
+        }
+        
+        /* === BALAZO ESTILO PERIODÍSTICO === */
+        .balazo-ep {
+            font-family: Arial, sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1.3;
+            color: #111;
+            border-left: 4px solid #c00;
+            background-color: #f9f9f9;
+            padding: 20px 20px 20px 24px;
+            margin: 30px 0;
+        }
+        
+        .article-image {
+            width: 100%;
+            height: auto;
+            margin: 25px 0;
+            border: 1px solid #ddd;
+        }
+        .author {
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            margin-bottom: 30px;
+            color: #555;
+            font-style: italic;
+        }
+        .article-content {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        .article-content p {
+            margin-bottom: 1.5em;
+        }
+        
+        /* === COMENTARIOS === */
+        .comentarios {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 3px double #ccc;
+        }
+        .comentarios h2 {
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            border: none;
+        }
+        .comentarios textarea {
+            width: 100%;
+            padding: 15px;
+            font-family: Georgia, serif;
+            font-size: 16px;
+            border: 1px solid #aaa;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        .comentarios button {
+            background: #111;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+        }
+        .comentarios button:hover {
+            background: #333;
+        }
+        
+        /* === PIE DE PÁGINA === */
+        footer {
+            margin-top: 40px;
+            padding: 30px 20px;
+            background: #111;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+        footer a {
+            color: #ffaa00;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
 
+<header>
+    <div class="top-bar">
+        <div class="site-title">
+            M12e <span>Análisis de coyuntura</span>
+        </div>
+        <div class="meta-icons">
+            <span class="contador">🧾 12,512</span>
+            <a href="mailto:m12eradio@gmail.com">✉️ m12eradio@gmail.com</a>
+            <a href="https://www.youtube.com/@m12eradio31" target="_blank">▶ M12e Radio</a>
+        </div>
+    </div>
+    <div class="date-line" id="fecha-actual"></div>
+</header>
+
+<nav>
+    <a href="#inicio">INICIO</a>
+    <a href="#las-voces">LAS VOCES</a>
+    <a href="#la-raiz">LA RAÍZ</a>
+    <a href="#los-filtros">FILTROS</a>
+    <a href="#el-tablero">TABLERO</a>
+    <a href="#detras-mascara">MÁSCARA</a>
+    <a href="#cosa-humana">COSA HUMANA</a>
+    <a href="#guerra-sentido">SENTIDO</a>
+    <a href="#punto-sin-retorno">PUNTO</a>
+    <a href="#horizonte">HORIZONTE</a>
+    <a href="#relatoria">RELATORÍA</a>
+    <a href="#manifiesto">MANIFIESTO</a>
+</nav>
+
+<img src="https://www.shutterstock.com/image-illustration/iran-usa-flags-blue-sky-260nw-2179753035.jpg" alt="Banderas de Irán y Estados Unidos en un cielo azul" class="hero-image" onerror="this.src='https://via.placeholder.com/1200x500?text=Imagen+destacada'">
+
+<div class="container">
+
+    <section id="inicio" class="seccion">
+        <div class="section-meta">APERTURA</div>
+        <h1>M12e: Lo que esconde la postal de Ormuz</h1>
+        <p class="author">Por: Redacción M12e</p>
+        <div class="article-content">
+            <p>La imagen es casi un ícono: las banderas de Irán y Estados Unidos flameando, enfrentadas, sobre un mismo cielo. Es la foto que acompaña todos los titulares, la representación visual de un conflicto que parece eterno. Pero esa postal, como todas, miente por omisión. Nos habla de dos países, dos ejércitos, dos voluntades políticas en pugna. Sin embargo, bajo ese azul neutro, lo que realmente se agita no son dos naciones, sino el sistema nervioso central de la economía global: el flujo de petróleo que mantiene en movimiento al mundo. Este artículo propone un ejercicio: mirar detrás de la postal para entender qué es lo que realmente está en juego en el Estrecho de Ormuz.</p>
+        </div>
+    </section>
+
+    <section id="las-voces" class="seccion">
+        <div class="section-meta">EL RUIDO DE FONDO</div>
+        <h2>Cómo se cuenta la crisis desde cada trinchera</h2>
+        <div class="article-content">
+            <p>Para entender un conflicto, lo primero es escuchar cómo lo cuentan sus protagonistas. La prensa conservadora estadounidense y europea lleva años instalando una idea: Irán es una amenaza existencial, un régimen fanático que busca la bomba atómica para borrar a Israel del mapa. Cada maniobra militar iraní es presentada como una provocación. En el centro del espectro, agencias como Reuters o Bloomberg traducen la tensión a un lenguaje que el mercado entiende: hablan de barriles de petróleo, de primas de riesgo, de posibles subidas en la gasolina. Y del otro lado, los medios alineados con Teherán o con el eje de resistencia antiimperialista denuncian la "piratería" de EE.UU. y reivindican el derecho de Irán a defenderse. No son solo versiones diferentes de una misma realidad. Son la prueba de que, antes de que disparen los misiles, ya se está librando una batalla por imponer un relato.</p>
+        </div>
+    </section>
+
+    <section id="la-raiz" class="seccion">
+        <div class="section-meta">LA MADERA DEL CONFLICTO</div>
+        <h2>Petróleo, sangre y dólares: la ecuación que nadie nombra</h2>
+        <div class="article-content">
+            <p>Si rascamos la superficie de los discursos, aparece lo que realmente importa. El Estrecho de Ormuz no es un punto estratégico más. Por ahí pasa el 20% del petróleo que se consume en el planeta. Es el cuello de botella del capitalismo global. EE.UU. habla de "libertad de navegación", pero lo que defiende es la libertad de las petroleras y de los mercados para operar sin sobresaltos. Irán, por su parte, habla de "soberanía", pero lo que busca es usar su principal activo geopolítico —la capacidad de cerrar el grifo— como moneda de cambio para romper el cerco de las sanciones que asfixian su economía. La disputa no es entre democracia y autoritarismo, ni entre paz y terrorismo. Es una pelea por el control de la sangre que alimenta la maquinaria industrial del mundo.</p>
+        </div>
+    </section>
+
+    <section id="los-filtros" class="seccion">
+        <div class="section-meta">LOS ADMINISTRADORES DE LA CRISIS</div>
+        <h2>El papel de los gobiernos y los organismos internacionales</h2>
+        <div class="article-content">
+            <p>Ninguna crisis se presenta en estado puro. Siempre hay filtros, instituciones, reglas que la contienen y la moldean. En este caso, los Estados actúan como gestores del conflicto. El gobierno iraní no es un monolito; en su interior pujan los cuerpos de seguridad, los clérigos y los tecnócratas que necesitan abrirse al mundo para sobrevivir. El gobierno de EE.UU., por su parte, es el escenario donde el complejo militar-industrial y las grandes energéticas presionan sus intereses. Y por encima, organismos como la ONU o el OIEA intentan administrar la crisis con acuerdos como el nuclear, que no resuelven la contradicción de fondo, solo la postergan y la vuelven a gestionar cuando está a punto de estallar.</p>
+        </div>
+    </section>
+
+    <section id="el-tablero" class="seccion">
+        <div class="section-meta">EL TABLERO GLOBAL</div>
+        <div class="balazo-ep">
+            El mundo ya no es bipolar, ni siquiera unipolar. La entrada de China y Rusia en la ecuación cambia las reglas del juego en el Golfo.
+        </div>
+        <h1>Ormuz: el estrecho donde se refleja el nuevo orden mundial</h1>
+        <div class="author">Por: Redacción M12e</div>
+        <div class="article-content">
+            <p>Durante décadas, la lógica en el Golfo Pérsico era simple: EE.UU. ponía los portaaviones y dictaba las reglas. Esa época se acabó. Hoy, China observa cada movimiento con la calculadora en la mano. Pekín importa más del 40% de su petróleo de la región y ha logrado lo que parecía imposible: acercar a Irán y Arabia Saudí en un acuerdo diplomático que dejó a Washington en fuera de juego. Los chinos no envían flotas, envían chequeras y promesas de inversión a largo plazo.</p>
+            <p>Rusia, mientras tanto, ha encontrado en Irán un socio perfecto para su pulso con Occidente: cooperación militar, tecnológica y energética. El resultado es un tablero mucho más complejo, donde la vieja supremacía estadounidense se erosiona día a día. La pregunta que flota en el aire ya no es si EE.UU. bombardeará las instalaciones nucleares iraníes. La pregunta es si puede permitírselo sin empujar a China a una alianza estratégica definitiva con Teherán y Moscú, y sin acelerar el entierro del petrodólar como moneda única del comercio energético.</p>
+        </div>
+    </section>
+
+    <section id="detras-mascara" class="seccion">
+        <div class="section-meta">DETRÁS DE LA MÁSCARA</div>
+        <h2>Lo que esconde el debate sobre la "seguridad"</h2>
+        <div class="article-content">
+            <p>Cuando un político habla de "seguridad nacional", conviene preguntarse: ¿seguridad de quién y para qué? La "seguridad" que defiende EE.UU. en Oriente Medio es, en buena medida, la seguridad de sus corporaciones energéticas y de la supremacía del dólar. La "resistencia" que enarbola Irán también es, en parte, la estrategia de un régimen teocrático para perpetuarse en el poder utilizando el conflicto exterior como pegamento social. Desmontar estas máscaras no implica decir que todo es igual. Implica entender que los discursos grandilocuentes casi siempre esconden intereses muy concretos, y que la ciudadanía de a pie —tanto la iraní como la estadounidense— suele pagar los platos rotos.</p>
+        </div>
+    </section>
+
+    <section id="cosa-humana" class="seccion">
+        <div class="section-meta">LA COSA HUMANA</div>
+        <h2>Cuando los cuerpos desaparecen de la ecuación</h2>
+        <div class="article-content">
+            <p>En los informes de inteligencia, en los análisis geopolíticos, en las discusiones sobre estrategia militar, hay algo que sistemáticamente se omite: la gente. Las sanciones económicas, descritas como una "herramienta diplomática", se traducen en niños iraníes que no acceden a medicamentos. Los bombardeos "quirúrgicos" de los que hablan los partes de guerra se traducen en familias enteras bajo los escombros. Y en las costas del sur de Irán, los pescadores ven cómo sus redes ya no atrapan peces, sino manchas de petróleo tras el sabotaje a un petrolero. Reducir un conflicto a un juego de ajedrez entre potencias implica borrar de un plumazo a quienes realmente sufren sus consecuencias.</p>
+        </div>
+    </section>
+
+    <section id="guerra-sentido" class="seccion">
+        <div class="section-meta">LA GUERRA DE LAS PALABRAS</div>
+        <h2>Cómo se construye lo que pensamos sobre Irán</h2>
+        <div class="article-content">
+            <p>No es casual que en Occidente "Irán" evoque automáticamente "terrorismo" o "fanatismo". Tampoco es casual que en gran parte del Sur Global, ese mismo país despierte simpatía como el "resistente" que planta cara al imperio. Cada palabra que se usa en este conflicto es una trinchera. "Libertad de navegación" no es lo mismo que "soberanía nacional". "Programa nuclear militar" no es lo mismo que "derecho a la tecnología". La batalla por el sentido común es la batalla previa a cualquier guerra: quien logra imponer su diccionario, logra también que sus acciones sean vistas como legítimas y las del otro como criminales.</p>
+        </div>
+    </section>
+
+    <section id="punto-sin-retorno" class="seccion">
+        <div class="section-meta">LA LÍNEA ROJA</div>
+        <h2>¿Qué pasaría si la crisis estalla?</h2>
+        <div class="article-content">
+            <p>Los estrategas militares llevan años dibujando escenarios. Un choque entre una lancha iraní y un destructor estadounidense. Un ataque cibernético que paraliza una planta nuclear. Una represalia de Israel que cruza la línea. Cualquier chispa puede encender la mecha. Y si la mecha prende, el Estrecho de Ormuz se cierra. El petróleo se dispara a precios que quebrarían economías enteras. Las bolsas se desploman. Hezbolá entra en juego desde Líbano. Las milicias proiraníes en Siria e Irak multiplican los frentes. Lo que hoy es una tensión controlada puede convertirse mañana en una guerra regional de consecuencias incalculables. El umbral está ahí, más cerca de lo que parece, esperando el paso en falso de alguien.</p>
+        </div>
+    </section>
+
+    <section id="horizonte" class="seccion">
+        <div class="section-meta">EL MUNDO QUE VIENE</div>
+        <h2>Hacia un orden multipolar (con más conflictos o menos)</h2>
+        <div class="article-content">
+            <p>Lo que estamos viendo en Ormuz es el síntoma de algo más grande: el fin del mundo unipolar. La hegemonía de EE.UU., basada en su poderío militar y en el dólar como moneda global, se resquebraja. China y Rusia ya no aceptan un papel secundario. Irán busca su lugar en ese nuevo reparto. El problema es que los partos de la historia suelen ser dolorosos. Un mundo con varios centros de poder no es necesariamente un mundo más pacífico. Puede ser un mundo con nuevas líneas de fractura, nuevas alianzas y nuevas guerras. O puede ser, si la correlación de fuerzas lo permite, un mundo donde ningún poder tenga la capacidad de imponer su voluntad por las armas. La dirección que tome depende, en buena medida, de lo que ocurra en este estrecho de 33 kilómetros de ancho.</p>
+        </div>
+    </section>
+
+    <section id="relatoria" class="seccion">
+        <div class="section-meta">EL PRISMA ÉTICO</div>
+        <h2>Una brújula para no perderse: la vida de la gente</h2>
+        <div class="article-content">
+            <p>Frente a tanta complejidad, hace falta una brújula. Nosotros proponemos una muy sencilla: preguntarse siempre qué significa cada decisión, cada discurso, cada misil, para la vida concreta de la gente. ¿Las sanciones ayudan al pueblo iraní a vivir mejor o lo hunden en la miseria para presionar a su gobierno? ¿Las maniobras militares de EE.UU. protegen a alguien o siembran más odio y más violencia? ¿La retórica de la resistencia de Teherán libera a su población o la ata aún más a un régimen autoritario? Esta brújula no da respuestas fáciles, pero tiene la virtud de poner el foco en lo único que realmente importa: la posibilidad de que la gente común, de ambos lados, pueda vivir en paz y con dignidad.</p>
+        </div>
+    </section>
+
+    <section id="manifiesto" class="seccion">
+        <div class="section-meta">LLAMADO A LA ACCIÓN</div>
+        <h2>Desactivar la bomba: qué podemos hacer</h2>
+        <div class="article-content">
+            <p>Analizar no es un fin en sí mismo. Si hemos llegado hasta aquí es porque creemos que entender el engranaje es el primer paso para desactivarlo. La tarea es enorme, pero no imposible. Pasa por apoyar a los movimientos pacifistas que, tanto en Irán como en EE.UU., denuncian la locura de otra guerra. Pasa por exigir a los gobiernos que abandonen la vía de las sanciones y la amenaza militar. Pasa por construir una opinión pública internacional que se niegue a aceptar el lenguaje de la guerra como única opción. Y pasa, sobre todo, por no rendirse ante la idea de que el conflicto es inevitable. En el Estrecho de Ormuz, como en cada rincón del planeta, la disputa última no es entre potencias, sino entre la lógica de la destrucción y la persistencia de la vida. Inclinar la balanza del lado de la vida es nuestra responsabilidad.</p>
+        </div>
+    </section>
+
+    <div class="comentarios">
+        <h2>🔽 Espacio para la disputa · Comentarios críticos</h2>
+        <textarea rows="4" placeholder="Escribe tu comentario..."></textarea>
+        <button>Enviar</button>
+        <p style="font-size: 14px; color: #777; margin-top: 10px;">Los comentarios serán moderados.</p>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 M12e · Análisis de coyuntura<br>
+    Contacto: <a href="mailto:m12eradio@gmail.com">m12eradio@gmail.com</a> · 
+    Canal: <a href="https://www.youtube.com/@m12eradio31" target="_blank">@m12eradio31</a><br>
+    <span style="opacity: 0.6;">Visitantes: 12,512</span>
+</footer>
+
+<script>
+    const fecha = new Date();
+    const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('fecha-actual').textContent = 
+        fecha.toLocaleDateString('es-ES', opciones).toUpperCase() + 
+        ' - ' + fecha.getHours().toString().padStart(2,'0') + 
+        ':' + fecha.getMinutes().toString().padStart(2,'0') + ' UTC';
+    
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+</script>
+
+</body>
+</html>
