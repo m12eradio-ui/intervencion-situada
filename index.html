@@ -5,18 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M12e · Análisis de Alta Densidad</title>
     <style>
-        /* === ESTILOS GENERALES (simplificados) === */
+        /* === ESTILOS === */
         body {
             margin: 0;
             font-family: "Georgia", serif;
             background-color: #f4f4f4;
             color: #111;
             line-height: 1.5;
+            scroll-padding-top: 120px; /* Espacio para el header fijo */
         }
         header {
             background: #111;
             color: white;
             padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         .top-bar {
             display: flex;
@@ -49,6 +53,7 @@
         }
         .meta-icons a:hover {
             text-decoration: underline;
+            opacity: 0.8;
         }
         .contador {
             background: #333;
@@ -68,8 +73,8 @@
             flex-wrap: wrap;
             gap: 10px 20px;
             position: sticky;
-            top: 0;
-            z-index: 100;
+            top: 70px; /* Justo debajo del header */
+            z-index: 99;
         }
         nav a {
             color: white;
@@ -81,6 +86,7 @@
         }
         nav a:hover {
             text-decoration: underline;
+            color: #ccc;
         }
         .container {
             max-width: 1000px;
@@ -89,9 +95,9 @@
             padding: 40px;
             box-shadow: 0 0 15px rgba(0,0,0,0.08);
         }
-        /* Cada sección tiene un id único */
-        section {
-            scroll-margin-top: 70px; /* Ajuste para que no quede oculto tras el nav sticky */
+        .seccion {
+            margin-bottom: 80px;
+            scroll-margin-top: 130px; /* Ajuste para que el título no quede oculto */
         }
         .section-meta {
             font-family: Arial, sans-serif;
@@ -121,6 +127,7 @@
         h1 {
             font-size: 42px;
             margin: 20px 0 10px;
+            line-height: 1.1;
         }
         h2 {
             font-size: 32px;
@@ -131,7 +138,7 @@
         .article-image {
             width: 100%;
             height: auto;
-            margin: 25px 0;
+            margin: 20px 0;
             border: 1px solid #ddd;
         }
         .author {
@@ -176,6 +183,10 @@
             padding: 12px 25px;
             font-size: 16px;
             cursor: pointer;
+            font-family: Arial, sans-serif;
+        }
+        .comentarios button:hover {
+            background: #333;
         }
         footer {
             margin-top: 60px;
@@ -190,6 +201,9 @@
             color: #ffaa00;
             text-decoration: none;
         }
+        footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -200,24 +214,24 @@
             M12e <span>Análisis de Alta Densidad</span>
         </div>
         <div class="meta-icons">
-            <span class="contador">🧾 12,458</span>
+            <span class="contador" id="contador">🧾 12,458</span>
             <a href="mailto:m12eradio@gmail.com">✉️ m12eradio@gmail.com</a>
             <a href="https://www.youtube.com/@m12eradio31" target="_blank">▶ M12e Radio</a>
         </div>
     </div>
-    <div class="date-line" id="fecha">SÁBADO, 01 MARZO 2026 - 14:30 UTC</div>
+    <div class="date-line">SÁBADO, 01 MARZO 2026 - 14:30 UTC</div>
 </header>
 
 <nav>
     <a href="#inicio">INICIO</a>
     <a href="#las-voces">LAS VOCES</a>
     <a href="#la-raiz">LA RAÍZ</a>
-    <a href="#filtros">FILTROS</a>
-    <a href="#tablero">TABLERO</a>
+    <a href="#los-filtros">LOS FILTROS</a>
+    <a href="#el-tablero">EL TABLERO</a>
     <a href="#detras-mascara">DETRÁS DE LA MÁSCARA</a>
     <a href="#reificacion">REIFICACIÓN</a>
     <a href="#guerra-sentido">GUERRA DEL SENTIDO</a>
-    <a href="#punto-retorno">PUNTO SIN RETORNO</a>
+    <a href="#punto-sin-retorno">PUNTO SIN RETORNO</a>
     <a href="#horizonte">HORIZONTE</a>
     <a href="#tiempo-real">TIEMPO REAL</a>
     <a href="#manifiesto">MANIFIESTO</a>
@@ -225,55 +239,66 @@
 
 <div class="container">
 
-    <!-- INICIO -->
-    <section id="inicio">
+    <!-- SECCIÓN INICIO (PORTADA) -->
+    <section id="inicio" class="seccion">
         <div class="section-meta">PORTADA</div>
         <h1>M12e: ANÁLISIS DE ALTA DENSIDAD</h1>
-        <p class="author">[R⊕10⊕T⊕P⊕A] ∘ M ∘ B4 ∘ B7</p>
-        <p>Bienvenidos al primer número. Análisis de coyuntura con método dialéctico.</p>
+        <p class="author" style="font-size: 18px;">[R⊕10⊕T⊕P⊕A] ∘ M ∘ B4 ∘ B7</p>
+        <div class="article-content">
+            <p>Bienvenidos al primer número de nuestra revista digital. Aquí encontrarás análisis de coyuntura con método dialéctico, desmontando la pseudoconcreción y revelando las contradicciones estructurales del capitalismo contemporáneo.</p>
+            <p>Cada sección aborda una dimensión del diagnóstico: desde las voces en disputa hasta el manifiesto de lo posible. Navega a través del menú superior.</p>
+        </div>
     </section>
 
-    <!-- LAS VOCES -->
-    <section id="las-voces">
+    <!-- SECCIÓN LAS VOCES -->
+    <section id="las-voces" class="seccion">
         <div class="section-meta">LAS VOCES DE LA DISPUTA</div>
         <h2>Triangulación de medios y rastreo de la fase precrítica</h2>
         <div class="article-content">
-            <p>Confrontamos narrativas. Ejemplo: conflicto Irán-EE.UU.</p>
+            <p>En esta sección confrontamos narrativas. Por ejemplo, sobre el conflicto Irán-EE.UU.:</p>
             <ul>
-                <li><strong>Izquierda:</strong> Agresión imperialista.</li>
-                <li><strong>Centro:</strong> Riesgo por programa nuclear.</li>
-                <li><strong>Derecha:</strong> Amenaza iraní.</li>
+                <li><strong>Izquierda crítica:</strong> La escalada es resultado de la agresión imperialista y el derecho de Irán a la soberanía.</li>
+                <li><strong>Centro-liberal:</strong> Riesgo de conflicto abierto por el programa nuclear, necesidad de contención.</li>
+                <li><strong>Derecha conservadora:</strong> Irán es una amenaza que debe ser enfrentada militarmente.</li>
             </ul>
+            <p>Próximamente ampliaremos con más casos de triangulación.</p>
         </div>
     </section>
 
-    <!-- LA RAÍZ -->
-    <section id="la-raiz">
+    <!-- SECCIÓN LA RAÍZ -->
+    <section id="la-raiz" class="seccion">
         <div class="section-meta">LA RAÍZ Y SUS GRIETAS</div>
         <h2>Contradicción estructural central (Capital-Vida) y fracturas subordinadas</h2>
         <div class="article-content">
-            <p>Artículo de fondo en preparación.</p>
+            <p><em>La financiarización de los recursos naturales</em> (artículo en preparación). Aquí se abordará cómo la lógica del capital convierte el agua, la tierra y la energía en activos financieros, entrando en contradicción con las necesidades vitales de las mayorías.</p>
         </div>
     </section>
 
-    <!-- FILTROS -->
-    <section id="filtros">
+    <!-- SECCIÓN LOS FILTROS -->
+    <section id="los-filtros" class="seccion">
         <div class="section-meta">LOS FILTROS DEL ORDEN</div>
         <h2>Complejo de mediaciones, Estado y Aparatos Ideológicos</h2>
         <div class="article-content">
-            <p>Análisis de cómo el Estado gestiona contradicciones.</p>
+            <p>Análisis de cómo el Estado, los medios y el derecho gestionan las contradicciones para mantener el orden. Próximamente: estudio de caso sobre la legislación de aguas en Chile.</p>
         </div>
     </section>
 
-    <!-- TABLERO (artículo de Irán) -->
-    <section id="tablero">
+    <!-- SECCIÓN EL TABLERO (con el artículo de Irán) -->
+    <section id="el-tablero" class="seccion">
         <div class="section-meta">EL TABLERO DE FUERZAS</div>
+        
+        <!-- Balazo -->
         <div class="balazo">
             Cuando misiles y petroleros danzan en el umbral: Irán, EE.UU. y la disputa por la última vuelta de tuerca del capital fósil.
         </div>
+
+        <!-- IMAGEN AL INICIO (más atractiva) -->
+        <img src="https://www.shutterstock.com/image-illustration/rockets-near-iranian-flag-ballistic-260nw-2458013049.jpg" alt="Cohetes iraníes junto a la bandera nacional" class="article-image">
+
         <h1>Ormuz: el estrecho donde la geopolítica revela su esqueleto energético</h1>
-        <img src="https://www.shutterstock.com/image-illustration/rockets-near-iranian-flag-ballistic-260nw-2458013049.jpg" alt="Cohetes iraníes" class="article-image">
+
         <div class="author">Por: Redacción M12e · 1 marzo 2026</div>
+
         <div class="article-content">
             <p>Imaginemos por un instante el Estrecho de Ormuz visto desde la cabina de un petrolero. A babor, la costa iraní; a estribor, Omán. El mar, aparentemente vacío, es un campo de fuerzas: fragatas de la Armada de EE.UU., lanchas rápidas de los Cuerpos de la Guardia Revolucionaria Islámica, buques mercantes con banderas de conveniencia. La imagen que abre este análisis —cohetes iraníes erguidos junto a la bandera nacional— no es una postal belicista, sino la cristalización de una contradicción que lleva décadas gestándose: el momento en que la soberanía nacional y el flujo global del capital chocan en un embudo de 33 kilómetros de ancho.</p>
             <p>La narrativa dominante insiste en presentar la tensión como un conflicto entre un Irán "expansionista" y un EE.UU. "defensor del orden internacional". Pero esta representación oculta la realidad material: el 20% del petróleo mundial atraviesa ese angosto pasillo. No hay aquí una guerra santa ni una cruzada por la democracia; hay, en el sentido más crudo, una disputa por quién controla la válvula que regula el flujo sanguíneo del capitalismo global. Cuando Washington habla de "libertad de navegación", en realidad defiende la libertad del capital para circular sin obstáculos. Cuando Teherán amenaza con cerrar el estrecho, no defiende solo su territorio, sino la capacidad de usar su principal activo geopolítico como moneda de cambio frente a décadas de asfixia económica.</p>
@@ -283,75 +308,75 @@
         </div>
     </section>
 
-    <!-- DETRÁS DE LA MÁSCARA -->
-    <section id="detras-mascara">
+    <!-- SECCIÓN DETRÁS DE LA MÁSCARA -->
+    <section id="detras-mascara" class="seccion">
         <div class="section-meta">DETRÁS DE LA MÁSCARA</div>
         <h2>Ruptura de la pseudoconcreción y desfetichización del fenómeno</h2>
         <div class="article-content">
-            <p>En construcción.</p>
+            <p>Análisis de casos donde la apariencia oculta la esencia. Por ejemplo: la "economía verde" como nuevo ropaje del extractivismo. En desarrollo.</p>
         </div>
     </section>
 
-    <!-- REIFICACIÓN -->
-    <section id="reificacion">
+    <!-- SECCIÓN REIFICACIÓN -->
+    <section id="reificacion" class="seccion">
         <div class="section-meta">REIFICACIÓN SOCIAL</div>
         <h2>Denuncia de la reducción del ser humano a cosa o mercancía</h2>
         <div class="article-content">
-            <p>Próximamente.</p>
+            <p>Estudios sobre precarización laboral, algoritmos de control y cosificación en plataformas digitales. Próximamente.</p>
         </div>
     </section>
 
-    <!-- GUERRA DEL SENTIDO -->
-    <section id="guerra-sentido">
+    <!-- SECCIÓN GUERRA DEL SENTIDO -->
+    <section id="guerra-sentido" class="seccion">
         <div class="section-meta">LA GUERRA DEL SENTIDO COMÚN</div>
         <h2>Disputa por la hegemonía y narrativas dominantes</h2>
         <div class="article-content">
-            <p>En preparación.</p>
+            <p>Análisis de discurso, propaganda y batalla cultural. Ejemplo: cómo se construye el "sentido común" sobre la migración. En preparación.</p>
         </div>
     </section>
 
-    <!-- PUNTO SIN RETORNO -->
-    <section id="punto-retorno">
+    <!-- SECCIÓN PUNTO SIN RETORNO -->
+    <section id="punto-sin-retorno" class="seccion">
         <div class="section-meta">EL PUNTO SIN RETORNO</div>
         <h2>Identificación del umbral de ruptura estructural</h2>
         <div class="article-content">
-            <p>Próximos informes.</p>
+            <p>Indicadores de colapso ecológico y social. Próximamente: informe sobre puntos de no retorno climático.</p>
         </div>
     </section>
 
-    <!-- HORIZONTE -->
-    <section id="horizonte">
+    <!-- SECCIÓN HORIZONTE -->
+    <section id="horizonte" class="seccion">
         <div class="section-meta">HORIZONTE EN JUEGO</div>
         <h2>Proyección de la direccionalidad histórica y tendencias</h2>
         <div class="article-content">
-            <p>En desarrollo.</p>
+            <p>Escenarios futuros y prospectiva. Por ejemplo: ¿hacia un mundo multipolar o una nueva hegemonía? En desarrollo.</p>
         </div>
     </section>
 
-    <!-- TIEMPO REAL -->
-    <section id="tiempo-real">
+    <!-- SECCIÓN TIEMPO REAL -->
+    <section id="tiempo-real" class="seccion">
         <div class="section-meta">TIEMPO REAL</div>
         <h2>Criterio ético-normativo de libertad material efectiva</h2>
         <div class="article-content">
-            <p>Próximamente.</p>
+            <p>Columna filosófica sobre la libertad real. Próximamente: reflexiones sobre la libertad en la era digital.</p>
         </div>
     </section>
 
-    <!-- MANIFIESTO -->
-    <section id="manifiesto">
+    <!-- SECCIÓN MANIFIESTO -->
+    <section id="manifiesto" class="seccion">
         <div class="section-meta">MANIFIESTO DE LO POSIBLE</div>
         <h2>Determinación de la praxis y artículo de síntesis dialéctica</h2>
         <div class="article-content">
-            <p>En construcción.</p>
+            <p>Llamados a la acción y propuestas programáticas. En construcción: "Hacia una internacional de los comunes".</p>
         </div>
     </section>
 
-    <!-- COMENTARIOS -->
+    <!-- ESPACIO PARA COMENTARIOS CRÍTICOS (al final de todo) -->
     <div class="comentarios">
         <h2>🔽 Espacio para la disputa · Comentarios críticos</h2>
         <textarea rows="4" placeholder="Escribe tu comentario..."></textarea>
         <button>Enviar</button>
-        <p style="font-size: 14px; color: #777; margin-top: 10px;">Los comentarios serán moderados.</p>
+        <p style="font-size: 14px; color: #777; margin-top: 10px;">Los comentarios serán moderados para mantener la calidad del debate.</p>
     </div>
 
 </div>
@@ -363,17 +388,25 @@
     <span style="opacity: 0.6; font-size: 12px;">Visitantes: 12,458 (contador dinámico próximamente)</span>
 </footer>
 
-<!-- Script para actualizar fecha y desplazamiento suave -->
 <script>
-    // Actualizar fecha
-    const fecha = new Date();
-    const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const fechaStr = fecha.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).toUpperCase() + ' - ' + fecha.getHours().toString().padStart(2,'0') + ':' + fecha.getMinutes().toString().padStart(2,'0') + ' UTC';
-    document.getElementById('fecha').textContent = fechaStr;
+    // Actualizar fecha automáticamente
+    (function() {
+        const fecha = new Date();
+        const dias = ['DOMINGO', 'LUNES', 'MARTES', 'MIÉRCOLES', 'JUEVES', 'VIERNES', 'SÁBADO'];
+        const meses = ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO', 'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE'];
+        const diaSemana = dias[fecha.getDay()];
+        const dia = fecha.getDate();
+        const mes = meses[fecha.getMonth()];
+        const año = fecha.getFullYear();
+        const horas = fecha.getHours().toString().padStart(2, '0');
+        const minutos = fecha.getMinutes().toString().padStart(2, '0');
+        const fechaStr = `${diaSemana}, ${dia} ${mes} ${año} - ${horas}:${minutos} UTC`;
+        document.querySelector('.date-line').textContent = fechaStr;
+    })();
 
-    // Desplazamiento suave para todos los enlaces internos
+    // Desplazamiento suave para los enlaces internos
     document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
