@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M12e Puebla · La sombra del dinero en el Parque Juárez</title>
+    <title>M12e Puebla · Archivo de análisis</title>
     <style>
         /* === RESET Y ESTILOS GENERALES === */
         body {
@@ -12,7 +12,6 @@
             background-color: #f4f4f4;
             color: #111;
             line-height: 1.5;
-            scroll-padding-top: 140px;
         }
         
         /* === CABECERA FIJA === */
@@ -36,13 +35,33 @@
         .site-title {
             font-size: 22px;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
         }
         .site-title span {
             font-size: 14px;
             font-weight: normal;
             opacity: 0.7;
-            margin-left: 8px;
         }
+        .nuevo-badge {
+            background: #c00;
+            color: white;
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            animation: pulse 2s infinite;
+            display: inline-block;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); background-color: #ff3333; }
+            100% { opacity: 0.8; transform: scale(1); }
+        }
+        
         .meta-icons {
             display: flex;
             align-items: center;
@@ -109,6 +128,27 @@
             color: #ffaa00;
         }
         
+        /* === BANNER DE NUEVO ARTÍCULO === */
+        .nuevo-articulo-banner {
+            background: #ffaa00;
+            color: #111;
+            text-align: center;
+            padding: 12px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            border-bottom: 2px solid #c00;
+            transition: background-color 0.3s;
+        }
+        .nuevo-articulo-banner:hover {
+            background: #ffbb22;
+        }
+        .nuevo-articulo-banner a {
+            color: #111;
+            text-decoration: none;
+        }
+        
         /* === IMAGEN DESTACADA (hero) === */
         .hero-image {
             width: 100%;
@@ -165,12 +205,6 @@
             margin: 30px 0;
         }
         
-        .article-image {
-            width: 100%;
-            height: auto;
-            margin: 25px 0;
-            border: 1px solid #ddd;
-        }
         .author {
             font-family: Arial, sans-serif;
             font-size: 15px;
@@ -184,6 +218,80 @@
         }
         .article-content p {
             margin-bottom: 1.5em;
+        }
+        
+        /* === ARCHIVO DE ANÁLISIS ANTERIORES === */
+        .archivo {
+            margin: 40px 0 30px;
+            border: 2px solid #111;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .archivo-header {
+            background: #111;
+            color: white;
+            padding: 15px 20px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        .archivo-header:hover {
+            background: #222;
+        }
+        .archivo-header .flecha {
+            font-size: 24px;
+            transition: transform 0.3s;
+        }
+        .archivo-header.active .flecha {
+            transform: rotate(90deg);
+        }
+        .archivo-lista {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            background: #f9f9f9;
+        }
+        .archivo-lista.show {
+            max-height: 500px; /* Suficiente para muchos artículos */
+            overflow-y: auto;
+        }
+        .archivo-item {
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .archivo-item:hover {
+            background-color: #eaeaea;
+        }
+        .archivo-item:last-child {
+            border-bottom: none;
+        }
+        .archivo-titulo {
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .archivo-fecha {
+            color: #777;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+        }
+        .archivo-actual {
+            background-color: #ffaa00;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
         }
         
         /* === COMENTARIOS === */
@@ -215,11 +323,15 @@
             border: none;
             padding: 12px 30px;
             font-size: 16px;
-            cursor: pointer;
+            cursor: not-allowed;
             font-family: Arial, sans-serif;
+            opacity: 0.6;
         }
-        .comentarios button:hover {
-            background: #333;
+        .nota-demo {
+            font-size: 14px;
+            color: #777;
+            margin-top: 10px;
+            font-style: italic;
         }
         
         /* === PIE DE PÁGINA === */
@@ -242,6 +354,11 @@
         #contador-footer {
             opacity: 0.6;
         }
+        
+        /* === UTILIDADES === */
+        .hidden {
+            display: none !important;
+        }
     </style>
 </head>
 <body>
@@ -249,10 +366,11 @@
 <header>
     <div class="top-bar">
         <div class="site-title">
-            M12e Puebla <span>Análisis de coyuntura</span>
+            M12e Puebla <span>Archivo de análisis</span>
+            <span id="nuevo-badge" class="nuevo-badge hidden">¡NUEVO!</span>
         </div>
         <div class="meta-icons">
-            <span class="contador" title="Visitas totales a esta página">🧾 8,437</span>
+            <span class="contador" title="Visitas totales">🧾 <span id="contador-header"></span></span>
             <a href="mailto:m12eradio@gmail.com">✉️ m12eradio@gmail.com</a>
             <a href="https://www.youtube.com/@m12eradio31" target="_blank" title="Canal de YouTube">▶ M12e Radio</a>
         </div>
@@ -275,179 +393,380 @@
     <a href="#accion">ACCIÓN</a>
 </nav>
 
-<!-- Imagen destacada: proporcionada por el usuario, con descripción alternativa -->
-<img src="https://www.diariopuntual.com/sites/default/files/inline-images/proyecto-del-cablebus-en-puebla-afectara-980-arboles--280-seran-reubicados2.jpg" alt="Vista del Parque Juárez en Puebla con árboles centenarios y fondo urbano" class="hero-image" onerror="this.src='https://via.placeholder.com/1200x500?text=Parque+Juárez,+Puebla'">
+<!-- Banner de nuevo artículo (aparece cuando hay actualización) -->
+<div id="nuevo-banner" class="nuevo-articulo-banner hidden">
+    📢 <a href="#" id="nuevo-enlace">¡Nuevo análisis disponible! Haz clic para verlo →</a>
+</div>
 
-<div class="container">
+<!-- Imagen destacada -->
+<img id="hero-img" src="https://www.diariopuntual.com/sites/default/files/inline-images/proyecto-del-cablebus-en-puebla-afectara-980-arboles--280-seran-reubicados2.jpg" 
+     alt="Vista del Parque Juárez en Puebla" 
+     class="hero-image" 
+     onerror="this.onerror=null; this.src='https://placehold.co/1200x500/2a5c4a/fff?text=Parque+Juárez,+Puebla'">
 
-    <!-- ========== APERTURA FENOMENOLÓGICA ========== -->
-    <section id="apertura" class="seccion">
-        <div class="section-meta">APERTURA · LO QUE VEMOS</div>
-        <h1>M12e: La fotografía que no quiere ser postal</h1>
-        <p class="author">Por: Redacción M12e Puebla</p>
-        <div class="article-content">
-            <p>La imagen que encabeza este análisis no es la de un conflicto lejano. Es la del Parque Juárez, el corazón verde de Puebla, ese lugar que durante generaciones ha sido el salón de la ciudad, el aula al aire libre de los estudiantes, el pulmón de los ancianos que observan el ir y venir de las ardillas. Pero la fotografía, como todas las postales, miente por omisión. En ella vemos los árboles centenarios, los laureles de la India que parecen sostener el cielo. Lo que no vemos es el trazado de un proyecto que amenaza con rebanar sus raíces: un Cablebús que, según se anuncia, traerá "modernidad" y "movilidad". Esta no es una crónica ambientalista ni una defensa romántica de la naturaleza. Es un ejercicio para desenterrar lo que se agita bajo el césped: los intereses económicos, los capitales en disputa y la batalla por definir qué significa "progreso" en una ciudad que se asoma al abismo de su propia mercantilización.</p>
-        </div>
-    </section>
-
-    <!-- ========== RASTREO: TRIANGULACIÓN DE VOCES (PASO 5: RUPTURA DE LA PSEUDOCONCRECIÓN) ========== -->
-    <section id="voces" class="seccion">
-        <div class="section-meta">EL RUIDO DE FONDO · TRIANGULACIÓN</div>
-        <h2>Cómo se cuenta la disputa desde cada trinchera informativa</h2>
-        <div class="article-content">
-            <p>Antes de que las máquinas entren, opera la batalla por el relato. Hemos rastreado las versiones. La prensa conservadora local (<em>El Sol de Puebla</em>, <em>Milenio</em>) encuadra la noticia bajo el paraguas del "progreso inevitable". Habla de "modernización del transporte", de "conectividad" entre la zona metropolitana y la periferia, y reduce los árboles a un "inconveniente" que la tecnología (los trasplantes) puede resolver. En el centro del espectro, medios como <em>Ángulo 7</em> o <em>E-Consulta</em> intentan un equilibrio engañoso: por un lado, recogen las quejas vecinales; por otro, ponderan la "inversión" y los "empleos" que la obra generaría, como si fueran dos platós de una misma balanza. Del otro lado, las publicaciones digitales y las redes de colectivos como <em>Puebla Vigila</em> o <em>Frente en Defensa del Parque Juárez</em> denuncian la "tala encubierta" y apuntan directamente a los nombres de las empresas constructoras y los funcionarios que, según ellos, han blindado el proyecto. La triangulación nos devuelve una primera verdad: la disputa no es entre "progresistas" y "conservacionistas", sino entre quienes tienen asientos en el consejo de administración de la ciudad y quienes ni siquiera saben que existe ese consejo.</p>
-        </div>
-    </section>
-
-    <!-- ========== CONTRADICCIÓN ESTRUCTURAL CENTRAL (PASO 1) ========== -->
-    <section id="raiz" class="seccion">
-        <div class="section-meta">LA MADERA DEL CONFLICTO</div>
-        <h2>Capital contra Vida: la ecuación que nadie firma</h2>
-        <div class="article-content">
-            <p>Si despojamos al conflicto de sus ropajes técnicos, aparece la contradicción central. Lo que se enfrenta en el Parque Juárez es, por un lado, la necesidad del capital de circular, de valorizarse, de encontrar nuevos nichos de acumulación en el centro de la ciudad. Por el otro, la necesidad de la vida social y ecológica de reproducirse en un espacio que durante un siglo ha sido de todos. El proyecto del Cablebús (o la ampliación de la línea 3, o la construcción de un estacionamiento subterráneo, según la versión) no es más que la avanzadilla de una operación mayor: la reconversión del poniente de la ciudad en un nuevo polo de negocios. El parque, con su sombra y su silencio, es un obstáculo para el flujo de mercancías. La ecuación es brutal y simple: lo que gana el capital en plusvalía inmobiliaria, lo pierde la ciudad en calidad de vida.</p>
-        </div>
-    </section>
-
-    <!-- ========== CONTRADICCIONES SUBORDINADAS Y MEDIACIONES (PASOS 2 Y 3) ========== -->
-    <section id="filtros" class="seccion">
-        <div class="section-meta">LOS ADMINISTRADORES DE LA CRISIS</div>
-        <h2>El Estado como filtro: gobierno, tribunales y "consultas"</h2>
-        <div class="article-content">
-            <p>Ninguna contradicción opera en estado puro. El Estado, como recordaba Poulantzas, es la condensación material de las fuerzas en pugna. En este caso, el Ayuntamiento de Puebla y el gobierno estatal actúan como los administradores del conflicto. Por un lado, deben garantizar las condiciones para la inversión (agilizar permisos, presentar el proyecto como "inevitable"). Por otro, necesitan contener la resistencia social para que no desborde los cauces institucionales. De ahí las mesas de diálogo que no deciden nada, los estudios de impacto ambiental que se extravían en los escritorios de la Secretaría de Medio Ambiente, y las "consultas ciudadanas" cuyo resultado ya está escrito antes de abrir las urnas. Los tribunales, cuando intervienen, no resuelven la contradicción; la postergan, la reencauzan, la devuelven al juego de las fuerzas. El sistema de mediaciones (consejos consultivos, organismos autónomos, colegios de arquitectos) funciona como una gigantesca caja de cambios que intenta reducir la velocidad del conflicto para que no estalle el motor.</p>
-        </div>
-    </section>
-
-    <!-- ========== CORRELACIÓN DE FUERZAS Y CAPITALES (PASOS 4, 6 Y 7) ========== -->
-    <section id="tablero" class="seccion">
-        <div class="section-meta">EL TABLERO ECONÓMICO</div>
-        <div class="balazo-ep">
-            No son sólo constructoras poblanas. Detrás del proyecto asoman capitales nacionales y fondos de inversión que ven en Puebla la nueva frontera del "nearshoring".
-        </div>
-        <h2>¿Quién pone el dinero? La cartografía del capital</h2>
-        <div class="author">Por: Redacción M12e</div>
-        <div class="article-content">
-            <p>La primera capa del capital es la más visible: las constructoras locales que han hecho de la obra pública su negocio habitual. Empresas como <em>EP Construcciones</em> o <em>GIA</em> (Grupo Inmobiliario Angelopolitano) han participado en licitaciones previas del sistema de transporte. Pero bajo esa capa opera otra, la del capital nacional con sede en la Ciudad de México y Monterrey. Grupos como <em>ICA</em> (en sus diversas reencarnaciones) o <em>Carso Infraestructura</em> han mostrado interés en los proyectos de movilidad del corredor metropolitano Puebla-Tlaxcala, viendo en el Cablebús no un fin en sí mismo, sino la puerta de entrada para desarrollos inmobiliarios en las zonas aledañas. La tercera capa, la más opaca, es la del capital extranjero: fondos de inversión españoles (<em>FCC</em> tiene concesiones en la zona) y canadienses, especializados en infraestructura urbana en Latinoamérica. Estos fondos no invierten en cables ni en estaciones; invierten en el derecho a explotar comercialmente los espacios (locales, publicidad, plusvalía futura) que la obra genere. La pregunta que nadie responde en las ruedas de prensa es: ¿a quién se le ha concedido ya la explotación de los alrededores del parque una vez que el proyecto esté en marcha?</p>
-        </div>
-    </section>
-
-    <!-- ========== RUPTURA DE LA PSEUDOCONCRECIÓN (PASO 5, PROFUNDIZACIÓN) ========== -->
-    <section id="mascara" class="seccion">
-        <div class="section-meta">DETRÁS DE LA MÁSCARA</div>
-        <h2>Lo que esconde el debate sobre la "movilidad"</h2>
-        <div class="article-content">
-            <p>Cuando un funcionario habla de "mejorar la movilidad", conviene preguntarse: movilidad de quién y hacia dónde. El discurso oficial presenta el Cablebús como una solución para los habitantes de las periferias, que acortaría su tiempo de traslado al centro. La ironía dialéctica consiste en que para que ese habitante llegue unos minutos antes, es necesario mutilar el parque que los habitantes del centro utilizan a diario. El verdadero beneficiario de la operación no es el usuario del transporte público, sino el capital inmobiliario que, una vez "mejorada" la zona (es decir, una vez despejado el parque de su espesura vegetal y social), podrá construir torres de departamentos de lujo con "vistas al pulmón de la ciudad". La "movilidad" es la máscara; la renta del suelo es el rostro.</p>
-        </div>
-    </section>
-
-    <!-- ========== LA COSA HUMANA (PASO 8: UMBRAL DE RUPTURA) ========== -->
-    <section id="humana" class="seccion">
-        <div class="section-meta">LA COSA HUMANA</div>
-        <h2>Los cuerpos que desaparecen de los informes de impacto</h2>
-        <div class="article-content">
-            <p>En los estudios de impacto ambiental, en los análisis de movilidad, en las proyecciones económicas, hay algo que sistemáticamente se omite: los cuerpos que habitan el parque. Los ancianos que todas las tardes se sientan en las bancas a ver pasar la vida. Los niños que juegan a esconderse tras los troncos centenarios. Los vendedores ambulantes cuya subsistencia depende de los flujos de gente. Las parejas que encontraron en ese espacio el único lugar gratuito para una cita. Las sanciones económicas, los análisis de costo-beneficio, los discursos sobre el "progreso", se traducen en vidas que deberán reconfigurar su cotidianidad. Reducir el conflicto a una pugna técnica entre "eficiencia del transporte" y "conservación de árboles" implica borrar de un plumazo a quienes, sin saberlo, son la materia viva de la ciudad.</p>
-        </div>
-    </section>
-
-    <!-- ========== HEGEMONÍA EN DISPUTA (PASO 7) ========== -->
-    <section id="sentido" class="seccion">
-        <div class="section-meta">LA GUERRA DE LAS PALABRAS</div>
-        <h2>Cómo se construye lo que pensamos sobre el parque</h2>
-        <div class="article-content">
-            <p>No es casual que en los medios afines al proyecto, "Parque Juárez" empiece a aparecer acompañado de adjetivos como "deteriorado" o "inseguro". Tampoco es casual que en los colectivos vecinales, el mismo espacio sea descrito como "patrimonio" o "santuario ecológico". Cada palabra es una trinchera. "Modernización" no es lo mismo que "depredación". "Reubicación de árboles" no es lo mismo que "tala masiva". "Participación ciudadana" no es lo mismo que "consulta manipulada". La batalla por el sentido común es la batalla previa a cualquier obra: quien logra imponer su diccionario, logra también que sus acciones sean vistas como legítimas y las del otro como un obstáculo al progreso.</p>
-        </div>
-    </section>
-
-    <!-- ========== UMBRAL DE RUPTURA (PASO 8) Y DIRECCIONALIDAD HISTÓRICA (PASO 9) ========== -->
-    <section id="umbral" class="seccion">
-        <div class="section-meta">LA LÍNEA ROJA</div>
-        <h2>¿Qué pasa si la máquina entra al parque?</h2>
-        <div class="article-content">
-            <p>Los estrategas de las constructoras y los funcionarios llevan meses dibujando escenarios. Una protesta que puede ser contenida con vallas. Un amparo que puede ser impugnado. Una organización vecinal que puede ser desgastada con el tiempo. Pero la realidad tiene sus propias leyes. Si las máquinas entran y los primeros árboles caen, el conflicto cambiará de naturaleza. Lo que hoy es una tensión administrada puede convertirse en una movilización impredecible. El umbral está ahí, trazado por las raíces de los laureles. Pasarlo no es sólo un acto administrativo; es un acto político que puede desatar fuerzas que luego nadie controla. La pregunta que flota en el ambiente no es si el proyecto es técnicamente viable. La pregunta es si la correlación de fuerzas permitirá que se imponga sin que la ciudad estalle.</p>
-        </div>
-    </section>
-
-    <!-- ========== DIRECCIONALIDAD HISTÓRICA (PASO 9, AMPLIACIÓN) ========== -->
-    <section id="horizonte" class="seccion">
-        <div class="section-meta">EL MUNDO QUE VIENE</div>
-        <h2>Puebla ante el espejo: ¿ciudad de derechos o ciudad de negocios?</h2>
-        <div class="article-content">
-            <p>Lo que está en juego en el Parque Juárez es el modelo de ciudad que se está construyendo. No es un caso aislado. Es el mismo modelo que impulsa la privatización de espacios públicos en el Centro Histórico, la construcción de mega desarrollos en la periferia (como en Valsequillo o Angelópolis) y la expulsión de los sectores populares hacia los márgenes. La disputa por el parque es la disputa por el carácter de Puebla: si será una ciudad donde el espacio público sea un derecho, o una ciudad donde cada rincón tenga un precio y un propietario. La direccionalidad histórica apunta hacia la segunda opción, pero no está escrita. Depende de la capacidad de los de abajo para oponer resistencia y de los de arriba para calcular si les sale más caro reprimir que negociar.</p>
-        </div>
-    </section>
-
-    <!-- ========== CRITERIO ÉTICO-NORMATIVO (PASO 10) ========== -->
-    <section id="brujula" class="seccion">
-        <div class="section-meta">EL PRISMA ÉTICO</div>
-        <h2>Una brújula para no perderse: la vida de la gente</h2>
-        <div class="article-content">
-            <p>Frente a tanta complejidad, hace falta una brújula. Proponemos la misma que en cada análisis: preguntarse siempre qué significa cada decisión para la vida concreta de la gente. ¿El Cablebús ayudará a los habitantes de la periferia a vivir mejor o simplemente los acercará más rápido a un centro que ya no podrán pagar? ¿Las banquetas nuevas y las estaciones modernas justifican la pérdida de un espacio de encuentro que ha sido de todos durante cien años? ¿La promesa de empleo temporal durante la construcción compensa el daño ecológico que durará décadas? Esta brújula no da respuestas fáciles, pero tiene la virtud de poner el foco en lo único que realmente importa: la posibilidad de que la gente común, de todos los lados, pueda vivir en paz y con dignidad.</p>
-        </div>
-    </section>
-
-    <!-- ========== CIERRE DE PRAXIS (PASO 10, LLAMADO) ========== -->
-    <section id="accion" class="seccion">
-        <div class="section-meta">LLAMADO A LA ACCIÓN</div>
-        <h2>Desactivar la topadora: qué podemos hacer</h2>
-        <div class="article-content">
-            <p>Analizar no es un fin en sí mismo. Si hemos llegado hasta aquí es porque creemos que entender el engranaje es el primer paso para desactivarlo. La tarea es enorme, pero no imposible. Pasa por apoyar a los colectivos que, desde el parque y las redes, denuncian la falta de transparencia y la manipulación de la consulta. Pasa por exigir a los gobiernos municipales y estatales que abran los contratos y los estudios de impacto a una auditoría ciudadana real. Pasa por construir una opinión pública que se niegue a aceptar el falso dilema entre "progreso" y "ecología". Pasa por no rendirse ante la idea de que la ciudad ya está vendida. En el Parque Juárez, como en cada rincón del planeta, la disputa última no es entre proyectos de movilidad, sino entre la lógica de la ganancia y la persistencia de la vida. Inclinar la balanza del lado de la vida es nuestra responsabilidad.</p>
-        </div>
-    </section>
-
-    <!-- ========== ESPACIO DE COMENTARIOS ========== -->
-    <div class="comentarios">
-        <h2>🔽 Espacio para la disputa · Comentarios críticos</h2>
-        <textarea rows="4" placeholder="Escribe tu comentario..."></textarea>
-        <button>Enviar</button>
-        <p style="font-size: 14px; color: #777; margin-top: 10px;">Los comentarios serán moderados.</p>
-    </div>
-
+<div class="container" id="contenido-principal">
+    <!-- El contenido se cargará dinámicamente con JavaScript -->
 </div>
 
 <footer>
     © 2026 M12e Puebla · Análisis de coyuntura<br>
     Contacto: <a href="mailto:m12eradio@gmail.com">m12eradio@gmail.com</a> · 
     Canal: <a href="https://www.youtube.com/@m12eradio31" target="_blank">@m12eradio31</a><br>
-    <span id="contador-footer">Visitantes: 8,437</span>
+    <span id="contador-footer">Visitantes: <span id="contador-footer-valor"></span></span>
 </footer>
 
 <script>
-    // Fecha y hora actual
-    const fecha = new Date();
-    const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById('fecha-actual').textContent = 
-        fecha.toLocaleDateString('es-ES', opciones).toUpperCase() + 
-        ' - ' + fecha.getHours().toString().padStart(2,'0') + 
-        ':' + fecha.getMinutes().toString().padStart(2,'0') + ' UTC';
+    // ============================================
+    // BASE DE DATOS DE ARTÍCULOS
+    // ============================================
+    const ARTICULOS = [
+        {
+            id: 1,
+            titulo: "M12e: La fotografía que no quiere ser postal",
+            subtitulo: "La sombra del dinero en el Parque Juárez",
+            fecha: "5 de marzo de 2026",
+            autor: "Redacción M12e Puebla",
+            heroImage: "https://www.diariopuntual.com/sites/default/files/inline-images/proyecto-del-cablebus-en-puebla-afectara-980-arboles--280-seran-reubicados2.jpg",
+            secciones: [
+                {
+                    id: "apertura",
+                    meta: "APERTURA · LO QUE VEMOS",
+                    titulo: "M12e: La fotografía que no quiere ser postal",
+                    contenido: "<p>La imagen que encabeza este análisis no es la de un conflicto lejano. Es la del Parque Juárez, el corazón verde de Puebla, ese lugar que durante generaciones ha sido el salón de la ciudad, el aula al aire libre de los estudiantes, el pulmón de los ancianos que observan el ir y venir de las ardillas. Pero la fotografía, como todas las postales, miente por omisión. En ella vemos los árboles centenarios, los laureles de la India que parecen sostener el cielo. Lo que no vemos es el trazado de un proyecto que amenaza con rebanar sus raíces: un Cablebús que, según se anuncia, traerá 'modernidad' y 'movilidad'. Esta no es una crónica ambientalista ni una defensa romántica de la naturaleza. Es un ejercicio para desenterrar lo que se agita bajo el césped: los intereses económicos, los capitales en disputa y la batalla por definir qué significa 'progreso' en una ciudad que se asoma al abismo de su propia mercantilización.</p>"
+                },
+                {
+                    id: "voces",
+                    meta: "EL RUIDO DE FONDO · TRIANGULACIÓN",
+                    titulo: "Cómo se cuenta la disputa desde cada trinchera informativa",
+                    contenido: "<p>Antes de que las máquinas entren, opera la batalla por el relato. Hemos rastreado las versiones. La prensa conservadora local (<em>El Sol de Puebla</em>, <em>Milenio</em>) encuadra la noticia bajo el paraguas del 'progreso inevitable'. Habla de 'modernización del transporte', de 'conectividad' entre la zona metropolitana y la periferia, y reduce los árboles a un 'inconveniente' que la tecnología (los trasplantes) puede resolver. En el centro del espectro, medios como <em>Ángulo 7</em> o <em>E-Consulta</em> intentan un equilibrio engañoso: por un lado, recogen las quejas vecinales; por otro, ponderan la 'inversión' y los 'empleos' que la obra generaría, como si fueran dos platós de una misma balanza. Del otro lado, las publicaciones digitales y las redes de colectivos como <em>Puebla Vigila</em> o <em>Frente en Defensa del Parque Juárez</em> denuncian la 'tala encubierta' y apuntan directamente a los nombres de las empresas constructoras y los funcionarios que, según ellos, han blindado el proyecto. La triangulación nos devuelve una primera verdad: la disputa no es entre 'progresistas' y 'conservacionistas', sino entre quienes tienen asientos en el consejo de administración de la ciudad y quienes ni siquiera saben que existe ese consejo.</p>"
+                },
+                {
+                    id: "raiz",
+                    meta: "LA MADERA DEL CONFLICTO",
+                    titulo: "Capital contra Vida: la ecuación que nadie firma",
+                    contenido: "<p>Si despojamos al conflicto de sus ropajes técnicos, aparece la contradicción central. Lo que se enfrenta en el Parque Juárez es, por un lado, la necesidad del capital de circular, de valorizarse, de encontrar nuevos nichos de acumulación en el centro de la ciudad. Por el otro, la necesidad de la vida social y ecológica de reproducirse en un espacio que durante un siglo ha sido de todos. El proyecto del Cablebús (o la ampliación de la línea 3, o la construcción de un estacionamiento subterráneo, según la versión) no es más que la avanzadilla de una operación mayor: la reconversión del poniente de la ciudad en un nuevo polo de negocios. El parque, con su sombra y su silencio, es un obstáculo para el flujo de mercancías. La ecuación es brutal y simple: lo que gana el capital en plusvalía inmobiliaria, lo pierde la ciudad en calidad de vida.</p>"
+                },
+                {
+                    id: "filtros",
+                    meta: "LOS ADMINISTRADORES DE LA CRISIS",
+                    titulo: "El Estado como filtro: gobierno, tribunales y 'consultas'",
+                    contenido: "<p>Ninguna contradicción opera en estado puro. El Estado, como recordaba Poulantzas, es la condensación material de las fuerzas en pugna. En este caso, el Ayuntamiento de Puebla y el gobierno estatal actúan como los administradores del conflicto. Por un lado, deben garantizar las condiciones para la inversión (agilizar permisos, presentar el proyecto como 'inevitable'). Por otro, necesitan contener la resistencia social para que no desborde los cauces institucionales. De ahí las mesas de diálogo que no deciden nada, los estudios de impacto ambiental que se extravían en los escritorios de la Secretaría de Medio Ambiente, y las 'consultas ciudadanas' cuyo resultado ya está escrito antes de abrir las urnas. Los tribunales, cuando intervienen, no resuelven la contradicción; la postergan, la reencauzan, la devuelven al juego de las fuerzas. El sistema de mediaciones (consejos consultivos, organismos autónomos, colegios de arquitectos) funciona como una gigantesca caja de cambios que intenta reducir la velocidad del conflicto para que no estalle el motor.</p>"
+                },
+                {
+                    id: "tablero",
+                    meta: "EL TABLERO ECONÓMICO",
+                    titulo: "¿Quién pone el dinero? La cartografía del capital",
+                    balazo: "No son sólo constructoras poblanas. Detrás del proyecto asoman capitales nacionales y fondos de inversión que ven en Puebla la nueva frontera del 'nearshoring'.",
+                    contenido: "<p>La primera capa del capital es la más visible: las constructoras locales que han hecho de la obra pública su negocio habitual. Empresas como <em>EP Construcciones</em> o <em>GIA</em> (Grupo Inmobiliario Angelopolitano) han participado en licitaciones previas del sistema de transporte. Pero bajo esa capa opera otra, la del capital nacional con sede en la Ciudad de México y Monterrey. Grupos como <em>ICA</em> (en sus diversas reencarnaciones) o <em>Carso Infraestructura</em> han mostrado interés en los proyectos de movilidad del corredor metropolitano Puebla-Tlaxcala, viendo en el Cablebús no un fin en sí mismo, sino la puerta de entrada para desarrollos inmobiliarios en las zonas aledañas. La tercera capa, la más opaca, es la del capital extranjero: fondos de inversión españoles (<em>FCC</em> tiene concesiones en la zona) y canadienses, especializados en infraestructura urbana en Latinoamérica. Estos fondos no invierten en cables ni en estaciones; invierten en el derecho a explotar comercialmente los espacios (locales, publicidad, plusvalía futura) que la obra genere. La pregunta que nadie responde en las ruedas de prensa es: ¿a quién se le ha concedido ya la explotación de los alrededores del parque una vez que el proyecto esté en marcha?</p>"
+                },
+                {
+                    id: "mascara",
+                    meta: "DETRÁS DE LA MÁSCARA",
+                    titulo: "Lo que esconde el debate sobre la 'movilidad'",
+                    contenido: "<p>Cuando un funcionario habla de 'mejorar la movilidad', conviene preguntarse: movilidad de quién y hacia dónde. El discurso oficial presenta el Cablebús como una solución para los habitantes de las periferias, que acortaría su tiempo de traslado al centro. La ironía dialéctica consiste en que para que ese habitante llegue unos minutos antes, es necesario mutilar el parque que los habitantes del centro utilizan a diario. El verdadero beneficiario de la operación no es el usuario del transporte público, sino el capital inmobiliario que, una vez 'mejorada' la zona (es decir, una vez despejado el parque de su espesura vegetal y social), podrá construir torres de departamentos de lujo con 'vistas al pulmón de la ciudad'. La 'movilidad' es la máscara; la renta del suelo es el rostro.</p>"
+                },
+                {
+                    id: "humana",
+                    meta: "LA COSA HUMANA",
+                    titulo: "Los cuerpos que desaparecen de los informes de impacto",
+                    contenido: "<p>En los estudios de impacto ambiental, en los análisis de movilidad, en las proyecciones económicas, hay algo que sistemáticamente se omite: los cuerpos que habitan el parque. Los ancianos que todas las tardes se sientan en las bancas a ver pasar la vida. Los niños que juegan a esconderse tras los troncos centenarios. Los vendedores ambulantes cuya subsistencia depende de los flujos de gente. Las parejas que encontraron en ese espacio el único lugar gratuito para una cita. Las sanciones económicas, los análisis de costo-beneficio, los discursos sobre el 'progreso', se traducen en vidas que deberán reconfigurar su cotidianidad. Reducir el conflicto a una pugna técnica entre 'eficiencia del transporte' y 'conservación de árboles' implica borrar de un plumazo a quienes, sin saberlo, son la materia viva de la ciudad.</p>"
+                },
+                {
+                    id: "sentido",
+                    meta: "LA GUERRA DE LAS PALABRAS",
+                    titulo: "Cómo se construye lo que pensamos sobre el parque",
+                    contenido: "<p>No es casual que en los medios afines al proyecto, 'Parque Juárez' empiece a aparecer acompañado de adjetivos como 'deteriorado' o 'inseguro'. Tampoco es casual que en los colectivos vecinales, el mismo espacio sea descrito como 'patrimonio' o 'santuario ecológico'. Cada palabra es una trinchera. 'Modernización' no es lo mismo que 'depredación'. 'Reubicación de árboles' no es lo mismo que 'tala masiva'. 'Participación ciudadana' no es lo mismo que 'consulta manipulada'. La batalla por el sentido común es la batalla previa a cualquier obra: quien logra imponer su diccionario, logra también que sus acciones sean vistas como legítimas y las del otro como un obstáculo al progreso.</p>"
+                },
+                {
+                    id: "umbral",
+                    meta: "LA LÍNEA ROJA",
+                    titulo: "¿Qué pasa si la máquina entra al parque?",
+                    contenido: "<p>Los estrategas de las constructoras y los funcionarios llevan meses dibujando escenarios. Una protesta que puede ser contenida con vallas. Un amparo que puede ser impugnado. Una organización vecinal que puede ser desgastada con el tiempo. Pero la realidad tiene sus propias leyes. Si las máquinas entran y los primeros árboles caen, el conflicto cambiará de naturaleza. Lo que hoy es una tensión administrada puede convertirse en una movilización impredecible. El umbral está ahí, trazado por las raíces de los laureles. Pasarlo no es sólo un acto administrativo; es un acto político que puede desatar fuerzas que luego nadie controla. La pregunta que flota en el ambiente no es si el proyecto es técnicamente viable. La pregunta es si la correlación de fuerzas permitirá que se imponga sin que la ciudad estalle.</p>"
+                },
+                {
+                    id: "horizonte",
+                    meta: "EL MUNDO QUE VIENE",
+                    titulo: "Puebla ante el espejo: ¿ciudad de derechos o ciudad de negocios?",
+                    contenido: "<p>Lo que está en juego en el Parque Juárez es el modelo de ciudad que se está construyendo. No es un caso aislado. Es el mismo modelo que impulsa la privatización de espacios públicos en el Centro Histórico, la construcción de mega desarrollos en la periferia (como en Valsequillo o Angelópolis) y la expulsión de los sectores populares hacia los márgenes. La disputa por el parque es la disputa por el carácter de Puebla: si será una ciudad donde el espacio público sea un derecho, o una ciudad donde cada rincón tenga un precio y un propietario. La direccionalidad histórica apunta hacia la segunda opción, pero no está escrita. Depende de la capacidad de los de abajo para oponer resistencia y de los de arriba para calcular si les sale más caro reprimir que negociar.</p>"
+                },
+                {
+                    id: "brujula",
+                    meta: "EL PRISMA ÉTICO",
+                    titulo: "Una brújula para no perderse: la vida de la gente",
+                    contenido: "<p>Frente a tanta complejidad, hace falta una brújula. Proponemos la misma que en cada análisis: preguntarse siempre qué significa cada decisión para la vida concreta de la gente. ¿El Cablebús ayudará a los habitantes de la periferia a vivir mejor o simplemente los acercará más rápido a un centro que ya no podrán pagar? ¿Las banquetas nuevas y las estaciones modernas justifican la pérdida de un espacio de encuentro que ha sido de todos durante cien años? ¿La promesa de empleo temporal durante la construcción compensa el daño ecológico que durará décadas? Esta brújula no da respuestas fáciles, pero tiene la virtud de poner el foco en lo único que realmente importa: la posibilidad de que la gente común, de todos los lados, pueda vivir en paz y con dignidad.</p>"
+                },
+                {
+                    id: "accion",
+                    meta: "LLAMADO A LA ACCIÓN",
+                    titulo: "Desactivar la topadora: qué podemos hacer",
+                    contenido: "<p>Analizar no es un fin en sí mismo. Si hemos llegado hasta aquí es porque creemos que entender el engranaje es el primer paso para desactivarlo. La tarea es enorme, pero no imposible. Pasa por apoyar a los colectivos que, desde el parque y las redes, denuncian la falta de transparencia y la manipulación de la consulta. Pasa por exigir a los gobiernos municipales y estatales que abran los contratos y los estudios de impacto a una auditoría ciudadana real. Pasa por construir una opinión pública que se niegue a aceptar el falso dilema entre 'progreso' y 'ecología'. Pasa por no rendirse ante la idea de que la ciudad ya está vendida. En el Parque Juárez, como en cada rincón del planeta, la disputa última no es entre proyectos de movilidad, sino entre la lógica de la ganancia y la persistencia de la vida. Inclinar la balanza del lado de la vida es nuestra responsabilidad.</p>"
+                }
+            ]
+        },
+        // ============================================
+        // PARA AÑADIR UN NUEVO ARTÍCULO:
+        // Copia este bloque y cambia los valores
+        // ============================================
+        {
+            id: 2,
+            titulo: "Ejemplo: Nuevo análisis sobre la Línea 5 del Metro",
+            subtitulo: "El negocio detrás de la movilidad",
+            fecha: "12 de marzo de 2026",
+            autor: "Redacción M12e Puebla",
+            heroImage: "https://placehold.co/1200x500/2a5c4a/fff?text=Nuevo+Análisis",
+            secciones: [
+                {
+                    id: "apertura",
+                    meta: "APERTURA · NUEVO ANÁLISIS",
+                    titulo: "Ejemplo: La Línea 5 y la especulación inmobiliaria",
+                    contenido: "<p>Este es un artículo de ejemplo. Cuando publiques un nuevo análisis, reemplaza todo el contenido del ID 2 con tu nuevo artículo. Recuerda cambiar también el ID del artículo actual en la línea 'const ARTICULO_ACTUAL_ID = 1;' más abajo.</p>"
+                }
+            ]
+        }
+    ];
     
-    // Navegación suave
-    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) target.scrollIntoView({ behavior: 'smooth' });
+    // ============================================
+    // CONFIGURACIÓN
+    // ============================================
+    // CAMBIA ESTE NÚMERO para publicar un nuevo artículo
+    // Ejemplo: para publicar el artículo 2, cambia a: const ARTICULO_ACTUAL_ID = 2;
+    const ARTICULO_ACTUAL_ID = 1;
+    
+    // ============================================
+    // VARIABLES GLOBALES
+    // ============================================
+    let articuloActual = null;
+    let articulosAnteriores = [];
+    
+    // ============================================
+    // FUNCIÓN PARA RENDERIZAR UN ARTÍCULO
+    // ============================================
+    function renderizarArticulo(articulo) {
+        let html = '';
+        
+        // Añadir archivo de análisis anteriores (excepto si solo hay un artículo)
+        if (articulosAnteriores.length > 0) {
+            html += `
+                <div class="archivo" id="archivo">
+                    <div class="archivo-header" id="archivo-header">
+                        <span>📚 Análisis anteriores (${articulosAnteriores.length})</span>
+                        <span class="flecha">▶</span>
+                    </div>
+                    <div class="archivo-lista" id="archivo-lista">
+            `;
+            
+            articulosAnteriores.forEach(a => {
+                html += `
+                    <div class="archivo-item" data-id="${a.id}">
+                        <span class="archivo-titulo">${a.titulo}</span>
+                        <span class="archivo-fecha">${a.fecha}</span>
+                    </div>
+                `;
+            });
+            
+            html += `
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Apertura
+        html += `
+            <section id="apertura" class="seccion">
+                <div class="section-meta">${articulo.secciones[0].meta}</div>
+                <h1>${articulo.secciones[0].titulo}</h1>
+                <p class="author">Por: ${articulo.autor}</p>
+                <div class="article-content">
+                    ${articulo.secciones[0].contenido}
+                </div>
+            </section>
+        `;
+        
+        // Resto de secciones (excepto la primera que ya se mostró)
+        for (let i = 1; i < articulo.secciones.length; i++) {
+            const s = articulo.secciones[i];
+            html += `
+                <section id="${s.id}" class="seccion">
+                    <div class="section-meta">${s.meta}</div>
+                    <h2>${s.titulo}</h2>
+            `;
+            
+            // Si tiene balazo, lo añadimos
+            if (s.balazo) {
+                html += `<div class="balazo-ep">${s.balazo}</div>`;
+            }
+            
+            html += `
+                    <div class="article-content">
+                        ${s.contenido}
+                    </div>
+                </section>
+            `;
+        }
+        
+        // Comentarios
+        html += `
+            <div class="comentarios">
+                <h2>🔽 Espacio para la disputa · Comentarios críticos</h2>
+                <textarea rows="4" placeholder="Escribe tu comentario..."></textarea>
+                <button disabled title="Funcionalidad de demostración (no se enviarán comentarios)">Enviar (demo)</button>
+                <p class="nota-demo">Los comentarios son solo una simulación. Esta función está deshabilitada.</p>
+            </div>
+        `;
+        
+        return html;
+    }
+    
+    // ============================================
+    // FUNCIÓN PARA CARGAR UN ARTÍCULO POR ID
+    // ============================================
+    function cargarArticulo(id) {
+        // Buscar el artículo
+        const articulo = ARTICULOS.find(a => a.id === id);
+        if (!articulo) return false;
+        
+        // Actualizar variable global
+        articuloActual = articulo;
+        
+        // Calcular artículos anteriores (todos los que no son el actual)
+        articulosAnteriores = ARTICULOS.filter(a => a.id !== id).sort((a, b) => b.id - a.id);
+        
+        // Cambiar la URL (para enlaces permanentes)
+        window.location.hash = `articulo-${id}`;
+        
+        // Actualizar imagen hero
+        const heroImg = document.getElementById('hero-img');
+        heroImg.src = articulo.heroImage;
+        
+        // Renderizar contenido
+        const contenedor = document.getElementById('contenido-principal');
+        contenedor.innerHTML = renderizarArticulo(articulo);
+        
+        // Configurar eventos del archivo
+        configurarEventosArchivo();
+        
+        // Verificar si es un artículo nuevo para mostrar notificación
+        verificarNuevoArticulo(id);
+        
+        // Actualizar título de la página
+        document.title = `M12e · ${articulo.titulo}`;
+        
+        return true;
+    }
+    
+    // ============================================
+    // FUNCIÓN PARA CONFIGURAR EL ARCHIVO
+    // ============================================
+    function configurarEventosArchivo() {
+        const archivoHeader = document.getElementById('archivo-header');
+        if (!archivoHeader) return;
+        
+        const archivoLista = document.getElementById('archivo-lista');
+        
+        archivoHeader.addEventListener('click', () => {
+            archivoHeader.classList.toggle('active');
+            archivoLista.classList.toggle('show');
         });
-    });
-
-    // Contador de visitas real (almacenado en localStorage)
-    (function actualizarContador() {
-        let visitas = localStorage.getItem('contadorVisitasPueblaM12e');
-        if (visitas === null) {
-            visitas = 1;
+        
+        // Eventos para cada item del archivo
+        document.querySelectorAll('.archivo-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const id = parseInt(item.dataset.id);
+                cargarArticulo(id);
+            });
+        });
+    }
+    
+    // ============================================
+    // FUNCIÓN PARA VERIFICAR NUEVO ARTÍCULO
+    // ============================================
+    function verificarNuevoArticulo(idActual) {
+        const ultimoVisto = localStorage.getItem('m12e_ultimo_articulo_visto');
+        const badge = document.getElementById('nuevo-badge');
+        const banner = document.getElementById('nuevo-banner');
+        const nuevoEnlace = document.getElementById('nuevo-enlace');
+        
+        if (ultimoVisto && parseInt(ultimoVisto) !== idActual) {
+            // Hay un artículo nuevo no visto
+            badge.classList.remove('hidden');
+            
+            // Buscar el artículo nuevo
+            const nuevoArticulo = ARTICULOS.find(a => a.id === parseInt(ultimoVisto));
+            if (nuevoArticulo) {
+                banner.classList.remove('hidden');
+                nuevoEnlace.textContent = `📢 ¡Nuevo: ${nuevoArticulo.titulo}! Haz clic →`;
+                nuevoEnlace.href = `#articulo-${nuevoArticulo.id}`;
+                nuevoEnlace.onclick = (e) => {
+                    e.preventDefault();
+                    cargarArticulo(nuevoArticulo.id);
+                };
+            }
         } else {
-            visitas = parseInt(visitas) + 1;
+            badge.classList.add('hidden');
+            banner.classList.add('hidden');
         }
-        localStorage.setItem('contadorVisitasPueblaM12e', visitas);
-        const visitasFormateado = visitas.toLocaleString('es-ES');
-        // Actualizar header
-        const contadorHeader = document.querySelector('.contador');
-        if (contadorHeader) {
-            contadorHeader.innerHTML = `🧾 ${visitasFormateado}`;
+        
+        // Guardar el actual como visto
+        localStorage.setItem('m12e_ultimo_articulo_visto', idActual);
+    }
+    
+    // ============================================
+    // INICIALIZACIÓN
+    // ============================================
+    (function inicializar() {
+        // Fecha y hora actual
+        const fecha = new Date();
+        const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('fecha-actual').textContent = 
+            fecha.toLocaleDateString('es-ES', opciones).toUpperCase() + 
+            ' - ' + fecha.getHours().toString().padStart(2,'0') + 
+            ':' + fecha.getMinutes().toString().padStart(2,'0') + ' UTC';
+        
+        // Navegación suave respetando preferencias de movimiento reducido
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+                    target.scrollIntoView({ behavior });
+                }
+            });
+        });
+        
+        // Contador de visitas
+        (function actualizarContador() {
+            let visitas = localStorage.getItem('contadorVisitasPueblaM12e');
+            const VISITA_INICIAL = 8437;
+            
+            if (visitas === null) {
+                visitas = VISITA_INICIAL;
+            } else {
+                visitas = parseInt(visitas) + 1;
+            }
+            
+            localStorage.setItem('contadorVisitasPueblaM12e', visitas);
+            const visitasFormateado = visitas.toLocaleString('es-ES');
+            
+            document.getElementById('contador-header').textContent = visitasFormateado;
+            document.getElementById('contador-footer-valor').textContent = visitasFormateado;
+        })();
+        
+        // Determinar qué artículo cargar (por URL o por defecto)
+        let idACargar = ARTICULO_ACTUAL_ID;
+        
+        if (window.location.hash) {
+            const match = window.location.hash.match(/articulo-(\d+)/);
+            if (match) {
+                const id = parseInt(match[1]);
+                if (ARTICULOS.some(a => a.id === id)) {
+                    idACargar = id;
+                }
+            }
         }
-        // Actualizar footer
-        const contadorFooter = document.getElementById('contador-footer');
-        if (contadorFooter) {
-            contadorFooter.innerHTML = `Visitantes: ${visitasFormateado}`;
-        }
+        
+        // Cargar artículo
+        cargarArticulo(idACargar);
     })();
 </script>
 
